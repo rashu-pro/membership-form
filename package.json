@@ -1,0 +1,31 @@
+{
+  "name": "membership-form",
+  "version": "1.0.0",
+  "description": "Membership Form Design",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass assets/sass/style.scss assets/css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rashu-pro/membership-form.git"
+  },
+  "keywords": [
+    "Membership",
+    "Registration",
+    "Step",
+    "Form"
+  ],
+  "author": "Rashu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rashu-pro/membership-form/issues"
+  },
+  "homepage": "https://github.com/rashu-pro/membership-form#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.2",
+    "intl-tel-input": "^17.0.19",
+    "jquery": "^3.6.1",
+    "jquery-ui-datepicker-with-i18n": "^1.10.4"
+  }
+}
