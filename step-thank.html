@@ -61,7 +61,7 @@
           <div class="col-md-4 step-form-sidebar">
             <div class="step-list-sidebar">
 
-              <div class="step-list active">
+              <div class="step-list completed">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
@@ -72,7 +72,7 @@
                 </div>
               </div>
 
-              <div class="step-list">
+              <div class="step-list completed">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
@@ -83,7 +83,7 @@
                 </div>
               </div>
 
-              <div class="step-list">
+              <div class="step-list completed">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
@@ -94,7 +94,7 @@
                 </div>
               </div>
 
-              <div class="step-list">
+              <div class="step-list completed">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
@@ -105,8 +105,10 @@
                 </div>
               </div>
 
-              <div class="step-list last">
-                <span class="step-mark"></span>
+              <div class="step-list last completed">
+                <span class="step-mark">
+                  <img src="assets/images/tick.png" alt="complete">
+                </span>
                 <p class="step-title">Payment Information</p>
 
                 <div class="edit mt-2">
@@ -121,13 +123,13 @@
             <div class="step-details">
 
               <!-- step 1  -->
-              <div class="step-box active">
+              <div class="step-box">
                 <div class="step-box-wrapper">
                   <div class="step-box-head">
                     <h3 class="font-600 pb-4">Join as a member</h3>
                   </div>
 
-                  <div class="step-box-body d-none">
+                  <div class="step-box-body">
                     <div class="form-group w-75 mb-3">
                       <label for="email" class="">Email</label>
                       <input type="email" class="form-control" id="email" name="Email">
@@ -138,17 +140,9 @@
                       <input type="text" class="form-control" id="phone-number" name="PhoneNumber">
                     </div>
                   </div>
-
-                  <!-- INLINE LOADER -->
-                  <div class="loader-inline">
-                    <div class="loader-inner">
-                      <div>
-                        <div class="loader-spinner"></div>
-                        <p class="">Loading...</p>
-                      </div>
-                    </div>
-                  </div>
                 </div>
+
+
               </div>
 
               <!-- step 2  -->
@@ -346,7 +340,7 @@
                     <h3 class="font-600 pb-4">Payment Information</h3>
                   </div>
 
-                  <div class="step-box-body">
+                  <div class="step-box-body d-none">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
@@ -387,7 +381,7 @@
                       </div>
 
                       <div class="col-md-12">
-                        <div class="form-group">
+                        <div class="form-group mb-5">
                           <label for="cardholder-name">Cardholder Name</label>
                           <input type="text" class="form-control" id="cardholder-name" name="CardholderName">
                         </div>
@@ -396,13 +390,56 @@
                     </div>
 
                   </div>
+
+                  <!-- INLINE LOADER -->
+                  <div class="loader-inline">
+                    <div class="loader-inner">
+                      <div>
+                        <div class="loader-spinner"></div>
+                        <p class="">Loading...</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div class="step-box-foot mt-4">
+              <!-- step 4  -->
+              <div class="step-box active">
+                <div class="step-box-wrapper">
+                  <div class="step-box-head d-none">
+                    <h3 class="font-600 pb-4">Thank You</h3>
+                  </div>
+
+                  <div class="step-box-body d-none">
+                    <div class="text-center">
+                      <img src="assets/images/check-mark.png" alt="Application Completed" class="img-fluid w-25">
+                      <h2 class="text-success text-uppercase text-thank">Thank You</h2>
+                    </div>
+
+                    <div class="alert alert-success mt-5">
+                      <h4 class="alert-heading">Well done!</h4>
+                      <p>Your application for Membership has been completed succesfuly.</p>
+                      <hr>
+                      <p class="mb-0">Please Check your email to take further action.</p>
+                    </div>
+                  </div>
+
+                  <!-- INLINE LOADER -->
+                  <div class="loader-inline">
+                    <div class="loader-inner">
+                      <div>
+                        <div class="loader-spinner"></div>
+                        <p class="">Loading...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-box-foot d-none mt-4">
                 <div class="button-group">
-<!--                  <button type="button" class="btn btn-dark btn-lg btn-long me-3"><img src="assets/images/back.png" alt="prev"><span>Prev</span> </button>-->
-                  <a href="step-2.html" class="btn btn-primary btn-lg btn-long"><span>Next</span> <img src="assets/images/next.png" alt="next"> </a>
+                  <a href="step-4.html" class="btn btn-dark btn-lg btn-long me-3"><img src="assets/images/back.png" alt="prev"><span>Prev</span> </a>
+                  <button type="button" class="btn btn-primary btn-lg btn-long"><span>Submit</span> <img src="assets/images/save.png" alt="next"> </button>
                 </div>
               </div>
 

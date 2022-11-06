@@ -1,0 +1,14 @@
+.form{
+  &-group{
+    margin-bottom: 20px;
+  }
+
+  &-check{
+    &-lg{
+      .form-check-input{
+        width:1.4em;
+        height:1.4em;
+      }
+    }
+  }
+}

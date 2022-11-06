@@ -1,11 +1,13 @@
-html,body{
-  font-size: 16px;
-}
-P{
-  line-height: 1.6;
-  color:#202020;
-}
-*{
-  margin:0;
-  padding: 0;
-}
+@import "fonts";
+@import "variable";
+@import "loader";
+@import "normalizer";
+@import "utility";
+@import "button";
+@import "form";
+@import "head";
+@import "breadcrumb";
+@import "step-form";
+@import "thank";
+@import "main";
+@import "foot";
