@@ -184,6 +184,9 @@ $mark-left: -11px;
     &-foot{
       padding: 30px 0 0;
       border-top: 1px solid #ddd;
+      .btn-prev{
+        display: none;
+      }
     }
 
     &-wrapper{

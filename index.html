@@ -53,7 +53,7 @@
     </div>
 
     <div class="container">
-      <div class="step-form-wrapper w-md-75 my-5 m-auto">
+      <div class="step-form-wrapper w-75 my-5 m-auto">
 
         <div class="row">
 
@@ -61,7 +61,7 @@
           <div class="col-md-4 step-form-sidebar">
             <div class="step-list-sidebar">
 
-              <div class="step-list active">
+              <div class="step-list active" data-step="1">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
@@ -72,7 +72,7 @@
                 </div>
               </div>
 
-              <div class="step-list">
+              <div class="step-list" data-step="2">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
@@ -83,7 +83,7 @@
                 </div>
               </div>
 
-              <div class="step-list">
+              <div class="step-list" data-step="3">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
@@ -94,7 +94,7 @@
                 </div>
               </div>
 
-              <div class="step-list">
+              <div class="step-list" data-step="4">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
@@ -105,8 +105,10 @@
                 </div>
               </div>
 
-              <div class="step-list last">
-                <span class="step-mark"></span>
+              <div class="step-list last" data-step="5">
+                <span class="step-mark">
+                  <img src="assets/images/tick.png" alt="complete">
+                </span>
                 <p class="step-title">Payment Information</p>
 
                 <div class="edit mt-2">
@@ -121,7 +123,7 @@
             <div class="step-details">
 
               <!-- step 1  -->
-              <div class="step-box active">
+              <div class="step-box active" data-step="1">
                 <div class="step-box-wrapper">
                   <div class="step-box-head">
                     <h3 class="font-600 pb-4">Join as a member</h3>
@@ -152,7 +154,7 @@
               </div>
 
               <!-- step 2  -->
-              <div class="step-box">
+              <div class="step-box" data-step="2">
                 <div class="step-box-wrapper">
                   <div class="step-box-head">
                     <h3 class="font-600 pb-4">Contact Address</h3>
@@ -248,7 +250,7 @@
               </div>
 
               <!-- step 3  -->
-              <div class="step-box">
+              <div class="step-box" data-step="3">
                 <div class="step-box-wrapper">
                   <div class="step-box-head">
                     <h3 class="font-600 pb-4">Address</h3>
@@ -290,7 +292,7 @@
               </div>
 
               <!-- step 3  -->
-              <div class="step-box">
+              <div class="step-box" data-step="4">
                 <div class="step-box-wrapper">
                   <div class="step-box-head">
                     <h3 class="font-600 pb-4">Membership</h3>
@@ -340,7 +342,7 @@
               </div>
 
               <!-- step 4  -->
-              <div class="step-box">
+              <div class="step-box" data-step="5">
                 <div class="step-box-wrapper">
                   <div class="step-box-head">
                     <h3 class="font-600 pb-4">Payment Information</h3>
@@ -401,8 +403,8 @@
 
               <div class="step-box-foot mt-4">
                 <div class="button-group">
-<!--                  <button type="button" class="btn btn-dark btn-lg btn-long me-3"><img src="assets/images/back.png" alt="prev"><span>Prev</span> </button>-->
-                  <a href="step-2.html" class="btn btn-primary btn-lg btn-long"><span>Next</span> <img src="assets/images/next.png" alt="next"> </a>
+                  <button type="button" class="btn btn-dark btn-lg btn-long btn-prev me-3 btn-navigation-js" data-step="2" data-action="decrease"><img src="assets/images/back.png" alt="prev"><span>Prev</span> </button>
+                  <button type="button" class="btn btn-primary btn-lg btn-long btn-navigation-js" data-step="1" data-action="increase"><span>Next</span> <img src="assets/images/next.png" alt="next"> </button>
                 </div>
               </div>
 

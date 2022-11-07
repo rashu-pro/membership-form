@@ -23,6 +23,48 @@
 fixHeight();
 
 
+/**
+ * -------------------------------------
+ * 4. EVENT LISTENER: CLICK
+ * -------------------------------------
+ */
+
+$(document).on('click', '.btn-navigation-js', function (e){
+  e.preventDefault();
+  let self = $(this),
+    stepCurrent = parseInt(self.attr('data-step')),
+    stepNext = stepCurrent + 1,
+    stepPrev = stepCurrent - 1,
+    stepBoxCount = $('.step-details .step-box').length;
+
+  let consoleString = `step current: ${stepCurrent} | stepbox count: ${stepBoxCount}`;
+  console.log(consoleString);
+  if(stepCurrent === stepBoxCount){
+    window.location.href="thank-you.html";
+    return;
+  }
+
+  if(stepNext>1){
+    $('.step-details .btn-prev').css('display','inline-block')
+  }
+
+  self.closest('.step-details').find('.step-box').removeClass('active');
+  $('.step-list-sidebar .step-list').removeClass('active');
+  $('.step-list-sidebar .step-list[data-step='+stepCurrent+']').addClass('completed');
+  if(self.attr('data-action')==='increase'){
+    self.closest('.step-details').find('.step-box[data-step='+stepNext+']').addClass('active');
+    $('.step-list-sidebar .step-list[data-step='+stepNext+']').addClass('active');
+  }
+
+  if(self.attr('data-action')==='decrease'){
+    self.closest('.step-details').find('.step-box[data-step='+stepPrev+']').addClass('active');
+    $('.step-list-sidebar .step-list[data-step='+stepPrev+']').removeClass('completed');
+    $('.step-list-sidebar .step-list[data-step='+stepPrev+']').addClass('active');
+  }
+  self.attr('data-step', stepNext);
+});
+
+
 
 
 
