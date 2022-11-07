@@ -47,7 +47,7 @@
   <div class="main-wrapper">
 
     <div class="container">
-      <div class="step-form-wrapper w-75 my-5 m-auto">
+      <div class="step-form-wrapper w-75 py-5 m-auto">
 
         <div class="step-details">
           <!-- step 4  -->
@@ -57,7 +57,7 @@
                 <h3 class="font-600 pb-4">Thank You</h3>
               </div>
 
-              <div class="step-box-body d-none">
+              <div class="step-box-body">
                 <div class="text-center">
                   <img src="assets/images/check-mark.png" alt="Application Completed" class="img-fluid" style="max-width: 120px">
                   <h2 class="text-success text-uppercase text-thank">Thank You</h2>
@@ -70,19 +70,8 @@
                   <p class="mb-0">Please Check your email to take further action.</p>
                 </div>
               </div>
-
-              <!-- INLINE LOADER -->
-              <div class="loader-inline">
-                <div class="loader-inner">
-                  <div>
-                    <div class="loader-spinner"></div>
-                    <p class="">Loading...</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -109,9 +98,25 @@
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <!-- datepicker -->
 <script src="node_modules/jquery-ui-datepicker-with-i18n/ui/jquery.ui.datepicker.js"></script>
+<!-- card validation -->
+<script src="assets/js/card_validation.js"></script>
 
 <!-- script.js -->
 <script src="assets/js/script.js"></script>
+
+<script>
+  function sendOtp(){
+    return true;
+  }
+
+  function otpVerification(){
+    return true;
+  }
+
+  function submitTheForm(){
+    window.location.href="thank-you.html";
+  }
+</script>
 </body>
 
 </html>

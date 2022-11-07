@@ -7,8 +7,60 @@ $mark-left: -11px;
     &-wrapper{
       border:1px solid #f8f8f8;
       //border-radius: 10px;
-      background-color: #fff;
+      //background-color: #fff;
       position: relative;
+
+      &.v2{
+        .step{
+          &-list{
+            text-align: right;
+            padding-left:0;
+            padding-right:30px;
+
+            &:after{
+              left:unset;
+              right:0;
+            }
+
+            &.active{
+
+              .step{
+                &-mark{
+                  right:-14px;
+                  left:unset;
+                }
+              }
+            }
+
+            &.completed{
+              .step{
+                &-mark{
+                  left:unset;
+                  right:-9px;
+                }
+              }
+
+              &.active{
+                .step{
+                  &-mark{
+                    right:-14px;
+                  }
+                }
+              }
+            }
+
+            &-sidebar{
+              margin-right:-22px;
+            }
+          }
+
+          &-mark{
+            left:unset;
+            right:-11px;
+          }
+        }
+      }
+
     }
 
     &-sidebar{
@@ -27,11 +79,12 @@ $mark-left: -11px;
     position: relative;
     min-height: 100px;
     padding-left: 30px;
+
     &:after{
       content:'';
       width: 1px;
       //height: 100%;
-      border: 1px dashed #ddd;
+      border-right:2px dashed #a09595;
       position: absolute;
       top: 9px;
       left: 0;
@@ -40,17 +93,16 @@ $mark-left: -11px;
 
     .edit{
       display: none;
-
     }
 
     .btn-sm{
-      padding-left: 15px;
-      padding-right: 15px;
+      //padding-left: 15px;
+      //padding-right: 15px;
+      line-height: 1;
       img{
-        max-height: 13px;
+        max-height: 15px;
         position: relative;
         top: -1px;
-        margin-right: 5px;
       }
     }
 
@@ -84,6 +136,7 @@ $mark-left: -11px;
       &:after{
         border-color:#0d6efd;
       }
+
       .step{
         &-mark{
           background-color: #0d6efd;
@@ -103,6 +156,20 @@ $mark-left: -11px;
         &-title{
           opacity: 1;
           color:#0d6efd;
+        }
+      }
+
+      &.active{
+        .step{
+          &-mark{
+            width:30px;
+            height:30px;
+            background: #f8f7fa;
+
+            img{
+              display: none;
+            }
+          }
         }
       }
     }
@@ -157,7 +224,7 @@ $mark-left: -11px;
     flex-direction: column;
     background-color: #fff;
     @media (min-width: 768px){
-      padding: 50px 50px;
+      padding: 30px 50px;
     }
   }
 
@@ -170,12 +237,12 @@ $mark-left: -11px;
     &-head{
       h3{
         border-bottom: 1px solid #ddd;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         text-transform: uppercase;
-        /* font-weight: 700; */
+        font-weight: 800;
         font-size: 24px;
         @media (min-width: 576px){
-          font-size: 30px;
+          font-size: 24px;
           letter-spacing: 1px;
         }
       }
@@ -184,6 +251,10 @@ $mark-left: -11px;
     &-foot{
       padding: 30px 0 0;
       border-top: 1px solid #ddd;
+      display: none;
+      &.active{
+        display: block;
+      }
       .btn-prev{
         display: none;
       }

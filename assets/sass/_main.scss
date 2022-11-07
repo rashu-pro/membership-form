@@ -8,3 +8,110 @@
 .breadcrumb{
   display: none;
 }
+
+.section{
+  &-title{
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.4;
+    @media (min-width: 576px) {
+      letter-spacing: 1px;
+    }
+
+    span{
+      position: relative;
+      &:after{
+        content:'';
+        position: absolute;
+        left:50%;
+        transform:translateX(-50%);
+        width: 60%;
+        height: 4px;
+        background-color: $color-red-dark;
+        border-radius: 8px;
+        bottom: -18px;
+      }
+    }
+  }
+}
+
+.icon{
+  &-list{
+    &-group{
+
+    }
+    display: flex;
+    align-items: flex-start;
+    img{
+      max-height:18px;
+      margin-right:8px;
+      position: relative;
+      top:3px;
+    }
+  }
+}
+
+.card{
+  &-accordion{
+    margin-bottom: 30px;
+    //height: calc(100% - 30px);
+    border-bottom-width: 0;
+
+    .card{
+      &-header{
+        cursor: pointer;
+      }
+    }
+
+    .card-body{
+      display: none;
+    }
+
+    &-icon{
+      .plus{
+        display: block;
+      }
+      .minus{
+        display: none;
+      }
+    }
+
+    &.active{
+      border-bottom-width: 1px;
+      .card-body{
+        display: block;
+      }
+      .card{
+        &-accordion{
+          &-icon{
+            .plus{
+              display: none;
+            }
+            .minus{
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.otp{
+  &-wrapper{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
+}
+
+.email{
+  &-wrapper{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
+}

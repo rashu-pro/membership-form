@@ -7,9 +7,50 @@
     }
   }
 
+  &-xl{
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+
+  &-icon{
+    position: relative;
+    transition:0.2s all linear;
+    &-right-arrow{
+      &:before{
+        content:'';
+        display: inline-block;
+        width: 25px;
+        height: 2px;
+        background: #fff;
+        border-radius: 8px 0 0 8px;
+        position: absolute;
+        top: 51%;
+        right: 5px;
+        opacity: 0;
+      }
+    }
+  }
+
+  &:hover{
+    .btn-icon{
+      margin-left:5px;
+      &-right-arrow{
+        &:before{
+          opacity: 1;
+        }
+      }
+    }
+
+  }
+
   @media (min-width:576px){
     &-long{
       min-width: 120px;
+    }
+
+    &-xl{
+      padding-top:15px;
+      padding-bottom:15px;
     }
   }
 }

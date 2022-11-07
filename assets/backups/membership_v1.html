@@ -1,0 +1,444 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Membership Form</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="apple-touch-icon" href="../images/favicon_icgc.png">
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="icon" href="../images/favicon_icgc.png">
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <!-- intl-tel-input -->
+  <link rel="stylesheet" href="../../node_modules/intl-tel-input/build/css/intlTelInput.min.css">
+
+  <!-- main style -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="main">
+  <!--header -->
+  <header class="header">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-center align-items-center py-2">
+        <a href="../../index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
+          <img src="../images/logo_icgc.png" class="logo-image img-fluid" alt="ICGC">
+        </a>
+
+        <div>
+          <img src="../images/powered_by_ms_3_resized.png" alt="Masjid Solutions">
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <div class="main-wrapper">
+    <!-- breadcrumb -->
+    <div class="breadcrumb py-5">
+      <div class="container">
+        <h3 class="text-center text-white text-uppercase">Become a Member</h3>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="step-form-wrapper w-75 my-5 m-auto">
+
+        <div class="row">
+
+          <!-- sidebar -->
+          <div class="col-md-4 step-form-sidebar">
+            <div class="step-list-sidebar">
+
+              <div class="step-list active" data-step="1">
+                <span class="step-mark">
+                  <img src="../images/tick.png" alt="complete">
+                </span>
+                <p class="step-title">Enter your email</p>
+
+                <div class="edit mt-2">
+                  <button type="button" class="btn btn-secondary btn-sm"><img src="../images/edit.png" alt="edit"> Edit</button>
+                </div>
+              </div>
+
+              <div class="step-list" data-step="2">
+                <span class="step-mark">
+                  <img src="../images/tick.png" alt="complete">
+                </span>
+                <p class="step-title">Contact Information</p>
+
+                <div class="edit mt-2">
+                  <button type="button" class="btn btn-secondary btn-sm"><img src="../images/edit.png" alt="edit"> Edit</button>
+                </div>
+              </div>
+
+              <div class="step-list" data-step="3">
+                <span class="step-mark">
+                  <img src="../images/tick.png" alt="complete">
+                </span>
+                <p class="step-title">Address</p>
+
+                <div class="edit mt-2">
+                  <button type="button" class="btn btn-secondary btn-sm"><img src="../images/edit.png" alt="edit"> Edit</button>
+                </div>
+              </div>
+
+              <div class="step-list" data-step="4">
+                <span class="step-mark">
+                  <img src="../images/tick.png" alt="complete">
+                </span>
+                <p class="step-title">Membership</p>
+
+                <div class="edit mt-2">
+                  <button type="button" class="btn btn-secondary btn-sm"><img src="../images/edit.png" alt="edit"> Edit</button>
+                </div>
+              </div>
+
+              <div class="step-list last" data-step="5">
+                <span class="step-mark">
+                  <img src="../images/tick.png" alt="complete">
+                </span>
+                <p class="step-title">Payment Information</p>
+
+                <div class="edit mt-2">
+                  <button type="button" class="btn btn-secondary btn-sm"><img src="../images/edit.png" alt="edit"> Edit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- content -->
+          <div class="col-md-8">
+            <div class="step-details">
+
+              <!-- step 1  -->
+              <div class="step-box active" data-step="1">
+                <div class="step-box-wrapper">
+                  <div class="step-box-head">
+                    <h3 class="font-600 pb-4">Join as a member</h3>
+                  </div>
+
+                  <div class="step-box-body d-none">
+                    <div class="form-group w-75 mb-3">
+                      <label for="email" class="">Email</label>
+                      <input type="email" class="form-control" id="email" name="Email">
+                    </div>
+
+                    <div class="form-group w-75">
+                      <label for="phone-number" class="">Phone Number</label>
+                      <input type="text" class="form-control" id="phone-number" name="PhoneNumber">
+                    </div>
+                  </div>
+
+                  <!-- INLINE LOADER -->
+                  <div class="loader-inline">
+                    <div class="loader-inner">
+                      <div>
+                        <div class="loader-spinner"></div>
+                        <p class="">Loading...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- step 2  -->
+              <div class="step-box" data-step="2">
+                <div class="step-box-wrapper">
+                  <div class="step-box-head">
+                    <h3 class="font-600 pb-4">Contact Address</h3>
+                  </div>
+
+                  <div class="step-box-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="first-name">First Name</label>
+                          <input type="text" class="form-control" id="first-name" name="FirstName">
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="last-name">First Name</label>
+                          <input type="text" class="form-control" id="last-name" name="LastName">
+                        </div>
+                      </div>
+
+                      <!-- hiding checkbox -->
+                      <div class="col-md-12 d-none">
+                        <div class="form-group">
+                          <label class="pb-2">Marital Status</label>
+                          <div class="d-block d-md-flex">
+                            <div class="form-check me-3">
+                              <input class="form-check-input" type="radio" name="MaritalStatus" id="single">
+                              <label class="form-check-label" for="single">
+                                Single
+                              </label>
+                            </div>
+
+                            <div class="form-check me-3">
+                              <input class="form-check-input" type="radio" name="MaritalStatus" id="married">
+                              <label class="form-check-label" for="married">
+                                Married
+                              </label>
+                            </div>
+
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="MaritalStatus" id="widowed">
+                              <label class="form-check-label" for="widowed">
+                                Married
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="marital-status">Marital Status</label>
+                          <select class="form-select" id="marital-status" name="MaritalStatus">
+                            <option selected>Select an Option</option>
+                            <option value="1">Single</option>
+                            <option value="2">Married</option>
+                            <option value="3">Widowed</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="children-number">Number of Children</label>
+                          <input type="text" class="form-control" id="children-number">
+                        </div>
+                      </div>
+
+                      <div class="col-12">
+                        <p class="font-600 text-medium mb-2 mt-2">Spouse Name</p>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="first-name">First Name</label>
+                          <input type="text" class="form-control" id="spouse-first-name" name="FirstName">
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="last-name">Last Name</label>
+                          <input type="text" class="form-control" id="spouse-last-name" name="SpouseLastName">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+
+              </div>
+
+              <!-- step 3  -->
+              <div class="step-box" data-step="3">
+                <div class="step-box-wrapper">
+                  <div class="step-box-head">
+                    <h3 class="font-600 pb-4">Address</h3>
+                  </div>
+
+                  <div class="step-box-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="street-address">Street Address</label>
+                          <input type="text" class="form-control" id="street-address" name="StreetAddress">
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="city">City</label>
+                          <input type="text" class="form-control" id="city" name="City">
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="state">State</label>
+                          <input type="text" class="form-control" id="state" name="State">
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="zip-code">ZIP Code</label>
+                          <input type="text" class="form-control" id="zip-code" name="ZipCode">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- step 3  -->
+              <div class="step-box" data-step="4">
+                <div class="step-box-wrapper">
+                  <div class="step-box-head">
+                    <h3 class="font-600 pb-4">Membership</h3>
+                  </div>
+
+                  <div class="step-box-body">
+                    <!-- hiding checkbox -->
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <!-- <label class="pb-2">Marital Status</label> -->
+                        <div class="mb-4">
+                          <div class="form-check form-check-lg">
+                            <input class="form-check-input" type="radio" name="MembershipRole" id="platinum">
+                            <label class="form-check-label ps-2 text-medium font-600 text-danger" for="platinum">
+                              Platinum
+                            </label>
+                            <p class="ps-2">$600.00 Full Payment or Automatic Deduction ($50/month)</p>
+                          </div>
+                        </div>
+
+                        <div class="mb-4">
+                          <div class="form-check form-check-lg">
+                            <input class="form-check-input" type="radio" name="MembershipRole" id="gold">
+                            <label class="form-check-label ps-2 text-medium font-600 text-warning" for="gold">
+                              Gold
+                            </label>
+                            <p class="ps-2">$360.00 Full Payment or Automatic Deduction ($30/month)</p>
+                          </div>
+                        </div>
+
+                        <div class="">
+                          <div class="form-check form-check-lg">
+                            <input class="form-check-input" type="radio" name="MembershipRole" id="silver">
+                            <label class="form-check-label ps-2 text-medium font-600 text-info" for="silver">
+                              Silver
+                            </label>
+                            <p class="ps-2">$240.00 Full Payment or  Automatic Deduction ($20/month)</p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <!-- step 4  -->
+              <div class="step-box" data-step="5">
+                <div class="step-box-wrapper">
+                  <div class="step-box-head">
+                    <h3 class="font-600 pb-4">Payment Information</h3>
+                  </div>
+
+                  <div class="step-box-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="card-number">Card Number</label>
+                          <input type="text" class="form-control" id="card-number" name="CardNumber">
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                          <label for="exp-month">Exp. Month</label>
+                          <select class="form-select" id="exp-month" name="ExpMonth">
+                            <option selected>Expiry Month</option>
+                            <option value="1">01</option>
+                            <option value="2">02</option>
+                            <option value="3">03</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                          <label for="exp-year">Exp. Year</label>
+                          <select class="form-select" id="exp-year" name="ExpYear">
+                            <option selected>Expiry Year</option>
+                            <option value="1">01</option>
+                            <option value="2">02</option>
+                            <option value="3">03</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                          <label for="cvc">CVC</label>
+                          <input type="text" class="form-control" id="cvc" name="Cvc">
+                        </div>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="cardholder-name">Cardholder Name</label>
+                          <input type="text" class="form-control" id="cardholder-name" name="CardholderName">
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-box-foot mt-4">
+                <div class="button-group">
+                  <button type="button" class="btn btn-dark btn-lg btn-long btn-prev me-3 btn-navigation-js" data-step="2" data-action="decrease"><img src="../images/back.png" alt="prev"><span>Prev</span> </button>
+                  <button type="button" class="btn btn-primary btn-lg btn-long btn-navigation-js" data-step="1" data-action="increase"><span>Next</span> <img src="../images/next.png" alt="next"> </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- footer -->
+  <footer class="footer py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-6">
+          <p class="text-center text-md-start m-0">© ICGC. All Rights Reserved, 2022 </p>
+        </div>
+        <div class="col-md-12 col-lg-6">
+          <p class="m-0 text-center text-md-end text-lg-end pb-md-2 pb-lg-0"><a href="htttps://masjidsolutions.net" target="_blank"> masjidsolutions.net</a>
+            (317) 854 0207 </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- jquery -->
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<!-- datepicker -->
+<script src="../../node_modules/jquery-ui-datepicker-with-i18n/ui/jquery.ui.datepicker.js"></script>
+
+<!-- script.js -->
+<script src="../js/script.js"></script>
+</body>
+
+</html>

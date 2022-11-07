@@ -1,6 +1,15 @@
 .form{
   &-group{
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+
+    .error{
+      &-message{
+        margin-bottom: 0;
+        line-height: 1.4;
+        font-size: 15px;
+        margin-top: 2px;
+      }
+    }
   }
 
   &-check{
@@ -8,6 +17,32 @@
       .form-check-input{
         width:1.4em;
         height:1.4em;
+      }
+    }
+  }
+}
+
+.cc{
+  &-number{
+    &-holder{
+      position: relative;
+    }
+  }
+  &-card{
+    &-identity{
+      position: absolute;
+      top: 50%;
+      right: 6px;
+      transform: translateY(-50%);
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img{
+        max-height:70%;
+      }
+      @media (min-width:768px){
+
       }
     }
   }

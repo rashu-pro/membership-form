@@ -1,0 +1,17 @@
+.card{
+  &-header{
+    padding-top:15px;
+    padding-bottom:15px;
+  }
+}
+
+.alert{
+  .alert-heading{
+    img{
+      max-height: 24px;
+    }
+  }
+  hr{
+    margin:5px 0;
+  }
+}

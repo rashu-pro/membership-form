@@ -13,6 +13,11 @@
  * 1. VARIABLES
  * -------------------------------------
  */
+let J = Payment.J,
+  creditCardField = $('.cc-number'),
+  creditCardHolder = $('.cc-number-holder'),
+  creditCardImageHolder = $('.cc-card-identity'),
+  errorMessage = "The field is required";
 
 
 /**
@@ -22,6 +27,11 @@
  */
 fixHeight();
 
+setTimeout(()=>{
+  $('.step-box .loader-inline').addClass('d-none');
+  $('.step-box-body').removeClass('d-none');
+},800);
+
 
 /**
  * -------------------------------------
@@ -29,42 +39,183 @@ fixHeight();
  * -------------------------------------
  */
 
-$(document).on('click', '.btn-navigation-js', function (e){
+$(document).on('click', '.btn-send-otp-js', function (e){
   e.preventDefault();
   let self = $(this),
-    stepCurrent = parseInt(self.attr('data-step')),
-    stepNext = stepCurrent + 1,
-    stepPrev = stepCurrent - 1,
-    stepBoxCount = $('.step-details .step-box').length;
+    rootParent = self.closest('.email-wrapper'),
+    requiredFieldGroup = rootParent.find('.form-group.required-group');
 
-  let consoleString = `step current: ${stepCurrent} | stepbox count: ${stepBoxCount}`;
-  console.log(consoleString);
-  if(stepCurrent === stepBoxCount){
-    window.location.href="thank-you.html";
+  requiredFieldGroup.each(function (i, element) {
+    singleValidation($(element).find('.form-control'), $(element), 'field-invalid', 'field-validated', 'error-message', errorMessage);
+  });
+
+  if(rootParent.find('.form-group .form-control.invalid').length>0){
+    rootParent.find('.form-group .form-control.invalid').first().focus();
     return;
   }
 
-  if(stepNext>1){
-    $('.step-details .btn-prev').css('display','inline-block')
+  //=== email field validated
+  let isSent = sendOtp();
+
+  if(!isSent){
+    return;
+  }
+  rootParent.removeClass('active');
+  rootParent.closest('.step-box').find('.otp-wrapper').addClass('active');
+
+});
+
+$(document).on('click', '.btn-verify-otp-js', function (e){
+  e.preventDefault();
+  let self = $(this),
+    rootParent = self.closest('.otp-wrapper'),
+    requiredFieldGroup = rootParent.find('.form-group.required-group'),
+    stepCurrent = parseInt($('.step-box.active').attr('data-step')),
+    stepNext = stepCurrent + 1,
+    stepPrev = stepCurrent - 1;
+
+  requiredFieldGroup.each(function (i, element) {
+    singleValidation($(element).find('.form-control'), $(element), 'field-invalid', 'field-validated', 'error-message', errorMessage);
+  });
+
+  if(rootParent.find('.form-group .form-control.invalid').length>0){
+    rootParent.find('.form-group .form-control.invalid').first().focus();
+    return;
   }
 
-  self.closest('.step-details').find('.step-box').removeClass('active');
-  $('.step-list-sidebar .step-list').removeClass('active');
-  $('.step-list-sidebar .step-list[data-step='+stepCurrent+']').addClass('completed');
-  if(self.attr('data-action')==='increase'){
-    self.closest('.step-details').find('.step-box[data-step='+stepNext+']').addClass('active');
+  //=== otp verification
+  let isVarified = otpVerification();
+  if(!isVarified){
+    rootParent.find('.form-group').find('.error-message').remove();
+    rootParent.find('.form-group').append('<p class="error-message text-danger">Wrong OTP!</p>');
+    return;
+  }
+
+  $('.loader-div').addClass('active');
+
+  setTimeout(()=>{
+    self.closest('.step-details').find('.step-box').removeClass('active');
+    $('.step-list-sidebar .step-list').removeClass('active');
+
+    $('.step-box[data-step='+stepNext+']').addClass('active');
+    $('.step-list-sidebar .step-list[data-step='+stepCurrent+']').addClass('completed');
     $('.step-list-sidebar .step-list[data-step='+stepNext+']').addClass('active');
+
+    $('.step-box-foot').addClass('active');
+    $('.loader-div').removeClass('active');
+  },600);
+
+
+
+});
+
+$(document).on('click', '.btn-navigation-js', function (e){
+  e.preventDefault();
+  let self = $(this),
+    stepCurrent = parseInt($('.step-box.active').attr('data-step')),
+    stepNext = stepCurrent + 1,
+    stepPrev = stepCurrent - 1,
+    stepBoxCount = $('.step-details .step-box').length,
+    rootParent = $('.step-box.active'),
+    requiredFieldGroup = rootParent.find('.form-group.required-group');
+
+  requiredFieldGroup.each(function (i, element) {
+    singleValidation($(element).find('.form-control'), $(element), 'field-invalid', 'field-validated', 'error-message', errorMessage);
+  });
+
+  if(rootParent.find('.form-group .form-control.invalid').length>0){
+    rootParent.find('.form-group .form-control.invalid').first().focus();
+    return;
   }
 
-  if(self.attr('data-action')==='decrease'){
-    self.closest('.step-details').find('.step-box[data-step='+stepPrev+']').addClass('active');
-    $('.step-list-sidebar .step-list[data-step='+stepPrev+']').removeClass('completed');
-    $('.step-list-sidebar .step-list[data-step='+stepPrev+']').addClass('active');
+  $('.loader-div').addClass('active');
+  if(self.attr('data-action')==='increase' && stepCurrent === stepBoxCount){
+    submitTheForm();
+    return;
   }
-  self.attr('data-step', stepNext);
+
+  setTimeout(()=>{
+    if(stepNext>2){
+      $('.step-details .btn-prev').css('display','inline-block');
+    }
+
+    self.closest('.step-details').find('.step-box').removeClass('active');
+    $('.step-list-sidebar .step-list').removeClass('active');
+    if(self.attr('data-action')==='increase'){
+      $('.step-box[data-step='+stepNext+']').addClass('active');
+      $('.step-list-sidebar .step-list[data-step='+stepCurrent+']').addClass('completed');
+      $('.step-list-sidebar .step-list[data-step='+stepNext+']').addClass('active');
+    }
+
+    if(self.attr('data-action')==='decrease'){
+      $('.step-box[data-step='+stepPrev+']').addClass('active');
+      $('.step-list-sidebar .step-list[data-step='+stepPrev+']').addClass('active');
+      if(stepPrev<2){
+        $('.step-details .btn-prev').css('display','none');
+      }
+    }
+
+    self.attr('data-step', stepNext);
+    $('.loader-div').removeClass('active');
+  },600);
+});
+
+$(document).on('click', '.btn-apply-js', function (e){
+  e.preventDefault();
+  let self = $(this);
+  $('.loader-div').addClass('active');
+  setTimeout(()=>{
+    $('.card-accordion').removeClass('active');
+    window.scrollTo({
+      top: $(".content-text").height() + $('.header').height(),
+      behavior: 'smooth'
+    });
+    $('.step-form-wrapper').removeClass('d-none');
+    self.closest('.btn-apply-wrapper').hide();
+    $('.loader-div').removeClass('active');
+  },600);
+});
+
+//=== accordion card toggle
+$(document).on('click', '.card-accordion .card-header', function (e){
+  let self = $(this);
+  self.closest('.card-accordion').toggleClass('active');
 });
 
 
+
+
+/**
+ * -------------------------------------
+ * 5. EVENT LISTENER: KEYUP / BLUR
+ * -------------------------------------
+ */
+
+$(document).on('keyup', '.form-group.required-group .form-control', function (e) {
+  let self = $(this);
+
+  if(self.val().length>0){
+    self.removeClass('invalid');
+    self.removeClass('field-invalid');
+    self.closest('.form-group').find('.error-message').remove();
+  }
+});
+
+$(document).on('keyup', '.cc-number', function (e) {
+  let self = $(this);
+  let errorMessage = "The field is required";
+
+  //=== FIELD VALIDATION
+  singleValidation(self, self.closest('.form-group'),'field-invalid', 'field-validated', 'error-message', errorMessage);
+});
+
+$(document).on('blur', '.form-group.required-group .form-control', function (e) {
+  let self = $(this);
+  let errorMessage = "The field is required";
+
+  //=== FIELD VALIDATION
+  singleValidation(self, self.closest('.form-group'),'field-invalid', 'field-validated', 'error-message', errorMessage);
+});
 
 
 
@@ -88,10 +239,151 @@ function fixHeight() {
     heightToMinusReady = headerHeight + footerHeight + mainWrapperMarginTop + mainWrapperMarginBottom,
     heightToMinus = "calc(100vh - " + heightToMinusReady + "px)";
   $('.main-wrapper').css('min-height', heightToMinus);
-
 }
 
-setTimeout(()=>{
-  $('.step-box .loader-inline').addClass('d-none');
-  $('.step-box-body').removeClass('d-none');
-},800);
+
+/**
+ *
+ * @param formControl
+ * @param formGroup
+ * @param invalidClassName
+ * @param validClassName
+ * @param errorMessageClassName
+ * @param errorMessage
+ *
+ * @effects: check whether the input fields are validate
+ * - or not and show warning message as needed
+ */
+function singleValidation(formControl, formGroup, invalidClassName, validClassName, errorMessageClassName, errorMessage) {
+  errorMessage = "The field is required";
+  let paramObj = {
+    "formControl": formControl,
+    "formGroup": formGroup,
+    "invalidClassName": invalidClassName,
+    "validClassName": validClassName,
+    "errorMessageClassName": errorMessageClassName,
+    "errorMessage": errorMessage
+  };
+
+  //=== IF FORM GROUP HAS DISPLAY NONE PROPERTIES
+  if(formGroup.css('display')==='none') return;
+
+  //=== INPUT FIELD VALIDATION: EMPTY FIELD
+  if(formControl.val()===''){
+    validationFailed(paramObj);
+    return;
+  }
+
+  //=== INPUT FIELD VALIDATION: TEXT FIELD
+  if(formControl.hasClass('validation-text')){
+    formControl.val()!==''?validationSuccess(paramObj):validationFailed(paramObj);
+  }
+
+  //=== ONLY NUMBER VALIDATION
+  if(formControl.hasClass('validation-number')){
+    if(formControl.data('length-min')){
+      isNumber(formControl.val())&&formControl.val().length>=formControl.data('length-min')?validationSuccess(paramObj):validationFailed(paramObj);
+    }
+
+    if(formControl.data('length-max')){
+      isNumber(formControl.val())&&formControl.val().length<=formControl.data('length-max')?validationSuccess(paramObj):validationFailed(paramObj);
+    }
+
+    if(formControl.data('length-min') && formControl.data('length-max')){
+      isNumber(formControl.val()) && formControl.val().length>=formControl.data('length-min') && formControl.val().length<=formControl.data('length-max')?validationSuccess(paramObj):validationFailed(paramObj);
+    }
+  }
+
+  //=== SELECT DROPDOWN VALIDATION
+  if(formControl.prop('tagName')==='SELECT'){
+    formControl.val()!==''?validationSuccess(paramObj):validationFailed(paramObj);
+  }
+
+  //=== INPUT FIELD VALIDATION: EMAIL FIELD
+  if(formControl.hasClass('validation-email')){
+    paramObj.errorMessage = "Invalid Email Address!";
+    isEmailValid(formControl.val())?validationSuccess(paramObj):validationFailed(paramObj);
+  }
+
+  //=== INPUT FIELD VALIDATION: CREDIT CARD NUMBER FIELD
+  if(formControl.hasClass('validation-cc-number')){
+    paramObj.errorMessage = "Invalid card number!";
+    cardValidation()?validationSuccess(paramObj):validationFailed(paramObj);
+  }
+}
+
+/**
+ *
+ * @param paramObj
+ */
+function validationFailed(paramObj) {
+  paramObj.formGroup.removeClass(paramObj.validClassName);
+  paramObj.formControl.addClass(paramObj.invalidClassName);
+  paramObj.formControl.removeClass('valid');
+  paramObj.formControl.addClass('invalid');
+
+  notifyError(paramObj);
+}
+
+/**
+ *
+ * @param paramObj
+ */
+function validationSuccess(paramObj){
+  paramObj.formControl.removeClass(paramObj.invalidClassName);
+  paramObj.formControl.removeClass('invalid');
+  paramObj.formControl.addClass('valid');
+  paramObj.formGroup.addClass(paramObj.validClassName);
+  paramObj.formGroup.find('.'+paramObj.errorMessageClassName).remove();
+}
+
+/**
+ *
+ * This function checks whether a given
+ * - string is number or not
+ *
+ * @param string
+ * @return {boolean}
+ */
+function isNumber(string){
+  return /^\d+$/.test(string);
+}
+
+/**
+ *
+ * This function checks whether the given value is valid email or not
+ * @param email
+ * @return {boolean}
+ */
+function isEmailValid(email){
+  return /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i.test(email);
+}
+
+/**
+ * checks whether the given card number
+ * - is valid or not
+ *
+ * @return {boolean}
+ */
+function cardValidation(){
+  let ccNumberSelector = document.querySelector('.cc-number'),
+    cardType = Payment.fns.cardType(J.val(ccNumberSelector));
+  //=== INVALID CARD TYPE
+  if(!cardType){
+    creditCardImageHolder.html("<img src='assets/images/unknown.png'>");
+    return;
+  }
+  creditCardField.addClass(cardType);
+  creditCardImageHolder.html("<img src='assets/images/" + cardType + ".png'>");
+  return Payment.fns.validateCardNumber(J.val(ccNumberSelector));
+}
+
+/**
+ *
+ * @param paramObj [an oject containg all the parametes]
+ * @effects shows error message for invalid field
+ */
+function notifyError(paramObj) {
+  paramObj.formGroup.find('.'+paramObj.errorMessageClassName).remove();
+  paramObj.formGroup.append('<p class="'+paramObj.errorMessageClassName+' text-danger">'+paramObj.errorMessage+'</p>');
+}
