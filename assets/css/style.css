@@ -231,6 +231,11 @@ html, body {
   width: 1.4em;
   height: 1.4em; }
 
+.appearance-none {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
 .cc-number-holder {
   position: relative; }
 
@@ -279,6 +284,40 @@ html, body {
   .step-form-wrapper.v2 .step-mark {
     left: unset;
     right: -11px; }
+  .step-form-wrapper.v3 .step-form-main-row {
+    background-color: #fff;
+    border: 1px solid #d6d8db;
+    border-radius: 8px;
+    overflow: hidden; }
+  .step-form-wrapper.v3 .step-form-sidebar {
+    background-color: #e2e3e5; }
+  .step-form-wrapper.v3 .step-title {
+    opacity: 0.7; }
+  .step-form-wrapper.v3 .step-list-sidebar {
+    margin-right: -12px; }
+  .step-form-wrapper.v4 .step-form-main-row {
+    background-color: #fff;
+    border: 1px solid #563d7c;
+    border-radius: 8px;
+    overflow: hidden; }
+  .step-form-wrapper.v4 .step-form-sidebar {
+    background-color: #563d7c;
+    position: relative;
+    z-index: 9; }
+  .step-form-wrapper.v4 .step-title {
+    opacity: 1;
+    color: #cbbde2; }
+  .step-form-wrapper.v4 .step-list {
+    padding-right: 40px; }
+    .step-form-wrapper.v4 .step-list.active .step-title {
+      color: #ceb3fc; }
+    .step-form-wrapper.v4 .step-list.completed .step-title {
+      color: #fff; }
+    .step-form-wrapper.v4 .step-list-sidebar {
+      margin-right: -34px; }
+
+.step-form-main {
+  background-color: #fff; }
 
 .step-form-sidebar {
   background-color: #f8f7fa;
@@ -349,7 +388,8 @@ html, body {
     padding: 20px 0; }
     @media (min-width: 576px) {
       .step-list-sidebar {
-        padding: 50px 0; } }
+        padding: 50px 0;
+        height: 100%; } }
   .step-list.last {
     min-height: 0; }
 
@@ -374,7 +414,7 @@ html, body {
 .step-title {
   font-size: 20px;
   font-weight: 600;
-  opacity: 0.3;
+  opacity: 0.5;
   line-height: 1.5;
   margin: 0; }
 

@@ -61,11 +61,96 @@ $mark-left: -11px;
         }
       }
 
+      &.v3{
+        .step{
+          &-form{
+
+            &-main{
+              &-row{
+                background-color: #fff;
+                //border:2px solid #ddd;
+                border:1px solid #d6d8db;
+                border-radius: 8px;
+                overflow: hidden;
+              }
+            }
+
+            &-sidebar{
+              background-color: #e2e3e5;
+            }
+
+          }
+
+          &-title{
+            opacity: 0.7;
+          }
+
+          &-list-sidebar{
+            margin-right:-12px;
+          }
+        }
+      }
+
+      &.v4{
+        .step{
+          &-form{
+            &-main{
+              &-row{
+                background-color: #fff;
+                //border:2px solid #ddd;
+                border:1px solid #563d7c;
+                border-radius: 8px;
+                overflow: hidden;
+              }
+            }
+
+            &-sidebar{
+              background-color: #563d7c;
+              position: relative;
+              z-index: 9;
+            }
+
+          }
+
+          &-title{
+            opacity: 1;
+            color:#cbbde2;
+          }
+
+          &-list{
+            padding-right: 40px;
+            &.active{
+              .step{
+                &-title{
+                  color:#ceb3fc;
+                }
+              }
+            }
+
+            &.completed{
+              .step{
+                &-title{
+                  color:#fff;
+                }
+              }
+            }
+
+            &-sidebar{
+              margin-right:-34px;
+            }
+          }
+        }
+      }
+
+    }
+
+    &-main{
+      background-color: #fff;
     }
 
     &-sidebar{
-      //background-color: #304766;
       background-color: #f8f7fa;
+
       position: absolute;
       //color:#fff;
       //border-radius: 10px 0 0 10px;
@@ -178,6 +263,7 @@ $mark-left: -11px;
       padding: 20px 0;
       @media (min-width: 576px){
         padding:50px 0;
+        height: 100%;
       }
     }
 
@@ -209,7 +295,7 @@ $mark-left: -11px;
   &-title{
     font-size: 20px;
     font-weight: 600;
-    opacity: 0.3;
+    opacity: 0.5;
     line-height: 1.5;
     margin: 0;
   }

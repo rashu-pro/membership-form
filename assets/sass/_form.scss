@@ -22,6 +22,12 @@
   }
 }
 
+.appearance-none{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 .cc{
   &-number{
     &-holder{

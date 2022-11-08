@@ -329,24 +329,31 @@
               </div>
 
               <!-- step 2  -->
-              <div class="step-box" data-step="2">
+              <div class="step-box active" data-step="2">
                 <div class="step-box-wrapper">
                   <div class="step-box-head">
-                    <h3 class="font-600 pb-4">Contact Information</h3>
+                    <h3 class="font-600 pb-4">Member Information</h3>
                   </div>
 
                   <div class="step-box-body">
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group required-group">
                           <label for="first-name">First Name</label>
                           <input type="text" class="form-control" id="first-name" name="FirstName">
                         </div>
                       </div>
 
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <div class="form-group required-group">
-                          <label for="last-name">First Name</label>
+                          <label for="middle-name">Middle Name</label>
+                          <input type="text" class="form-control" id="middle-name" name="MiddleName">
+                        </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-group required-group">
+                          <label for="last-name">Last Name</label>
                           <input type="text" class="form-control" id="last-name" name="LastName">
                         </div>
                       </div>
@@ -390,8 +397,6 @@
 
                   </div>
                 </div>
-
-
               </div>
 
               <!-- step 3  -->
@@ -437,20 +442,25 @@
               </div>
 
               <!-- step 4  -->
-              <div class="step-box" data-step="4">
+              <div class="step-box active" data-step="4">
                 <div class="step-box-wrapper">
                   <div class="step-box-head">
                     <h3 class="font-600 pb-4">Membership</h3>
                   </div>
 
                   <div class="step-box-body">
-                    <!-- hiding checkbox -->
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <!-- <label class="pb-2">Marital Status</label> -->
+
+                    <div class="form-group">
+                      <div class="radio-group">
                         <div class="mb-4">
                           <div class="form-check form-check-lg">
-                            <input class="form-check-input" type="radio" name="MembershipRole" id="platinum">
+                            <input class="form-check-input" type="radio" name="MembershipType" id="platinum"
+                                   data-membership-type-key="kljhsdjf-dsdfdsdfssfojdslksdfsdfjds"
+                                   data-product-key="iouyoi3353dueijwrthewrtoihwedsfsdf"
+                                   data-amount="600"
+                                   data-membership-type-selector=".membership-type-key"
+                                   data-product-key-selctor=".membership-product-type-key"
+                                   data-amount-selector=".membership-amount">
                             <label class="form-check-label ps-2 text-medium font-600 text-danger" for="platinum">
                               Platinum
                             </label>
@@ -460,7 +470,13 @@
 
                         <div class="mb-4">
                           <div class="form-check form-check-lg">
-                            <input class="form-check-input" type="radio" name="MembershipRole" id="gold">
+                            <input class="form-check-input" type="radio" name="MembershipType" id="gold"
+                                   data-membership-type-key="kljhsdjf-dsfojdslksdfsdfjds"
+                                   data-product-key="iouyoiueijwrthewrtoihwedsfsdf"
+                                   data-amount="360"
+                                   data-membership-type-selector=".membership-type-key"
+                                   data-product-key-selctor=".membership-product-type-key"
+                                   data-amount-selector=".membership-amount">
                             <label class="form-check-label ps-2 text-medium font-600 text-warning" for="gold">
                               Gold
                             </label>
@@ -470,7 +486,13 @@
 
                         <div class="">
                           <div class="form-check form-check-lg">
-                            <input class="form-check-input" type="radio" name="MembershipRole" id="silver">
+                            <input class="form-check-input" type="radio" name="MembershipType" id="silver"
+                                   data-membership-type-key="kljhsdjf-dsfojdsdsfsdlksdfsdfjds"
+                                   data-product-key="iouyoiueijsdfdswrthewrtoihwedsfsdf"
+                                   data-amount="240"
+                                   data-membership-type-selector=".membership-type-key"
+                                   data-product-key-selctor=".membership-product-type-key"
+                                   data-amount-selector=".membership-amount">
                             <label class="form-check-label ps-2 text-medium font-600 text-info" for="silver">
                               Silver
                             </label>
@@ -478,8 +500,46 @@
                           </div>
                         </div>
 
+                        <input type="hidden" class="membership-product-type-key" name="MembershipRole1">
+                        <input type="hidden" class="membership-type-key" name="MembershipRole2">
+                        <input type="hidden" class="membership-amount" name="MembershipRole3">
                       </div>
                     </div>
+
+
+                    <div>
+
+                      <hr>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group required-group">
+                            <label class="" for="date-picker">Date</label>
+                            <input type="text" class="form-control" name="StartDate" id="date-picker">
+                          </div>
+                        </div>
+
+                        <div class="col-md-12">
+                          <p class="font-600 text-medium mb-2">Community Reference</p>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="Reference">Name</label>
+                            <input class="form-control text-box single-line" id="Reference" name="Reference" type="text" value="">
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="ReferenceInfo">Contact Info</label>
+                            <input class="form-control text-box single-line" id="ReferenceInfo" name="ReferenceInfo" type="text" value="">
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
                   </div>
                 </div>
 
@@ -487,7 +547,7 @@
               </div>
 
               <!-- step 5  -->
-              <div class="step-box active" data-step="5">
+              <div class="step-box" data-step="5">
                 <div class="step-box-wrapper">
                   <div class="step-box-head">
                     <h3 class="font-600 pb-4">Payment Information</h3>
