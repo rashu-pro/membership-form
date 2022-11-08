@@ -41,6 +41,7 @@ setTimeout(()=>{
  */
 
 
+
 $(document).on('click', '.btn-send-otp-js', function (e) {
   e.preventDefault();
   let self = $(this),
@@ -57,15 +58,23 @@ $(document).on('click', '.btn-send-otp-js', function (e) {
   }
   $('.loader-div').addClass('active');
   //=== email field validated
-  sendOtp().done(function (result) {
-    if (result) {
-      $('.loader-div').removeClass('active');
-      rootParent.removeClass('active');
-      rootParent.closest('.step-box').find('.otp-wrapper').addClass('active');
-    } else {
 
-    }
-  });
+  //== have to uncomment after test
+  //sendOtp().done(function (result) {
+
+  //    if (result) {
+  //        $('.loader-div').removeClass('active');
+  //        rootParent.removeClass('active');
+  //        rootParent.closest('.step-box').find('.otp-wrapper').addClass('active');
+  //    } else {
+  //        return;
+  //    }
+  //});
+
+  //== have to remove after test
+  $('.loader-div').removeClass('active');
+  rootParent.removeClass('active');
+  rootParent.closest('.step-box').find('.otp-wrapper').addClass('active');
 });
 
 $(document).on('click', '.btn-verify-otp-js', function (e) {
@@ -87,38 +96,56 @@ $(document).on('click', '.btn-verify-otp-js', function (e) {
   }
 
   //=== otp verification
-  otpVerification().done(function (response) {
-    if (response.result) {
-      if (response.isPersonExist) {
-        console.log('person exist, loading..');
+  //== have to uncomment after test
+  //$('.loader-div').addClass('active');
 
-        reloadWithPerson(response.personKey);
-      } else {
-        console.log('person not exist');
+  //otpVerification().done(function (response) {
+  //    if (response.result) {
+  //        if (response.isPersonExist) {
+  //            console.log('person exist, loading..');
 
-        $('.loader-div').addClass('active');
+  //            reloadWithPerson(response.personKey);
+  //        } else {
+  //            console.log('person not exist');
+  //            setTimeout(() => {
+  //                self.closest('.step-details').find('.step-box').removeClass('active');
+  //                $('.step-list-sidebar .step-list').removeClass('active');
 
-        setTimeout(() => {
-          self.closest('.step-details').find('.step-box').removeClass('active');
-          $('.step-list-sidebar .step-list').removeClass('active');
+  //                $('.step-box[data-step=' + stepNext + ']').addClass('active');
+  //                $('.step-list-sidebar .step-list[data-step=' + stepCurrent + ']').addClass('completed');
+  //                $('.step-list-sidebar .step-list[data-step=' + stepNext + ']').addClass('active');
 
-          $('.step-box[data-step=' + stepNext + ']').addClass('active');
-          $('.step-list-sidebar .step-list[data-step=' + stepCurrent + ']').addClass('completed');
-          $('.step-list-sidebar .step-list[data-step=' + stepNext + ']').addClass('active');
+  //                $('.step-box-foot').addClass('active');
+  //                $('.loader-div').removeClass('active');
+  //            }, 600);
+  //        }
+  //        $('.loader-div').removeClass('active');
 
-          $('.step-box-foot').addClass('active');
-          $('.loader-div').removeClass('active');
-        }, 600);
-      }
-    } else {
+  //    } else {
 
-      if (!isVarified) {
-        rootParent.find('.form-group').find('.error-message').remove();
-        rootParent.find('.form-group').append('<p class="error-message text-danger">Wrong OTP!</p>');
-        return;
-      }
-    }
-  });
+  //        if (!isVarified) {
+  //            rootParent.find('.form-group').find('.error-message').remove();
+  //            rootParent.find('.form-group').append('<p class="error-message text-danger">Wrong OTP!</p>');
+  //            return;
+  //        }
+  //    }
+  //});
+
+  //== have to remove after test
+
+  //$('.loader-div').addClass('active');
+
+  setTimeout(() => {
+    self.closest('.step-details').find('.step-box').removeClass('active');
+    $('.step-list-sidebar .step-list').removeClass('active');
+
+    $('.step-box[data-step=' + stepNext + ']').addClass('active');
+    $('.step-list-sidebar .step-list[data-step=' + stepCurrent + ']').addClass('completed');
+    $('.step-list-sidebar .step-list[data-step=' + stepNext + ']').addClass('active');
+
+    $('.step-box-foot').addClass('active');
+    $('.loader-div').removeClass('active');
+  }, 600);
 });
 
 $(document).on('click', '.btn-navigation-js', function (e){
@@ -178,7 +205,6 @@ $(document).on('click', '.btn-navigation-js', function (e){
   },600);
 });
 
-
 $(document).on('click', '.btn-apply-js', function (e){
   e.preventDefault();
   let self = $(this);
@@ -200,8 +226,6 @@ $(document).on('click', '.card-accordion .card-header', function (e){
   let self = $(this);
   self.closest('.card-accordion').toggleClass('active');
 });
-
-
 
 
 /**

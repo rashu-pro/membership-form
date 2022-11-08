@@ -11,7 +11,7 @@ const userIpCookieName = "userCountry";
 if(phoneNumberSelectors.length>0){
     phoneNumberValidator(phoneNumberSelectors, phoneNumberWrapperSelectorName, alertMessageSelectorName);
     //=== loading utils.js script and then giving country list div a custom width
-    window.intlTelInputGlobals.loadUtils("node_modules/intl-tel-input/build/js/utils.js").then(function () {
+    window.intlTelInputGlobals.loadUtils("node_modules/intl-tel-input/build/js/utirls.js").then(function () {
         console.log('utils.js loaded!');
     });
 }
