@@ -22,12 +22,12 @@
   <link rel="stylesheet" href="node_modules/intl-tel-input/build/css/intlTelInput.min.css">
 
   <!-- main style -->
-  <link rel="stylesheet" href="assets/css/style.css?v=1.0.4">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.0.2">
 </head>
 
 <body>
 
-<div class="main">
+<div class="main bg-white">
   <!--header -->
   <header class="header">
     <div class="container">
@@ -44,7 +44,7 @@
 
   </header>
 
-  <div class="main-wrapper">
+  <div class="main-wrapper bg-white">
     <div class="content-text">
       <!-- membership brief -->
       <div class="">
@@ -61,8 +61,7 @@
       </div>
     </div>
 
-    <div id="step-form-wrapper" class="step-form-wrapper v2 v5 w-75 py-5 m-auto">
-
+    <div id="step-form-wrapper" class="step-form-wrapper v2 v3 py-5 m-auto">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-10">
@@ -72,23 +71,21 @@
                 <div class="col-md-4 step-form-sidebar">
                   <div class="step-list-sidebar">
 
-                    <div class="step-list completed" data-step="1">
+                    <div class="step-list active" data-step="1">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
                       <p class="step-title">Your Email</p>
                     </div>
 
-                    <div class="step-list active" data-step="2">
+                    <div class="step-list" data-step="2">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
                       <p class="step-title">Contact Information</p>
 
                       <div class="edit mt-2">
-                        <button type="button" class="btn btn-sm btn-secondary"><img src="assets/images/edit.png"
-                                                                                    alt="edit"> <span
-                          class="">Edit</span></button>
+                        <button type="button" class="btn btn-sm btn-secondary"> <img src="assets/images/edit.png" alt="edit"> <span class="">Edit</span> </button>
                       </div>
                     </div>
 
@@ -99,9 +96,7 @@
                       <p class="step-title">Address</p>
 
                       <div class="edit mt-2">
-                        <button type="button" class="btn btn-secondary btn-sm"><img src="assets/images/edit.png"
-                                                                                    alt="edit"> Edit
-                        </button>
+                        <button type="button" class="btn btn-secondary btn-sm"><img src="assets/images/edit.png" alt="edit"> Edit</button>
                       </div>
                     </div>
 
@@ -112,9 +107,7 @@
                       <p class="step-title">Membership</p>
 
                       <div class="edit mt-2">
-                        <button type="button" class="btn btn-secondary btn-sm"><img src="assets/images/edit.png"
-                                                                                    alt="edit"> Edit
-                        </button>
+                        <button type="button" class="btn btn-secondary btn-sm"><img src="assets/images/edit.png" alt="edit"> Edit</button>
                       </div>
                     </div>
 
@@ -125,9 +118,7 @@
                       <p class="step-title">Payment Information</p>
 
                       <div class="edit mt-2">
-                        <button type="button" class="btn btn-secondary btn-sm"><img src="assets/images/edit.png"
-                                                                                    alt="edit"> Edit
-                        </button>
+                        <button type="button" class="btn btn-secondary btn-sm"><img src="assets/images/edit.png" alt="edit"> Edit</button>
                       </div>
                     </div>
                   </div>
@@ -147,8 +138,7 @@
                         <div class="step-box-body">
 
                           <div class="alert alert-primary">
-                            <h5 class="alert-heading d-flex align-items-center"><img src="assets/images/info.png"
-                                                                                     alt="info"> Note: </h5>
+                            <h5 class="alert-heading d-flex align-items-center"><img src="assets/images/info.png" alt="info"> Note: </h5>
                             <hr>
                             <p class="m-0">An OTP will be sent to this email to verify.</p>
                           </div>
@@ -157,13 +147,11 @@
                             <div class="col-md-8">
                               <div class="email-wrapper active" id="email-wrapper">
                                 <div class="form-group required-group">
-                                  <label for="email" class="">Email <span
-                                    class="required-mark text-danger">*</span></label>
+                                  <label for="email" class="">Email <span class="required-mark text-danger">*</span></label>
                                   <input type="email" class="form-control validation-email" id="email" name="Email">
                                 </div>
 
-                                <button type="button" class="btn btn-success btn-lg btn-long btn-send-otp-js"><span>Send OTP</span>
-                                </button>
+                                <button type="button" class="btn btn-success btn-lg btn-long btn-send-otp-js"><span>Send OTP</span> </button>
                               </div>
 
                               <div class="otp-wrapper">
@@ -183,7 +171,7 @@
                     </div>
 
                     <!-- step 2  -->
-                    <div class="step-box active" data-step="2">
+                    <div class="step-box" data-step="2">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600 pb-4">Member Information</h3>
@@ -214,28 +202,23 @@
 
                             <div class="col-md-6">
                               <div class="form-group required-group phone-number-validator-wrapper">
-                                <label for="phone-number-personal">Phone Number (Personal) <span
-                                  class="required-mark text-danger">*</span></label>
-                                <input type="number" class="form-control phone-number-validator"
-                                       id="phone-number-personal" name="PhoneNumberPersonal_">
+                                <label for="phone-number-personal">Phone Number (Personal) <span class="required-mark text-danger">*</span></label>
+                                <input type="number" class="form-control phone-number-validator" id="phone-number-personal" name="PhoneNumberPersonal_">
                                 <input type="hidden" class="phone-number-hidden" name="PhoneNumberPersonal">
                               </div>
                             </div>
 
                             <div class="col-md-6">
                               <div class="form-group required-group phone-number-validator-wrapper">
-                                <label for="phone-number-home">Phone Number (Home) <span
-                                  class="required-mark text-danger">*</span></label>
-                                <input type="number" class="form-control phone-number-validator appearance-none"
-                                       id="phone-number-home" name="PhoneNumberHome_">
+                                <label for="phone-number-home">Phone Number (Home) <span class="required-mark text-danger">*</span></label>
+                                <input type="number" class="form-control phone-number-validator appearance-none" id="phone-number-home" name="PhoneNumberHome_">
                                 <input type="hidden" class="phone-number-hidden" name="PhoneNumberHome">
                               </div>
                             </div>
 
                             <div class="col-md-6">
                               <div class="form-group required-group">
-                                <label for="marital-status">Marital Status <span
-                                  class="required-mark text-danger">*</span> </label>
+                                <label for="marital-status">Marital Status <span class="required-mark text-danger">*</span> </label>
                                 <select class="form-select form-control" id="marital-status" name="MaritalStatus">
                                   <option value="">Select an Option</option>
                                   <option value="1">Single</option>
@@ -256,10 +239,8 @@
                               <div class="select-with-other-wrapper">
 
                                 <div class="form-group required-group">
-                                  <label for="Person_ResidentialStatus">Residential Status <span
-                                    class="required-mark text-danger">*</span></label>
-                                  <select class="form-select form-control" id="Person_ResidentialStatus"
-                                          name="Person.ResidentialStatus">
+                                  <label for="Person_ResidentialStatus">Residential Status <span class="required-mark text-danger">*</span></label>
+                                  <select class="form-select form-control" id="Person_ResidentialStatus" name="Person.ResidentialStatus">
                                     <option value="">--SELECT--</option>
                                     <option value="US Citizen">US Citizen</option>
                                     <option value="Permanent Resident">Permanent Resident</option>
@@ -274,6 +255,8 @@
                               </div>
 
                             </div>
+
+
 
 
                             <div class="col-12">
@@ -341,7 +324,7 @@
                     </div>
 
                     <!-- step 4  -->
-                    <div class="step-box" data-step="4">
+                    <div class="step-box active" data-step="4">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600 pb-4">Membership</h3>
@@ -395,7 +378,7 @@
                                   <label class="form-check-label ps-2 text-medium font-600 text-info" for="silver">
                                     Silver
                                   </label>
-                                  <p class="ps-2">$240.00 Full Payment or Automatic Deduction ($20/month)</p>
+                                  <p class="ps-2">$240.00 Full Payment or  Automatic Deduction ($20/month)</p>
                                 </div>
                               </div>
 
@@ -425,16 +408,14 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label for="Reference">Name</label>
-                                  <input class="form-control text-box single-line" id="Reference" name="Reference"
-                                         type="text" value="">
+                                  <input class="form-control text-box single-line" id="Reference" name="Reference" type="text" value="">
                                 </div>
                               </div>
 
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <label for="ReferenceInfo">Contact Info</label>
-                                  <input class="form-control text-box single-line" id="ReferenceInfo"
-                                         name="ReferenceInfo" type="text" value="">
+                                  <input class="form-control text-box single-line" id="ReferenceInfo" name="ReferenceInfo" type="text" value="">
                                 </div>
                               </div>
 
@@ -458,14 +439,11 @@
                           <div class="row">
                             <div class="col-md-12">
                               <div class="form-group required-group">
-                                <label for="card-number">Card Number <span
-                                  class="text-danger required-mark">*</span></label>
+                                <label for="card-number">Card Number <span class="text-danger required-mark">*</span></label>
                                 <div class="cc-number-holder">
-                                  <input type="text" maxlength="16" class="form-control validation-cc-number cc-number"
-                                         id="card-number" name="CardNumber">
+                                  <input type="text" maxlength="16" class="form-control validation-cc-number cc-number" id="card-number" name="CardNumber">
                                   <div class="cc-card-identity">
-                                    <img
-                                      src="https://secure-api.net/Content/event-management-assets/individual-multiple-assets/images/card_mockup.png">
+                                    <img src="https://secure-api.net/Content/event-management-assets/individual-multiple-assets/images/card_mockup.png">
                                   </div>
                                 </div>
                               </div>
@@ -514,15 +492,11 @@
                           <div class="waiver-wrapper pt-4">
 
                             <div class="callout callout-info mb-2">
-                              <p class="text-medium font-600 m-0">Read <a href="#" data-bs-toggle="modal"
-                                                                          data-bs-target="#modal-waiver">Code of
-                                Conduct</a></p>
+                              <p class="text-medium font-600 m-0">Read <a href="#" data-bs-toggle="modal" data-bs-target="#modal-waiver">Code of Conduct</a> </p>
                             </div>
 
                             <div class="callout callout-info mb-2">
-                              <p class="text-medium font-600 m-0">Read <a href="#" data-bs-toggle="modal"
-                                                                          data-bs-target="#modal-terms">Terms &
-                                Conditions</a></p>
+                              <p class="text-medium font-600 m-0">Read <a href="#" data-bs-toggle="modal" data-bs-target="#modal-terms">Terms & Conditions</a> </p>
                             </div>
 
                             <div class="pt-2">
@@ -542,13 +516,8 @@
 
                     <div class="step-box-foot active mt-4">
                       <div class="button-group">
-                        <button type="button" class="btn btn-dark btn-lg btn-long btn-prev me-3 btn-navigation-js"
-                                data-step="2" data-action="decrease"><img src="assets/images/back.png" alt="prev"><span>Prev</span>
-                        </button>
-                        <button type="button" data-text="Next" data-submit-text="Submit"
-                                class="btn btn-primary btn-lg btn-long btn-navigation-js" data-step="1"
-                                data-action="increase"><span>Next</span> <img src="assets/images/next.png" alt="next">
-                        </button>
+                        <button type="button" class="btn btn-dark btn-lg btn-long btn-prev me-3 btn-navigation-js" data-step="2" data-action="decrease"><img src="assets/images/back.png" alt="prev"><span>Prev</span> </button>
+                        <button type="button" data-text="Next" data-submit-text="Submit" class="btn btn-primary btn-lg btn-long btn-navigation-js" data-step="1" data-action="increase"><span>Next</span> <img src="assets/images/next.png" alt="next"> </button>
                       </div>
                     </div>
 
@@ -558,6 +527,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -722,7 +692,7 @@
 <script src="assets/js/phone_validator.js"></script>
 
 <!-- script.js -->
-<script src="assets/js/script.js?v=1.0.4"></script>
+<script src="assets/js/script.js?v=1.0.2"></script>
 
 <script>
   function sendOtp(){

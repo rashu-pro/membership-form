@@ -12,6 +12,12 @@ $mark-left: -11px;
 
       &.v2{
         .step{
+          &-form{
+            &-main{
+
+            }
+          }
+
           &-list{
             text-align: right;
             padding-left:0;
@@ -50,7 +56,7 @@ $mark-left: -11px;
             }
 
             &-sidebar{
-              margin-right:-22px;
+              margin-right:-12px;
             }
           }
 
@@ -138,6 +144,34 @@ $mark-left: -11px;
             &-sidebar{
               margin-right:-34px;
             }
+          }
+        }
+      }
+
+      &.v5{
+        .step{
+          &-form{
+            &-main{
+              border:2px solid #ddd;
+              position: relative;
+
+              &:after,&:before{
+                content: '';
+                position: absolute;
+                left:-2px;
+                width:2px;
+                height:100%;
+                background-color: #ddd;
+                z-index: 9;
+              }
+              &:after{
+                bottom:0;
+              }
+              &:before{
+                top:0;
+              }
+            }
+
           }
         }
       }
