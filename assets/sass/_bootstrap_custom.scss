@@ -15,3 +15,28 @@
     margin:5px 0;
   }
 }
+
+.form{
+  &-check{
+    &-input{
+      border-color:#908b8b;
+      border-width:2px;
+      &.check-md{
+        width:1.2rem;
+        height:1.2rem;
+      }
+    }
+  }
+}
+
+//=== custom component
+.callout{
+  padding: 1rem;
+  border: 1px solid #e9ecef;
+  border-left-width: 0.25rem;
+  border-radius: 0.25rem;
+  &-info{
+    border-left-color: #5bc0de;
+  }
+}
+

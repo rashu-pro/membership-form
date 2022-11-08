@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="node_modules/intl-tel-input/build/css/intlTelInput.min.css">
 
   <!-- main style -->
-  <link rel="stylesheet" href="assets/css/style.css?v=1.0.2">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.0.3">
 </head>
 
 <body>
@@ -69,14 +69,14 @@
           <div class="col-md-4 step-form-sidebar">
             <div class="step-list-sidebar">
 
-              <div class="step-list active" data-step="1">
+              <div class="step-list completed" data-step="1">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
                 <p class="step-title">Your Email</p>
               </div>
 
-              <div class="step-list" data-step="2">
+              <div class="step-list completed" data-step="2">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
@@ -87,7 +87,7 @@
                 </div>
               </div>
 
-              <div class="step-list" data-step="3">
+              <div class="step-list completed" data-step="3">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
@@ -98,7 +98,7 @@
                 </div>
               </div>
 
-              <div class="step-list" data-step="4">
+              <div class="step-list completed" data-step="4">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
@@ -109,7 +109,7 @@
                 </div>
               </div>
 
-              <div class="step-list last" data-step="5">
+              <div class="step-list active last" data-step="5">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
@@ -389,20 +389,24 @@
 
                     <div class="waiver-wrapper pt-4">
 
-                      <div class="callout callout-info mb-2">
-                        <p class="text-medium font-600 m-0">Read <a href="#" data-bs-toggle="modal" data-bs-target="#modal-waiver">Code of Conduct</a> </p>
-                      </div>
+                      <div class="alert alert-secondary bg-white">
+                        <h5 class="alert-heading d-flex align-items-center"><img src="assets/images/info.png" alt="info"> Waivers: </h5>
+                        <hr>
+                        <div class="callout callout-info mb-2 mt-3">
+                          <p class="text-medium font-600 m-0">Read <a href="#" data-bs-toggle="modal" data-bs-target="#modal-waiver">Code of Conduct</a> </p>
+                        </div>
 
-                      <div class="callout callout-info mb-2">
-                        <p class="text-medium font-600 m-0">Read <a href="#" data-bs-toggle="modal" data-bs-target="#modal-terms">Terms & Conditions</a> </p>
-                      </div>
+                        <div class="callout callout-info mb-2">
+                          <p class="text-medium font-600 m-0">Read <a href="#" data-bs-toggle="modal" data-bs-target="#modal-terms">Terms & Conditions</a> </p>
+                        </div>
 
-                      <div class="pt-2">
-                        <div class="form-check">
-                          <input class="form-check-input check-md" type="checkbox" value="" id="flexCheckDefault">
-                          <label class="form-check-label" for="flexCheckDefault">
-                            I have read and agree to the code fo conduct and terms & conditions.
-                          </label>
+                        <div class="pt-2">
+                          <div class="form-check">
+                            <input class="form-check-input check-md" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                              I have read and agree to the code fo conduct and terms & conditions.
+                            </label>
+                          </div>
                         </div>
                       </div>
 
@@ -582,7 +586,7 @@
 <script src="assets/js/card_validation.js"></script>
 
 <!-- script.js -->
-<script src="assets/js/script.js?v=1.0.2"></script>
+<script src="assets/js/script.js?v=1.0.3"></script>
 
 <script>
   function sendOtp(){

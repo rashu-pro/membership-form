@@ -31,6 +31,24 @@
     }
   }
 
+  &-close{
+    background: #e5e7eb;
+    border: 1px solid #ddd;
+    color: #202020;
+    padding: 0!important;
+    opacity: 1;
+    display: inline-flex;
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    &:hover{
+      color: #202020;
+      background: #b5bbc7;
+      opacity: 0.8;
+    }
+  }
+
   &:hover{
     .btn-icon{
       margin-left:5px;
