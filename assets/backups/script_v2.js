@@ -31,6 +31,11 @@ let J = Payment.J,
  */
 fixHeight();
 
+setTimeout(()=>{
+  $('.step-box .loader-inline').addClass('d-none');
+  $('.step-box-body').removeClass('d-none');
+},800);
+
 //=== datepicker initialization
 if($(datePickerSelector).length>0){
   // $(datePickerSelector).datepicker();
@@ -48,6 +53,11 @@ if($(datePickerSelector).length>0){
 if($(radioGroupSelector).length>0){
 
 }
+
+function radioBoxValidation(radioGroupSelector){
+
+}
+
 
 
 
@@ -75,17 +85,21 @@ $(document).on('click', '.btn-send-otp-js', function (e) {
   //=== email field validated
 
   //== have to uncomment after test
-  sendOtp().done(function (result) {
+  //sendOtp().done(function (result) {
 
-    if (result) {
-      $('.loader-div').removeClass('active');
-      rootParent.removeClass('active');
-      rootParent.closest('.step-box').find('.otp-wrapper').addClass('active');
-    } else {
-      return;
-    }
-  });
+  //    if (result) {
+  //        $('.loader-div').removeClass('active');
+  //        rootParent.removeClass('active');
+  //        rootParent.closest('.step-box').find('.otp-wrapper').addClass('active');
+  //    } else {
+  //        return;
+  //    }
+  //});
 
+  //== have to remove after test
+  $('.loader-div').removeClass('active');
+  rootParent.removeClass('active');
+  rootParent.closest('.step-box').find('.otp-wrapper').addClass('active');
 });
 
 $(document).on('click', '.btn-verify-otp-js', function (e) {
@@ -108,39 +122,55 @@ $(document).on('click', '.btn-verify-otp-js', function (e) {
 
   //=== otp verification
   //== have to uncomment after test
-  $('.loader-div').addClass('active');
+  //$('.loader-div').addClass('active');
 
-  otpVerification().done(function (response) {
-    if (response.result) {
-      if (response.isPersonExist) {
-        console.log('person exist, loading..');
+  //otpVerification().done(function (response) {
+  //    if (response.result) {
+  //        if (response.isPersonExist) {
+  //            console.log('person exist, loading..');
 
-        reloadWithPerson(response.personKey);
-      } else {
-        console.log('person not exist');
-        setTimeout(() => {
-          self.closest('.step-details').find('.step-box').removeClass('active');
-          $('.step-list-sidebar .step-list').removeClass('active');
+  //            reloadWithPerson(response.personKey);
+  //        } else {
+  //            console.log('person not exist');
+  //            setTimeout(() => {
+  //                self.closest('.step-details').find('.step-box').removeClass('active');
+  //                $('.step-list-sidebar .step-list').removeClass('active');
 
-          $('.step-box[data-step=' + stepNext + ']').addClass('active');
-          $('.step-list-sidebar .step-list[data-step=' + stepCurrent + ']').addClass('completed');
-          $('.step-list-sidebar .step-list[data-step=' + stepNext + ']').addClass('active');
+  //                $('.step-box[data-step=' + stepNext + ']').addClass('active');
+  //                $('.step-list-sidebar .step-list[data-step=' + stepCurrent + ']').addClass('completed');
+  //                $('.step-list-sidebar .step-list[data-step=' + stepNext + ']').addClass('active');
 
-          $('.step-box-foot').addClass('active');
-          $('.loader-div').removeClass('active');
-        }, 600);
-      }
-      $('.loader-div').removeClass('active');
+  //                $('.step-box-foot').addClass('active');
+  //                $('.loader-div').removeClass('active');
+  //            }, 600);
+  //        }
+  //        $('.loader-div').removeClass('active');
 
-    } else {
+  //    } else {
 
-      rootParent.find('.form-group').find('.error-message').remove();
-      rootParent.find('.form-group').append('<p class="error-message text-danger">Wrong verification code or expired!</p>');
-      $('.loader-div').removeClass('active');
-      return;
-    }
-  });
+  //        if (!isVarified) {
+  //            rootParent.find('.form-group').find('.error-message').remove();
+  //            rootParent.find('.form-group').append('<p class="error-message text-danger">Wrong OTP!</p>');
+  //            return;
+  //        }
+  //    }
+  //});
 
+  //== have to remove after test
+
+  //$('.loader-div').addClass('active');
+
+  setTimeout(() => {
+    self.closest('.step-details').find('.step-box').removeClass('active');
+    $('.step-list-sidebar .step-list').removeClass('active');
+
+    $('.step-box[data-step=' + stepNext + ']').addClass('active');
+    $('.step-list-sidebar .step-list[data-step=' + stepCurrent + ']').addClass('completed');
+    $('.step-list-sidebar .step-list[data-step=' + stepNext + ']').addClass('active');
+
+    $('.step-box-foot').addClass('active');
+    $('.loader-div').removeClass('active');
+  }, 600);
 });
 
 $(document).on('click', '.btn-navigation-js', function (e){
@@ -153,15 +183,13 @@ $(document).on('click', '.btn-navigation-js', function (e){
     stepBoxCount = $('.step-details .step-box').length,
     requiredFieldGroup = rootParent.find('.form-group.required-group');
 
+  console.log(typeof stepBoxCount);
+
   //=== previous button click action
   if(self.attr('data-action')==='decrease'){
     loaderEnable(loaderDivClass);
     setTimeout(()=>{
       stepMovePrev(stepCurrent);
-      if(stepPrev<3){
-        console.log('in clkd');
-        $('.step-details .btn-prev').css('display','none');
-      }
       if(parseInt($('.step-box.active').attr('data-step'))!==stepBoxCount) $('.btn-navigation-js[data-action=increase] span').html($('.btn-navigation-js[data-action=increase]').attr('data-text'));
       loaderDisable(loaderDivClass);
     },600);
@@ -187,18 +215,20 @@ $(document).on('click', '.btn-navigation-js', function (e){
   }
 
   setTimeout(()=>{
-    stepMoveNext(stepCurrent);
-    if(parseInt($('.step-box.active').attr('data-step'))===stepBoxCount) self.find('span').html(self.attr('data-submit-text'));
-    loaderDisable(loaderDivClass);
-  },600);
-});
+    if(stepNext>2){
+      $('.step-details .btn-prev').css('display','inline-block');
+    }
 
-$(document).on('click', '.btn-edit-step-js', function (e){
-  loaderEnable(loaderDivClass);
-  setTimeout(()=>{
-    stepMoveExact(parseInt($(this).attr('data-step')));
-    if(parseInt($('.step-box.active').attr('data-step'))!==$('.step-details .step-box').length) $('.btn-navigation-js[data-action=increase] span').html($('.btn-navigation-js[data-action=increase]').attr('data-text'));
-    loaderDisable(loaderDivClass);
+    self.closest('.step-details').find('.step-box').removeClass('active');
+    $('.step-list-sidebar .step-list').removeClass('active');
+    if(self.attr('data-action')==='increase'){
+      $('.step-box[data-step='+stepNext+']').addClass('active');
+      $('.step-list-sidebar .step-list[data-step='+stepCurrent+']').addClass('completed');
+      $('.step-list-sidebar .step-list[data-step='+stepNext+']').addClass('active');
+    }
+
+    if(parseInt($('.step-box.active').attr('data-step'))===stepBoxCount) self.find('span').html(self.attr('data-submit-text'));
+    $('.loader-div').removeClass('active');
   },600);
 });
 
@@ -307,7 +337,6 @@ $(document).on('change', '.radio-group input[type=radio]', function (){
   $(membershipTypeSelector).val(membershipTypeKey);
   $(productKeySelector).val(productKey);
   $(amountSelector).val(amount);
-  $('#modal-confirm .amount-to-authorize').html(amount);
 
   if(self.closest('.form-group').hasClass('required-group')){
     singleValidation(self.closest('.form-group').find('.form-control'), self.closest('.form-group'), 'field-invalid', 'field-validated', 'error-message', errorMessage )
@@ -410,10 +439,6 @@ function singleValidation(formControl, formGroup, invalidClassName, validClassNa
 
   //=== SELECT DROPDOWN VALIDATION
   if(formControl.prop('tagName')==='SELECT'){
-    if(formControl.find('option:selected').val()==="null"){
-      validationFailed(paramObj)
-      return;
-    }
     formControl.val()!==''?validationSuccess(paramObj):validationFailed(paramObj);
   }
 
@@ -493,17 +518,16 @@ function isEmailValid(email){
  *
  * @return {boolean}
  */
-//The block is updated for server use
-function cardValidation() {
+function cardValidation(){
   let ccNumberSelector = document.querySelector('.cc-number'),
     cardType = Payment.fns.cardType(J.val(ccNumberSelector));
   //=== INVALID CARD TYPE
-  if (!cardType) {
-    creditCardImageHolder.html("<img src='/Content/member-assets/images/unknown.png'>");
+  if(!cardType){
+    creditCardImageHolder.html("<img src='assets/images/unknown.png'>");
     return;
   }
   creditCardField.addClass(cardType);
-  creditCardImageHolder.html("<img src='/Content/member-assets/images/" + cardType + ".png'>");
+  creditCardImageHolder.html("<img src='assets/images/" + cardType + ".png'>");
   return Payment.fns.validateCardNumber(J.val(ccNumberSelector));
 }
 
@@ -547,32 +571,11 @@ function loaderDisable(loaderDivSelector){
  * @param stepCurrent
  */
 function stepMovePrev(stepCurrent){
-  $('.step-details .step-box').removeClass('active');
+  $('.step-box[data-step='+stepCurrent+']').removeClass('active');
   $('.step-box[data-step='+(stepCurrent-1)+']').addClass('active');
-  $('.step-list-sidebar .step-list').removeClass('active');
+  $('.step-list-sidebar .step-list[data-step='+stepCurrent+']').removeClass('active');
   $('.step-list-sidebar .step-list[data-step='+(stepCurrent-1)+']').addClass('active');
   if((stepCurrent-1)<2){
-    $('.step-details .btn-prev').css('display','none');
-  }
-}
-
-function stepMoveNext(stepCurrent){
-  if(stepCurrent>1){
-    $('.step-details .btn-prev').css('display','inline-block');
-  }
-  $('.step-details .step-box').removeClass('active');
-  $('.step-list-sidebar .step-list').removeClass('active');
-  $('.step-box[data-step='+(stepCurrent+1)+']').addClass('active');
-  $('.step-list-sidebar .step-list[data-step='+stepCurrent+']').addClass('completed');
-  $('.step-list-sidebar .step-list[data-step='+(stepCurrent+1)+']').addClass('active');
-}
-
-function stepMoveExact(stepNumber){
-  $('.step-details .step-box').removeClass('active');
-  $('.step-box[data-step='+stepNumber+']').addClass('active');
-  $('.step-list-sidebar .step-list').removeClass('active');
-  $('.step-list-sidebar .step-list[data-step='+stepNumber+']').addClass('active');
-  if((stepNumber)<3){
     $('.step-details .btn-prev').css('display','none');
   }
 }

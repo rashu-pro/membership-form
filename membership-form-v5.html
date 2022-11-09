@@ -20,9 +20,13 @@
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <!-- intl-tel-input -->
   <link rel="stylesheet" href="node_modules/intl-tel-input/build/css/intlTelInput.min.css">
+  <!-- datepicker css -->
+<!--  <link rel="stylesheet" href="node_modules/@chenfengyuan/datepicker/dist/datepicker.min.css">-->
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
 
   <!-- main style -->
-  <link rel="stylesheet" href="assets/css/style.css?v=1.0.4">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.0.5">
 </head>
 
 <body>
@@ -32,7 +36,7 @@
   <header class="header">
     <div class="container">
       <div class="d-flex flex-wrap justify-content-center align-items-center py-2">
-        <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
+        <a href="membership-v1.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
           <img src="assets/images/logo_icgc.png" class="logo-image img-fluid" alt="ICGC">
         </a>
 
@@ -87,21 +91,20 @@
                       <p class="step-title">Contact Information</p>
 
                       <div class="edit mt-2">
-                        <button type="button" class="btn btn-sm btn-secondary"><img src="assets/images/edit.png"
+                        <button type="button" class="btn btn-sm btn-secondary btn-edit-step-js" data-step="2">
+                          <img src="assets/images/edit.png"
                                                                                     alt="edit"> <span
                           class="">Edit</span></button>
                       </div>
                     </div>
 
                     <div class="step-list" data-step="3">
-                <span class="step-mark">
-                  <img src="assets/images/tick.png" alt="complete">
-                </span>
-                      <p class="step-title">Address</p>
-
+                      <span class="step-mark"><img src="assets/images/tick.png" alt="complete"></span>
+                      <p class="step-title">Spouse Information</p>
                       <div class="edit mt-2">
-                        <button type="button" class="btn btn-secondary btn-sm"><img src="assets/images/edit.png"
-                                                                                    alt="edit"> Edit
+                        <button type="button" class="btn btn-secondary btn-sm btn-edit-step-js" data-step="3">
+                          <img src="assets/images/edit.png" alt="edit">
+                          Edit
                         </button>
                       </div>
                     </div>
@@ -110,23 +113,36 @@
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
-                      <p class="step-title">Membership</p>
+                      <p class="step-title">Address</p>
 
                       <div class="edit mt-2">
-                        <button type="button" class="btn btn-secondary btn-sm"><img src="assets/images/edit.png"
+                        <button type="button" class="btn btn-secondary btn-sm btn-edit-step-js" data-step="4"><img src="assets/images/edit.png"
                                                                                     alt="edit"> Edit
                         </button>
                       </div>
                     </div>
 
-                    <div class="step-list last" data-step="5">
+                    <div class="step-list" data-step="5">
+                <span class="step-mark">
+                  <img src="assets/images/tick.png" alt="complete">
+                </span>
+                      <p class="step-title">Membership</p>
+
+                      <div class="edit mt-2">
+                        <button type="button" class="btn btn-secondary btn-sm btn-edit-step-js" data-step="5"><img src="assets/images/edit.png"
+                                                                                    alt="edit"> Edit
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="step-list last" data-step="6">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
                       <p class="step-title">Payment Information</p>
 
                       <div class="edit mt-2">
-                        <button type="button" class="btn btn-secondary btn-sm"><img src="assets/images/edit.png"
+                        <button type="button" class="btn btn-secondary btn-sm btn-edit-step-js" data-step="6"><img src="assets/images/edit.png"
                                                                                     alt="edit"> Edit
                         </button>
                       </div>
@@ -142,7 +158,8 @@
                     <div class="step-box" data-step="1">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
-                          <h3 class="font-600 pb-4">Join as a member</h3>
+                          <h3 class="font-600">Join as a member</h3>
+                          <p class="m-0 text-danger">(Fields marked with * are required to fill up)</p>
                         </div>
 
                         <div class="step-box-body">
@@ -187,7 +204,8 @@
                     <div class="step-box active" data-step="2">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
-                          <h3 class="font-600 pb-4">Member Information</h3>
+                          <h3 class="font-600">Member Information</h3>
+                          <p class="m-0 text-danger">(Fields marked with * are required to fill up)</p>
                         </div>
 
                         <div class="step-box-body">
@@ -214,10 +232,10 @@
                             </div>
 
                             <div class="col-md-6">
-                              <div class="form-group required-group phone-number-validator-wrapper">
+                              <div class="form-group phone-number-validator-wrapper">
                                 <label for="phone-number-personal">Phone Number (Personal) <span
                                   class="required-mark text-danger">*</span></label>
-                                <input type="number" class="form-control phone-number-validator"
+                                <input type="text" class="form-control phone-number-validator input-phone-number"
                                        id="phone-number-personal" name="PhoneNumberPersonal_">
                                 <input type="hidden" class="phone-number-hidden" name="PhoneNumberPersonal">
                               </div>
@@ -227,9 +245,9 @@
                               <div class="form-group required-group phone-number-validator-wrapper">
                                 <label for="phone-number-home">Phone Number (Home) <span
                                   class="required-mark text-danger">*</span></label>
-                                <input type="number" class="form-control phone-number-validator appearance-none"
-                                       id="phone-number-home" name="PhoneNumberHome_">
-                                <input type="hidden" class="phone-number-hidden" name="PhoneNumberHome">
+                                <input type="text" class="form-control phone-number-validator phone-number-edit input-phone-number" data-number="+8801852404040"
+                                       id="phone-number-home" name="PhoneNumberHome_" data->
+                                <input type="hidden" class="phone-number-hidden" name="PhoneNumberHome" value="+8801852404040">
                               </div>
                             </div>
 
@@ -269,11 +287,11 @@
                                 </div>
 
                                 <div class="form-group other-wrapper d-none pt-1">
-                                  <input type="text" class="form-control" name="OtherResidentailStaus">
+                                  <label for="other-res" class="d-none">Other</label>
+                                  <input id="other-res" type="text" class="form-control" name="OtherResidentailStaus">
                                 </div>
 
                               </div>
-
                             </div>
 
 
@@ -282,14 +300,14 @@
                             </div>
                             <div class="col-md-6">
                               <div class="form-group">
-                                <label for="first-name">First Name</label>
+                                <label for="spouse-first-name">First Name</label>
                                 <input type="text" class="form-control" id="spouse-first-name" name="FirstName">
                               </div>
                             </div>
 
                             <div class="col-md-6">
                               <div class="form-group">
-                                <label for="last-name">Last Name</label>
+                                <label for="spouse-last-name">Last Name</label>
                                 <input type="text" class="form-control" id="spouse-last-name" name="SpouseLastName">
                               </div>
                             </div>
@@ -299,40 +317,67 @@
                       </div>
                     </div>
 
-                    <!-- step 3  -->
+                    <!-- step 3 -->
                     <div class="step-box" data-step="3">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
-                          <h3 class="font-600 pb-4">Address</h3>
+                          <h3 class="font-600">Spouse Information</h3>
+                          <p class="m-0 text-danger">(Fields marked with * are required to fill up)</p>
                         </div>
 
                         <div class="step-box-body">
                           <div class="row">
-                            <div class="col-md-12">
-                              <div class="form-group required-group">
-                                <label for="street-address">Street Address</label>
-                                <input type="text" class="form-control" id="street-address" name="StreetAddress">
+                            <div class="col-12">
+                              <p class="font-600 text-medium mb-2 mt-2">Full Name</p>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="Spouse_FirstName">First</label>
+                                <input class="form-control text-box single-line" id="Spouse_FirstName" name="Spouse.FirstName" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Spouse.FirstName" data-valmsg-replace="true"></span>
+                              </div>
+                            </div>
+
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="Spouse_MiddleName">Middle</label>
+                                <input class="form-control text-box single-line" id="Spouse_MiddleName" name="Spouse.MiddleName" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Spouse.MiddleName" data-valmsg-replace="true"></span>
+                              </div>
+                            </div>
+
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="Spouse_LastName">Last</label>
+                                <input class="form-control text-box single-line" id="Spouse_LastName" name="Spouse.LastName" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Spouse.LastName" data-valmsg-replace="true"></span>
                               </div>
                             </div>
 
                             <div class="col-md-6">
-                              <div class="form-group required-group">
-                                <label for="city">City</label>
-                                <input type="text" class="form-control" id="city" name="City">
+                              <div class="form-group phone-number-validator-wrapper">
+                                <label for="phone-number-spouse-personal">Phone Number (Personal) </label>
+                                <input type="text" class="form-control phone-number-validator input-phone-number"
+                                       id="phone-number-spouse-personal" name="SpousePhonePersonal">
+                                <input type="hidden" class="phone-number-hidden" name="PhoneNumberPersonal">
                               </div>
                             </div>
 
                             <div class="col-md-6">
-                              <div class="form-group required-group">
-                                <label for="state">State</label>
-                                <input type="text" class="form-control" id="state" name="State">
+                              <div class="form-group required-group phone-number-validator-wrapper">
+                                <label for="phone-number-spouse-home">
+                                  Phone Number (Home)
+                                </label>
+                                <input type="text" class="form-control phone-number-validator phone-number-edit input-phone-number"
+                                       id="phone-number-spouse-home" name="SpousePhoneHome" data-number="+8801852404635">
+                                <input type="hidden" class="phone-number-hidden" name="PhoneNumberHome" value="+8801852404635">
                               </div>
                             </div>
-
                             <div class="col-md-6">
-                              <div class="form-group required-group">
-                                <label for="zip-code">ZIP Code</label>
-                                <input type="number" class="form-control validation-number" id="zip-code">
+                              <div class="form-group">
+                                <label for="Spouse_EmailAddress">Email</label>
+                                <input class="form-control text-box single-line" data-val="true" data-val-email="The Email field is not a valid e-mail address." id="Spouse_EmailAddress" name="Spouse.EmailAddress" type="email" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Spouse.EmailAddress" data-valmsg-replace="true"></span>
                               </div>
                             </div>
                           </div>
@@ -345,13 +390,57 @@
                     <div class="step-box" data-step="4">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
-                          <h3 class="font-600 pb-4">Membership</h3>
+                          <h3 class="font-600">Address</h3>
+                          <p class="m-0 text-danger">(Fields marked with * are required to fill up)</p>
+                        </div>
+
+                        <div class="step-box-body">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group required-group">
+                                <label for="street-address">Street Address <span class="required-mark text-danger">*</span></label>
+                                <input type="text" class="form-control" id="street-address" name="StreetAddress">
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group required-group">
+                                <label for="city">City <span class="required-mark text-danger">*</span></label>
+                                <input type="text" class="form-control" id="city" name="City">
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group required-group">
+                                <label for="state">State <span class="required-mark text-danger">*</span></label>
+                                <input type="text" class="form-control" id="state" name="State">
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group required-group">
+                                <label for="zip-code">ZIP Code <span class="required-mark text-danger">*</span></label>
+                                <input type="text" class="form-control validation-number" id="zip-code" data-max-length="5" data-min-length="5">
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- step 4  -->
+                    <div class="step-box" data-step="5">
+                      <div class="step-box-wrapper">
+                        <div class="step-box-head">
+                          <h3 class="font-600">Membership</h3>
+                          <p class="m-0 text-danger">(Fields marked with * are required to fill up)</p>
                         </div>
 
                         <div class="step-box-body">
 
-                          <div class="form-group">
-                            <div class="radio-group">
+                          <div class="form-group required-group">
+                            <div class="radio-group check-group">
                               <div class="mb-4">
                                 <div class="form-check form-check-lg">
                                   <input class="form-check-input" type="radio" name="MembershipType" id="platinum"
@@ -360,7 +449,8 @@
                                          data-amount="600"
                                          data-membership-type-selector=".membership-type-key"
                                          data-product-key-selctor=".membership-product-type-key"
-                                         data-amount-selector=".membership-amount">
+                                         data-amount-selector=".membership-amount"
+                                         data-value="platinum">
                                   <label class="form-check-label ps-2 text-medium font-600 text-danger" for="platinum">
                                     Platinum
                                   </label>
@@ -376,7 +466,8 @@
                                          data-amount="360"
                                          data-membership-type-selector=".membership-type-key"
                                          data-product-key-selctor=".membership-product-type-key"
-                                         data-amount-selector=".membership-amount">
+                                         data-amount-selector=".membership-amount"
+                                         data-value="gold">
                                   <label class="form-check-label ps-2 text-medium font-600 text-warning" for="gold">
                                     Gold
                                   </label>
@@ -392,13 +483,16 @@
                                          data-amount="240"
                                          data-membership-type-selector=".membership-type-key"
                                          data-product-key-selctor=".membership-product-type-key"
-                                         data-amount-selector=".membership-amount">
+                                         data-amount-selector=".membership-amount"
+                                         data-value="silver">
                                   <label class="form-check-label ps-2 text-medium font-600 text-info" for="silver">
                                     Silver
                                   </label>
                                   <p class="ps-2">$240.00 Full Payment or Automatic Deduction ($20/month)</p>
                                 </div>
                               </div>
+
+                              <input type="hidden" class="form-control validation-radio" value="">
 
                               <input type="hidden" class="membership-product-type-key" name="MembershipRole1">
                               <input type="hidden" class="membership-type-key" name="MembershipRole2">
@@ -415,7 +509,10 @@
                               <div class="col-md-6">
                                 <div class="form-group required-group">
                                   <label class="" for="date-picker">Date</label>
-                                  <input type="text" class="form-control" name="StartDate" id="date-picker">
+                                  <div class="input-group">
+                                    <input type="text" class="form-control form-control-date validation-text date-picker-js" id="date-picker" placeholder="">
+                                    <label for="date-picker" class="input-group-text" id="basic-addon2"><img src="assets/images/date.png" alt="datepicker"></label>
+                                  </div>
                                 </div>
                               </div>
 
@@ -424,9 +521,9 @@
                               </div>
 
                               <div class="col-md-6">
-                                <div class="form-group">
+                                <div class="form-group required-group">
                                   <label for="Reference">Name</label>
-                                  <input class="form-control text-box single-line" id="Reference" name="Reference"
+                                  <input class="form-control validation-text text-box single-line" id="Reference" name="Reference"
                                          type="text" value="">
                                 </div>
                               </div>
@@ -449,24 +546,24 @@
                     </div>
 
                     <!-- step 5  -->
-                    <div class="step-box" data-step="5">
+                    <div class="step-box" data-step="6">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
-                          <h3 class="font-600 pb-4">Payment Information</h3>
+                          <h3 class="font-600">Payment Information</h3>
+                          <p class="m-0 text-danger">(Fields marked with * are required to fill up)</p>
                         </div>
 
                         <div class="step-box-body">
                           <div class="row">
                             <div class="col-md-12">
-                              <div class="form-group required-group">
+                              <div class="form-group">
                                 <label for="card-number">Card Number <span
                                   class="text-danger required-mark">*</span></label>
                                 <div class="cc-number-holder">
                                   <input type="text" maxlength="16" class="form-control validation-cc-number cc-number"
                                          id="card-number" name="CardNumber">
                                   <div class="cc-card-identity">
-                                    <img
-                                      src="https://secure-api.net/Content/event-management-assets/individual-multiple-assets/images/card_mockup.png">
+                                    <img src="https://secure-api.net/Content/event-management-assets/individual-multiple-assets/images/card_mockup.png" alt="card icon">
                                   </div>
                                 </div>
                               </div>
@@ -476,7 +573,7 @@
                               <div class="form-group required-group">
                                 <label for="exp-month">Exp. Month</label>
                                 <select class="form-select form-control" id="exp-month" name="ExpMonth">
-                                  <option value="">Expiry Month</option>
+                                  <option value="" data-value="null">Expiry Month</option>
                                   <option value="1">01</option>
                                   <option value="2">02</option>
                                   <option value="3">03</option>
@@ -485,7 +582,7 @@
                             </div>
 
                             <div class="col-sm-6 col-md-4">
-                              <div class="form-group required-group">
+                              <div class="form-group">
                                 <label for="exp-year">Exp. Year</label>
                                 <select class="form-select form-control" id="exp-year" name="ExpYear">
                                   <option value="">Expiry Year</option>
@@ -497,14 +594,21 @@
                             </div>
 
                             <div class="col-sm-6 col-md-4">
-                              <div class="form-group required-group">
+                              <div class="form-group">
                                 <label for="cvc">CVC</label>
-                                <input type="number" maxlength="3" class="form-control" id="cvc" name="Cvc">
+                                <input type="text" class="form-control validation-number" id="cvc" name="Cvc" data-max-length="3" data-min-length="3">
                               </div>
                             </div>
 
-                            <div class="col-md-12">
-                              <div class="form-group required-group">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label for="cc-zipcode">Zipcode</label>
+                                <input type="text" class="form-control validation-number" id="cc-zipcode" name="CcZipcode" data-min-length="5" data-max-length="5">
+                              </div>
+                            </div>
+
+                            <div class="col-md-8">
+                              <div class="form-group">
                                 <label for="cardholder-name">Cardholder Name</label>
                                 <input type="text" class="form-control" id="cardholder-name" name="CardholderName">
                               </div>
@@ -514,26 +618,36 @@
 
                           <div class="waiver-wrapper pt-4">
 
-                            <div class="callout callout-info mb-2">
-                              <p class="text-medium font-600 m-0">Read <a href="#" data-bs-toggle="modal"
-                                                                          data-bs-target="#modal-waiver">Code of
-                                Conduct</a></p>
-                            </div>
+                            <div class="alert alert-secondary bg-white">
+                              <div class="callout callout-info mb-2">
+                                <p class="text-medium font-600 m-0">Read <a href="#" data-bs-toggle="modal"
+                                                                            data-bs-target="#modal-waiver">Code of
+                                  Conduct</a></p>
+                              </div>
 
-                            <div class="callout callout-info mb-2">
-                              <p class="text-medium font-600 m-0">Read <a href="#" data-bs-toggle="modal"
-                                                                          data-bs-target="#modal-terms">Terms &
-                                Conditions</a></p>
-                            </div>
+                              <div class="callout callout-info mb-2">
+                                <p class="text-medium font-600 m-0">Read <a href="#" data-bs-toggle="modal"
+                                                                            data-bs-target="#modal-terms">Terms &
+                                  Conditions</a></p>
+                              </div>
 
-                            <div class="pt-2">
-                              <div class="form-check">
-                                <input class="form-check-input check-md" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                  I have read and agree to the code fo conduct and terms & conditions.
-                                </label>
+                              <div class="pt-2">
+                                <div class="form-group required-group">
+                                  <div class="form-check check-group">
+                                    <input class="form-check-input check-md" type="checkbox"
+                                           value=""
+                                           id="flexCheckDefault_"
+                                           data-value="terms">
+                                    <label class="form-check-label" for="flexCheckDefault_">
+                                      I have read and agree to the code fo conduct and terms & conditions.
+                                    </label>
+                                    <input type="hidden" class="form-control validation-radio">
+                                  </div>
+                                </div>
                               </div>
                             </div>
+
+
 
                           </div>
 
@@ -707,12 +821,38 @@
     </div>
   </div>
 
+  <!-- modal confirm -->
+  <div class="modal" tabindex="-1" id="modal-confirm" data-bs-backdrop="static" data-bs-keybord="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="d-flex justify-content-end pe-3 pt-3">
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <svg aria-hidden="true" class="icon-svg-close" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="pt-2 pb-4">
+            <h4 class="text-center">You are about authorize <span class="font-bold">$<span class="amount-to-authorize">600</span></span> </h4>
+
+            <div class="text-center pt-4">
+              <button type="button" class="btn btn-secondary btn-lg me-4" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-success btn-lg btn-confirm-js">Confirm</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- jquery -->
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <!-- datepicker -->
-<script src="node_modules/jquery-ui-datepicker-with-i18n/ui/jquery.ui.datepicker.js"></script>
+<!--<script src="node_modules/@chenfengyuan/datepicker/dist/datepicker.min.js"></script>-->
+<!-- bootstrap datepicker -->
+<script src="node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- bootstrap -->
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- intl-tel-phone -->
@@ -723,7 +863,7 @@
 <script src="assets/js/phone_validator.js"></script>
 
 <!-- script.js -->
-<script src="assets/js/script.js?v=1.0.4"></script>
+<script src="assets/js/script.js?v=1.0.5"></script>
 
 <script>
   function sendOtp(){

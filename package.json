@@ -23,9 +23,12 @@
   },
   "homepage": "https://github.com/rashu-pro/membership-form#readme",
   "dependencies": {
+    "@chenfengyuan/datepicker": "^1.0.10",
     "bootstrap": "^5.2.2",
     "intl-tel-input": "^17.0.19",
     "jquery": "^3.6.1",
-    "jquery-ui-datepicker-with-i18n": "^1.10.4"
+    "jquery-ui": "^1.13.2",
+    "jquery-ui-datepicker-with-i18n": "^1.10.4",
+    "bootstrap-datepicker": "^1.9.0"
   }
 }

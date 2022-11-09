@@ -20,6 +20,35 @@
       }
     }
   }
+
+  &-control{
+    &-date{
+      display: block;
+      width: 100%;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #212529;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border-radius: 0.375rem;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+      &:focus{
+        color: #212529;
+        background-color: #fff;
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13,110,253,0.25);
+      }
+    }
+
+  }
 }
 
 .appearance-none{
@@ -50,6 +79,19 @@
       @media (min-width:768px){
 
       }
+    }
+  }
+}
+
+.check{
+  &-group{
+    &.focused{
+      outline: 1px solid #e91e63;
+      //padding: 5px;
+      //margin: -5px;
+      transform:scale(1.01);
+      border-radius: 4px;
+      background: #fff4f4;
     }
   }
 }
