@@ -33,20 +33,16 @@ fixHeight();
 
 //=== datepicker initialization
 if($(datePickerSelector).length>0){
-  // $(datePickerSelector).datepicker();
+  $(datePickerSelector).datepicker({
+    autoclose:true,
+  });
   $(datePickerSelector).datepicker().on('changeDate', function(e) {
-      $(datePickerSelector).trigger('blur');
+      $(this).trigger('blur');
   });
 
   $(datePickerSelector).datepicker().on('show', function(e) {
-    console.log('shown!');
     $(this).closest('.form-group').find('.error-message').hide();
   });
-}
-
-//=== radio select validation
-if($(radioGroupSelector).length>0){
-
 }
 
 
@@ -159,7 +155,6 @@ $(document).on('click', '.btn-navigation-js', function (e){
     setTimeout(()=>{
       stepMovePrev(stepCurrent);
       if(stepPrev<3){
-        console.log('in clkd');
         $('.step-details .btn-prev').css('display','none');
       }
       if(parseInt($('.step-box.active').attr('data-step'))!==stepBoxCount) $('.btn-navigation-js[data-action=increase] span').html($('.btn-navigation-js[data-action=increase]').attr('data-text'));
@@ -182,8 +177,6 @@ $(document).on('click', '.btn-navigation-js', function (e){
     loaderDisable(loaderDivClass);
     $('#modal-confirm').modal('show');
     return;
-    // submitTheForm();
-    // return;
   }
 
   setTimeout(()=>{
