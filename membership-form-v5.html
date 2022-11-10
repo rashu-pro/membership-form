@@ -201,7 +201,7 @@
                     </div>
 
                     <!-- step 2  -->
-                    <div class="step-box active" data-step="2">
+                    <div class="step-box" data-step="2">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600">Member Information</h3>
@@ -312,7 +312,6 @@
                               </div>
                             </div>
                           </div>
-
                         </div>
                       </div>
                     </div>
@@ -438,11 +437,10 @@
                         </div>
 
                         <div class="step-box-body">
-
                           <div class="form-group required-group">
                             <div class="radio-group check-group">
                               <div class="mb-4">
-                                <div class="form-check form-check-lg">
+                                <div class="form-check platinum form-check-lg">
                                   <input class="form-check-input" type="radio" name="MembershipType" id="platinum"
                                          data-membership-type-key="kljhsdjf-dsdfdsdfssfojdslksdfsdfjds"
                                          data-product-key="iouyoi3353dueijwrthewrtoihwedsfsdf"
@@ -459,7 +457,7 @@
                               </div>
 
                               <div class="mb-4">
-                                <div class="form-check form-check-lg">
+                                <div class="form-check gold form-check-lg">
                                   <input class="form-check-input" type="radio" name="MembershipType" id="gold"
                                          data-membership-type-key="kljhsdjf-dsfojdslksdfsdfjds"
                                          data-product-key="iouyoiueijwrthewrtoihwedsfsdf"
@@ -476,7 +474,7 @@
                               </div>
 
                               <div class="">
-                                <div class="form-check form-check-lg">
+                                <div class="form-check silver form-check-lg">
                                   <input class="form-check-input" type="radio" name="MembershipType" id="silver"
                                          data-membership-type-key="kljhsdjf-dsfojdsdsfsdlksdfsdfjds"
                                          data-product-key="iouyoiueijsdfdswrthewrtoihwedsfsdf"
@@ -499,8 +497,6 @@
                               <input type="hidden" class="membership-amount" name="MembershipRole3">
                             </div>
                           </div>
-
-
                           <div>
 
                             <hr>
@@ -511,7 +507,7 @@
                                   <label class="" for="date-picker">Date</label>
                                   <div class="input-group">
                                     <input type="text" class="form-control form-control-date validation-text date-picker-js" id="date-picker" placeholder="">
-                                    <label for="date-picker" class="input-group-text" id="basic-addon2"><img src="assets/images/date.png" alt="datepicker"></label>
+                                    <label for="date-picker" class="input-group-text"><img src="assets/images/date.png" alt="datepicker"></label>
                                   </div>
                                 </div>
                               </div>
@@ -541,12 +537,10 @@
 
                         </div>
                       </div>
-
-
                     </div>
 
                     <!-- step 5  -->
-                    <div class="step-box" data-step="6">
+                    <div class="step-box active" data-step="6">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600">Payment Information</h3>
@@ -832,14 +826,15 @@
         </div>
         <div class="modal-body">
           <div class="pt-2 pb-4">
-            <h4 class="text-center">You are about authorize <span class="font-bold">$<span class="amount-to-authorize">600</span></span> </h4>
-
-            <div class="text-center pt-4">
-              <button type="button" class="btn btn-secondary btn-lg me-4" data-bs-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-success btn-lg btn-confirm-js">Confirm</button>
-            </div>
+            <p class="secure-alert text-medium font-600 m-0 mb-3 text-center text-success"><img src="assets/images/icon_shield.png" alt="secure by sectigo"> Secured by SECTIGO</p>
+            <h4 class="text-center font-600">You are about authorize <span class="font-bold">$<span class="amount-to-authorize">600</span></span> </h4>
           </div>
 
+        </div>
+
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary btn-lg me-4" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-success btn-lg btn-confirm-js">Confirm</button>
         </div>
       </div>
     </div>

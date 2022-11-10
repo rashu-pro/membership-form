@@ -1,0 +1,311 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Membership Form</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="apple-touch-icon" href="assets/images/favicon_icgc.png">
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="icon" href="assets/images/favicon_icgc.png">
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <!-- intl-tel-input -->
+  <link rel="stylesheet" href="node_modules/intl-tel-input/build/css/intlTelInput.min.css">
+  <!-- datepicker css -->
+<!--  <link rel="stylesheet" href="node_modules/@chenfengyuan/datepicker/dist/datepicker.min.css">-->
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+  <!-- main style -->
+  <link rel="stylesheet" href="assets/css/style.css?v=1.0.5">
+</head>
+
+<body>
+
+<div class="main">
+  <!--header -->
+  <header class="header">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-center py-2">
+        <a href="membership-v1.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
+          <img src="assets/images/logo_icgc.png" class="logo-image img-fluid" alt="ICGC">
+        </a>
+
+        <div>
+          <img src="assets/images/powered_by_ms_3_resized.png" class="logo-power-ms" alt="Masjid Solutions">
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <div class="main-wrapper">
+    <!-- THANK YOU WRAPPER -->
+    <div class="thank-wrapper v2">
+      <div class="container">
+        <div class="thank-body pt-3 pt-md-5">
+          <div class="thank-message mt-3">
+            <div class="icon-holder text-center pb-2">
+              <img src="assets/images/check-mark_70.png" alt="success">
+            </div>
+
+            <div class="thank-message-text">
+              <h3 class="thank-text text-center m-0">Thank You</h3>
+              <h3 class="text-center font-600">Your registration for GOLD Membership is complete.</h3>
+            </div>
+
+            <div class="extra-info pt-4 pb-4">
+              <div class="d-flex align-items-sm-center extra-info-row pb-4">
+                <div class="">
+                  <img src="assets/images/email_styled.png" alt="email icon">
+                </div>
+                <div class="ps-3">
+                  <p class="m-0">An email including your registration details has been sent to your email.</p>
+                </div>
+              </div>
+
+              <div class="row justify-content-center">
+                <div class="col-md-9">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="text-center py-2">
+                        <h3 class="pb-2">Visit our Website</h3>
+                        <a href="https://icgc.us" class="btn btn-dark btn-long btn-lg">icgc.us</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- THANK FOOT -->
+          <div class="thank-foot pb-3 pb-md-5">
+            <!-- charge alert -->
+            <div class="alert alert-success mt-4">
+              <p class="text-medium font-600 text-black m-0">You will see a charge from "ICGC" on your credit card/bank statement.</p>
+            </div>
+
+            <div class="mt-3">
+              <p class="text-medium font-600 text-black">Please email us to <a href="mailto:info@icgc.us">info@icgc.us</a> with any issues or questions.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- footer -->
+  <footer class="footer py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-6">
+          <p class="text-center text-md-start m-0">© ICGC. All Rights Reserved, 2022 </p>
+        </div>
+        <div class="col-md-12 col-lg-6">
+          <p class="m-0 text-center text-md-end text-lg-end pb-md-2 pb-lg-0"><a href="htttps://masjidsolutions.net" target="_blank"> masjidsolutions.net</a>
+            (317) 854 0207 </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LOADER -->
+  <div class="loader-div">
+    <div class="lds-spinner">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- modal -->
+
+  <!-- code of conduct modal -->
+  <div class="modal" tabindex="-1" id="modal-waiver" data-bs-backdrop="static" data-bs-keybord="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title font-bold">Code of Conduct</h5>
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <svg aria-hidden="true" class="icon-svg-close" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="py-2 px-sm-3 px-md-4">
+            <p>ICGC Youth is a community-based organization providing youth based programs for the
+              muslim community in cincinnati. Participation in the organization’s programs is subject
+              to the observance of the organization’s rules and procedures. The activities outlined
+              below are strictly prohibited. Any participant who violates this Code is subject to
+              discipline, up to and including removal from the program.</p>
+
+            <ul>
+              <li>Youth participants must refrain from engaging in any type of violence,
+                bullying, harassment, or abusive behavior towards adults and peers.</li>
+              <li>Youth participants must refrain from the possession or use of alcoholic
+                beverages, illegal drugs, explosives, firearms, weapons or other similar items on
+                ICGC’s property.</li>
+              <li>Youth participants must respect, adhere to the rules of, and follow the
+                instructions given to them by a counselor, facilitator or leader. (Group facilitator,
+                counselor, youth coordinators, volunteer, etc.).</li>
+              <li>Youth participants must show kindness and respect to the people around
+                them (their peers, community elders, group leaders, counselors, etc.) and
+                their surrounding environment (masjid property, classroom, field trip
+                facilities, etc.)</li>
+            </ul>
+            <h4 class="font-600">Action Steps</h4>
+            <ol>
+              <li>1st Strike: Report to Youth Coordinator - Parents are notified of infraction.</li>
+              <li>2nd Strike: Parent and participant meeting with staff & Youth Coordinator</li>
+              <li>3rd Strike: Suspension from program</li>
+              <li>Reinstatement Process: Parent & participant meeting with staff and Youth Coordinator.</li>
+            </ol>
+
+            <p class="font-600">
+              I have read and I understand the ICGC Youth Code of Conduct. I agree to abide by the
+              rules described above and understand that I may be removed as a participant if I violate
+              any of these rules.
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-lg" data-bs-dismiss="modal">I Agree</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- terms & conditions modal -->
+  <div class="modal" tabindex="-1" id="modal-terms" data-bs-backdrop="static" data-bs-keybord="false">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title font-bold">Terms & Conditions</h5>
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <svg aria-hidden="true" class="icon-svg-close" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="py-2 px-sm-3 px-md-4">
+            <p>ICGC Youth is a community-based organization providing youth based programs for the
+              muslim community in cincinnati. Participation in the organization’s programs is subject
+              to the observance of the organization’s rules and procedures. The activities outlined
+              below are strictly prohibited. Any participant who violates this Code is subject to
+              discipline, up to and including removal from the program.</p>
+
+            <ul>
+              <li>Youth participants must refrain from engaging in any type of violence,
+                bullying, harassment, or abusive behavior towards adults and peers.</li>
+              <li>Youth participants must refrain from the possession or use of alcoholic
+                beverages, illegal drugs, explosives, firearms, weapons or other similar items on
+                ICGC’s property.</li>
+              <li>Youth participants must respect, adhere to the rules of, and follow the
+                instructions given to them by a counselor, facilitator or leader. (Group facilitator,
+                counselor, youth coordinators, volunteer, etc.).</li>
+              <li>Youth participants must show kindness and respect to the people around
+                them (their peers, community elders, group leaders, counselors, etc.) and
+                their surrounding environment (masjid property, classroom, field trip
+                facilities, etc.)</li>
+            </ul>
+            <h4 class="font-600">Action Steps</h4>
+            <ol>
+              <li>1st Strike: Report to Youth Coordinator - Parents are notified of infraction.</li>
+              <li>2nd Strike: Parent and participant meeting with staff & Youth Coordinator</li>
+              <li>3rd Strike: Suspension from program</li>
+              <li>Reinstatement Process: Parent & participant meeting with staff and Youth Coordinator.</li>
+            </ol>
+
+            <p class="font-600">
+              I have read and I understand the ICGC Youth Code of Conduct. I agree to abide by the
+              rules described above and understand that I may be removed as a participant if I violate
+              any of these rules.
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-lg" data-bs-dismiss="modal">I Agree</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal confirm -->
+  <div class="modal" tabindex="-1" id="modal-confirm" data-bs-backdrop="static" data-bs-keybord="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="d-flex justify-content-end pe-3 pt-3">
+          <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <svg aria-hidden="true" class="icon-svg-close" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="pt-2 pb-4">
+            <h4 class="text-center">You are about authorize <span class="font-bold">$<span class="amount-to-authorize">600</span></span> </h4>
+
+            <div class="text-center pt-4">
+              <button type="button" class="btn btn-secondary btn-lg me-4" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-success btn-lg btn-confirm-js">Confirm</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- jquery -->
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<!-- datepicker -->
+<!--<script src="node_modules/@chenfengyuan/datepicker/dist/datepicker.min.js"></script>-->
+<!-- bootstrap datepicker -->
+<script src="node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- bootstrap -->
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- intl-tel-phone -->
+<script src="node_modules/intl-tel-input/build/js/intlTelInput.min.js"></script>
+<!-- card validation -->
+<script src="assets/js/card_validation.js"></script>
+<!-- intl-tel-phone initialization -->
+<script src="assets/js/phone_validator.js"></script>
+
+<!-- script.js -->
+<script src="assets/js/script.js?v=1.0.5"></script>
+
+<script>
+  function sendOtp(){
+    return true;
+  }
+
+  function otpVerification(){
+    return true;
+  }
+
+  function submitTheForm(){
+    window.location.href="thank-you.html";
+  }
+</script>
+</body>
+
+</html>

@@ -115,3 +115,11 @@
     }
   }
 }
+
+.secure{
+  &-alert{
+    img{
+      max-height:22px;
+    }
+  }
+}

@@ -19,6 +19,24 @@
         height:1.4em;
       }
     }
+
+    &.platinum{
+      .form-check-label{
+        color:#dc3545;
+      }
+    }
+
+    &.gold{
+      .form-check-label{
+        color:#ffc107;
+      }
+    }
+
+    &.silver{
+      .form-check-label{
+        color:#0dcaf0;
+      }
+    }
   }
 
   &-control{

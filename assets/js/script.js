@@ -342,12 +342,12 @@ $(document).on('change', '.check-group input[type=checkbox]', function (e){
  * -------- event if the page doesn't have enough contents
  */
 function fixHeight() {
-  let headerHeight = parseFloat($('.header').css('height')),
-    footerHeight = parseFloat($('.footer').css('height')),
+  let headerHeight = parseFloat($('.header').outerHeight()),
+    footerHeight = parseFloat($('.footer').outerHeight()),
     mainWrapperMarginTop = parseFloat($('.main-wrapper').css('margin-top')),
     mainWrapperMarginBottom = parseFloat($('.main-wrapper').css('margin-bottom')),
     heightToMinusReady = headerHeight + footerHeight + mainWrapperMarginTop + mainWrapperMarginBottom,
-    heightToMinus = "calc(100vh - " + heightToMinusReady + "px)";
+    heightToMinus = "calc(100vh - " + (headerHeight + footerHeight) + "px)";
   $('.main-wrapper').css('min-height', heightToMinus);
 }
 
