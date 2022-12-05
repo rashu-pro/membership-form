@@ -35,7 +35,6 @@ fixHeight();
 if($(datePickerSelector).length>0){
   $(datePickerSelector).datepicker({
     autoclose:true,
-    startDate: new Date()
   });
   $(datePickerSelector).datepicker().on('changeDate', function(e) {
       $(this).trigger('blur');
@@ -278,8 +277,8 @@ $(document).on('keypress', '.input-phone-number', function (e){
  * -------------------------------------
  */
 $(document).on('change', '.select-with-other-wrapper select.form-control', function (){
-  let self = $(this);
-  if(self.find(':selected').attr('data-action')==='other'){
+    let self = $(this);
+    if (self.val() === 'other') {
     self.closest('.select-with-other-wrapper').find('.other-wrapper').removeClass('d-none')
   }else{
     self.closest('.select-with-other-wrapper').find('.other-wrapper .form-control').val('');
