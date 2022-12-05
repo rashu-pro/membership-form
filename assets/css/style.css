@@ -154,7 +154,7 @@
 
 html, body {
   font-size: 16px;
-  line-height: 1.8rem;
+  line-height: 2rem;
   font-family: 'Montserrat',sans-serif; }
 
 .font-600 {
@@ -365,7 +365,7 @@ html, body {
     .step-form-wrapper.v4 .step-list-sidebar {
       margin-right: -34px; }
   .step-form-wrapper.v5 .step-form-main {
-    border: 2px solid #ddd;
+    border: 1px solid #ddd;
     position: relative; }
     .step-form-wrapper.v5 .step-form-main:after, .step-form-wrapper.v5 .step-form-main:before {
       content: '';
@@ -373,21 +373,29 @@ html, body {
       left: -2px;
       width: 2px;
       height: 100%;
-      background-color: #ddd;
+      background-color: transparent;
       z-index: 9; }
+      @media (min-width: 992px) {
+        .step-form-wrapper.v5 .step-form-main:after, .step-form-wrapper.v5 .step-form-main:before {
+          background-color: #ddd; } }
     .step-form-wrapper.v5 .step-form-main:after {
       bottom: 0; }
     .step-form-wrapper.v5 .step-form-main:before {
       top: 0; }
+    @media (min-width: 992px) {
+      .step-form-wrapper.v5 .step-form-main {
+        border-width: 2px; } }
 
 .step-form-main {
   background-color: #fff; }
 
 .step-form-sidebar {
   background-color: #f8f7fa;
-  position: absolute; }
-  @media (min-width: 576px) {
+  position: absolute;
+  display: none; }
+  @media (min-width: 992px) {
     .step-form-sidebar {
+      display: block;
       position: relative; } }
 
 .step-list {
@@ -485,7 +493,7 @@ html, body {
   margin: 0; }
 
 .step-details {
-  padding: 30px 40px;
+  padding: 30px 30px;
   position: relative;
   height: 100%;
   display: flex;
@@ -507,7 +515,7 @@ html, body {
     .step-box-head h3 {
       text-transform: uppercase;
       font-weight: 800;
-      font-size: 24px;
+      font-size: 22px;
       margin: 0; }
       @media (min-width: 576px) {
         .step-box-head h3 {
@@ -741,13 +749,14 @@ html, body {
       bottom: -18px; }
 
 .icon-list {
+  line-height: 1.8;
   display: flex;
   align-items: flex-start; }
   .icon-list img {
     max-height: 18px;
     margin-right: 8px;
     position: relative;
-    top: 3px; }
+    top: 4px; }
 
 .card-accordion {
   margin-bottom: 30px;

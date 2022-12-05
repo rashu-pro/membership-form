@@ -74,7 +74,7 @@
 
               <div class="row step-form-main-row">
                 <!-- sidebar -->
-                <div class="col-md-4 step-form-sidebar">
+                <div class="col-lg-4 step-form-sidebar">
                   <div class="step-list-sidebar">
 
                     <div class="step-list completed" data-step="1">
@@ -151,7 +151,7 @@
                 </div>
 
                 <!-- content -->
-                <div class="col-md-8">
+                <div class="col-lg-8">
                   <div class="step-details">
 
                     <!-- step 1  -->
@@ -201,7 +201,7 @@
                     </div>
 
                     <!-- step 2  -->
-                    <div class="step-box" data-step="2">
+                    <div class="step-box active" data-step="2">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600">Member Information</h3>
@@ -282,7 +282,7 @@
                                     <option value="">--SELECT--</option>
                                     <option value="US Citizen">US Citizen</option>
                                     <option value="Permanent Resident">Permanent Resident</option>
-                                    <option value="Other" data-action="other">Other</option>
+                                    <option data-action="other">Other</option>
                                   </select>
                                 </div>
 
@@ -540,7 +540,7 @@
                     </div>
 
                     <!-- step 5  -->
-                    <div class="step-box active" data-step="6">
+                    <div class="step-box" data-step="6">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600">Payment Information</h3>
@@ -567,7 +567,7 @@
                               <div class="form-group required-group">
                                 <label for="exp-month">Exp. Month</label>
                                 <select class="form-select form-control" id="exp-month" name="ExpMonth">
-                                  <option value="" data-value="null">Expiry Month</option>
+                                  <option value>Expiry Month</option>
                                   <option value="1">01</option>
                                   <option value="2">02</option>
                                   <option value="3">03</option>
@@ -576,10 +576,10 @@
                             </div>
 
                             <div class="col-sm-6 col-md-4">
-                              <div class="form-group">
+                              <div class="form-group required-group">
                                 <label for="exp-year">Exp. Year</label>
                                 <select class="form-select form-control" id="exp-year" name="ExpYear">
-                                  <option value="">Expiry Year</option>
+                                  <option value>Expiry Year</option>
                                   <option value="1">01</option>
                                   <option value="2">02</option>
                                   <option value="3">03</option>
@@ -602,9 +602,9 @@
                             </div>
 
                             <div class="col-md-8">
-                              <div class="form-group">
+                              <div class="form-group required-group">
                                 <label for="cardholder-name">Cardholder Name</label>
-                                <input type="text" class="form-control" id="cardholder-name" name="CardholderName">
+                                <input type="text" class="form-control validation-text" id="cardholder-name" name="CardholderName" data-min-length="6">
                               </div>
                             </div>
 
@@ -660,7 +660,6 @@
                         </button>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -869,7 +868,7 @@
   }
 
   function submitTheForm(){
-    window.location.href="thank-you.html";
+    window.location.href="success.html";
   }
 </script>
 </body>

@@ -36,13 +36,13 @@
   <!--header -->
   <header class="header">
     <div class="container">
-      <div class="d-flex flex-wrap justify-content-center align-items-center py-2">
+      <div class="d-flex flex-wrap justify-content-between align-items-center py-2">
         <a href="membership-v1.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
           <img src="assets/images/logo_icgc.png" class="logo-image img-fluid" alt="ICGC">
         </a>
 
         <div>
-          <img src="assets/images/powered_by_ms_3_resized.png" alt="Masjid Solutions">
+          <img src="assets/images/powered_by_ms_3_resized.png" class="logo-power-ms" alt="Masjid Solutions">
         </div>
       </div>
     </div>
@@ -195,14 +195,6 @@
                       If using automatic withdrawal, submit a void check to the <strong>ICGC</strong> to authorize payment.
                     </span>
                   </p>
-
-                  <p class="icon-list">
-                    <img src="assets/images/rec.png" alt="list">
-                    <span>
-                      <strong class="d-block">Silver $240.00 </strong>
-                      Full Payment or  Automatic Deduction ($20/month)
-                    </span>
-                  </p>
                 </div>
               </div>
             </div>
@@ -298,14 +290,14 @@
                     </div>
 
                     <div class="step-list last" data-step="6">
-                <span class="step-mark">
-                  <img src="assets/images/tick.png" alt="complete">
-                </span>
+                      <span class="step-mark">
+                        <img src="assets/images/tick.png" alt="complete">
+                      </span>
                       <p class="step-title">Payment Information</p>
 
                       <div class="edit mt-2">
-                        <button type="button" class="btn btn-secondary btn-sm btn-edit-step-js" data-step="6"><img src="assets/images/edit.png"
-                                                                                                                   alt="edit"> Edit
+                        <button type="button" class="btn btn-secondary btn-sm btn-edit-step-js" data-step="6">
+                          <img src="assets/images/edit.png" alt="edit"> Edit
                         </button>
                       </div>
                     </div>
@@ -394,7 +386,7 @@
                             </div>
 
                             <div class="col-md-6">
-                              <div class="form-group phone-number-validator-wrapper">
+                              <div class="form-group required-group phone-number-validator-wrapper">
                                 <label for="phone-number-personal">Phone Number (Personal) <span
                                   class="required-mark text-danger">*</span></label>
                                 <input type="text" class="form-control phone-number-validator input-phone-number"
@@ -766,7 +758,7 @@
                             <div class="col-md-8">
                               <div class="form-group">
                                 <label for="cardholder-name">Cardholder Name</label>
-                                <input type="text" class="form-control" id="cardholder-name" name="CardholderName">
+                                <input type="text" class="form-control validation-text" id="cardholder-name" name="CardholderName" data-min-length="6">
                               </div>
                             </div>
 
@@ -822,7 +814,6 @@
                         </button>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>

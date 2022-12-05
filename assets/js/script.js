@@ -276,7 +276,7 @@ $(document).on('keypress', '.input-phone-number', function (e){
  * 6. EVENT LISTENER: CHANGE
  * -------------------------------------
  */
-$(document).on('change', '.select-with-other-wrapper .form-control', function (){
+$(document).on('change', '.select-with-other-wrapper select.form-control', function (){
   let self = $(this);
   if(self.find(':selected').attr('data-action')==='other'){
     self.closest('.select-with-other-wrapper').find('.other-wrapper').removeClass('d-none')
@@ -380,33 +380,46 @@ function singleValidation(formControl, formGroup, invalidClassName, validClassNa
 
   //=== INPUT FIELD VALIDATION: TEXT FIELD
   if(formControl.hasClass('validation-text')){
+    paramObj.errorMessage="invalid input!";
+    if(formControl.attr('data-min-length') && formControl.attr('data-max-length')){
+      formControl.val().length>=formControl.attr('data-min-length') && formControl.val().length<=formControl.attr('data-max-length')?validationSuccess(paramObj):validationFailed(paramObj);
+      return;
+    }
+
+    if(formControl.attr('data-min-length')){
+      formControl.val().length>=formControl.attr('data-min-length')?validationSuccess(paramObj):validationFailed(paramObj);
+      return;
+    }
+
+    if(formControl.attr('data-max-length')){
+      formControl.val().length<=formControl.attr('data-max-length')?validationSuccess(paramObj):validationFailed(paramObj);
+      return;
+    }
     formControl.val()!==''?validationSuccess(paramObj):validationFailed(paramObj);
   }
 
   //=== ONLY NUMBER VALIDATION
   if(formControl.hasClass('validation-number')){
+    paramObj.errorMessage="invalid input!";
+    if(formControl.attr('data-min-length') && formControl.attr('data-max-length')){
+      isNumber(formControl.val()) && formControl.val().length>=formControl.attr('data-min-length') && formControl.val().length<=formControl.attr('data-max-length')?validationSuccess(paramObj):validationFailed(paramObj);
+      return;
+    }
+
     if(formControl.attr('data-min-length')){
-      paramObj.errorMessage="invalid input!";
       isNumber(formControl.val())&&formControl.val().length>=formControl.attr('data-min-length')?validationSuccess(paramObj):validationFailed(paramObj);
+      return;
     }
 
     if(formControl.attr('data-max-length')){
-      paramObj.errorMessage="invalid input!";
       isNumber(formControl.val())&&formControl.val().length<=formControl.attr('data-max-length')?validationSuccess(paramObj):validationFailed(paramObj);
+      return;
     }
-
-    if(formControl.attr('data-min-length') && formControl.attr('data-max-length')){
-      paramObj.errorMessage="invalid input!";
-      isNumber(formControl.val()) && formControl.val().length>=formControl.attr('data-min-length') && formControl.val().length<=formControl.attr('data-max-length')?validationSuccess(paramObj):validationFailed(paramObj);
-    }
+    isNumber(formControl.val())?validationSuccess(paramObj):validationFailed(paramObj);
   }
 
   //=== SELECT DROPDOWN VALIDATION
   if(formControl.prop('tagName')==='SELECT'){
-    if(formControl.find('option:selected').val()==="null"){
-      validationFailed(paramObj)
-      return;
-    }
     formControl.val()!==''?validationSuccess(paramObj):validationFailed(paramObj);
   }
 
@@ -549,6 +562,11 @@ function stepMovePrev(stepCurrent){
   }
 }
 
+/**
+ * Moves step to the next step
+ *
+ * @param stepCurrent
+ */
 function stepMoveNext(stepCurrent){
   if(stepCurrent>1){
     $('.step-details .btn-prev').css('display','inline-block');
@@ -560,6 +578,11 @@ function stepMoveNext(stepCurrent){
   $('.step-list-sidebar .step-list[data-step='+(stepCurrent+1)+']').addClass('active');
 }
 
+/**
+ * Moves step to the given step
+ *
+ * @param stepNumber
+ */
 function stepMoveExact(stepNumber){
   $('.step-details .step-box').removeClass('active');
   $('.step-box[data-step='+stepNumber+']').addClass('active');
