@@ -35,6 +35,7 @@ fixHeight();
 if($(datePickerSelector).length>0){
   $(datePickerSelector).datepicker({
     autoclose:true,
+    startDate: new Date()
   });
   $(datePickerSelector).datepicker().on('changeDate', function(e) {
       $(this).trigger('blur');
@@ -148,6 +149,22 @@ $(document).on('click', '.btn-navigation-js', function (e){
     stepPrev = stepCurrent - 1,
     stepBoxCount = $('.step-details .step-box').length,
     requiredFieldGroup = rootParent.find('.form-group.required-group');
+
+  //=== payment form show/hide
+  let amount = parseFloat($('.membership-amount-js').val()).toFixed(2);
+  console.log('amount: ', amount);
+  $('.payment-info-js').removeClass('d-none');
+  $('.payment-info-js').find('.is-require').addClass('required-group');
+  if(amount==='NaN' || amount<1){
+    $('.payment-info-js').addClass('d-none');
+    $('.payment-info-js').find('.is-require').removeClass('required-group');
+    $('.payment-info-js').find('.is-require').removeClass('field-validated');
+    $('.payment-info-js').find('.is-require .error-message').removeClass('required-group');
+    $('.payment-info-js').find('.is-require input').removeClass('field-invalid invalid');
+    $('.payment-info-js').find('.is-require select').removeClass('field-invalid invalid');
+    $('.payment-info-js').find('.is-require input').removeClass('valid');
+    $('.payment-info-js').find('.is-require select').removeClass('valid');
+  }
 
   //=== previous button click action
   if(self.attr('data-action')==='decrease'){
@@ -277,8 +294,8 @@ $(document).on('keypress', '.input-phone-number', function (e){
  * -------------------------------------
  */
 $(document).on('change', '.select-with-other-wrapper select.form-control', function (){
-    let self = $(this);
-    if (self.val() === 'other') {
+  let self = $(this);
+  if(self.find(':selected').attr('data-action')==='other'){
     self.closest('.select-with-other-wrapper').find('.other-wrapper').removeClass('d-none')
   }else{
     self.closest('.select-with-other-wrapper').find('.other-wrapper .form-control').val('');
@@ -293,9 +310,17 @@ $(document).on('change', '.radio-group input[type=radio]', function (){
     membershipTypeKey = self.attr('data-membership-type-key'),
     productKey = self.attr('data-product-key'),
     amount = self.attr('data-amount'),
+    dataFrequency = self.attr('data-freequency'),
     membershipTypeSelector = self.attr('data-membership-type-selector'),
     productKeySelector = self.attr('data-product-key-selctor'),
     amountSelector = self.attr('data-amount-selector');
+
+  $('.auto-renew-wrapper-js').addClass('d-none');
+  $('.auto-renew-wrapper-js input[type=checkbox]').prop('checked', false);
+  if(dataFrequency === 'monthly' || dataFrequency === 'yearly'){
+    $('.auto-renew-wrapper-js').removeClass('d-none');
+  }
+
   self.closest(radioGroupSelector).find('.form-control').val(self.attr('data-value'));
   $(membershipTypeSelector).val(membershipTypeKey);
   $(productKeySelector).val(productKey);

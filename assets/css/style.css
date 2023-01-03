@@ -167,6 +167,18 @@ html, body {
   font-size: 18px;
   line-height: 1.8; }
 
+.text-teal {
+  color: #009688; }
+
+.text-grey {
+  color: #6e6e6e; }
+
+.w-75 {
+  width: auto !important; }
+  @media (min-width: 768px) {
+    .w-75 {
+      width: 75% !important; } }
+
 .btn-long img {
   max-height: 16px;
   position: relative;
@@ -226,6 +238,10 @@ html, body {
     line-height: 1.4;
     font-size: 15px;
     margin-top: 2px; }
+  .form-group .required-mark {
+    display: none; }
+  .form-group.required-group .required-mark {
+    display: inline-block; }
 
 .form-check-lg .form-check-input {
   width: 1.4em;
@@ -239,6 +255,9 @@ html, body {
 
 .form-check.silver .form-check-label {
   color: #0dcaf0; }
+
+.form-check-input {
+  margin-top: 0.4em; }
 
 .form-control-date {
   display: block;
@@ -790,6 +809,12 @@ html, body {
 
 .secure-alert img {
   max-height: 22px; }
+
+.auto-renew-wrapper {
+  padding: 8px 15px;
+  margin-top: -16px;
+  background-color: #f2f2f2;
+  border-radius: 0 0 4px 4px; }
 
 .footer {
   background-color: #050b0e;

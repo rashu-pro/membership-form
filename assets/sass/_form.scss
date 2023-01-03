@@ -10,6 +10,15 @@
         margin-top: 2px;
       }
     }
+
+    .required-mark{
+      display: none;
+    }
+    &.required-group{
+      .required-mark{
+        display: inline-block;
+      }
+    }
   }
 
   &-check{
@@ -36,6 +45,10 @@
       .form-check-label{
         color:#0dcaf0;
       }
+    }
+
+    &-input{
+      margin-top:0.4em;
     }
   }
 
