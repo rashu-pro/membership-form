@@ -152,9 +152,9 @@ $(document).on('click', '.btn-navigation-js', function (e){
 
   //=== payment form show/hide
   let amount = parseFloat($('.membership-amount-js').val()).toFixed(2);
-  console.log('amount: ', amount);
   $('.payment-info-js').removeClass('d-none');
   $('.payment-info-js').find('.is-require').addClass('required-group');
+  $('.is-payment-confirm').removeClass('d-none');
   if(amount==='NaN' || amount<1){
     $('.payment-info-js').addClass('d-none');
     $('.payment-info-js').find('.is-require').removeClass('required-group');
@@ -164,6 +164,8 @@ $(document).on('click', '.btn-navigation-js', function (e){
     $('.payment-info-js').find('.is-require select').removeClass('field-invalid invalid');
     $('.payment-info-js').find('.is-require input').removeClass('valid');
     $('.payment-info-js').find('.is-require select').removeClass('valid');
+
+    $('.is-payment-confirm').addClass('d-none');
   }
 
   //=== previous button click action
@@ -313,7 +315,8 @@ $(document).on('change', '.radio-group input[type=radio]', function (){
     dataFrequency = self.attr('data-freequency'),
     membershipTypeSelector = self.attr('data-membership-type-selector'),
     productKeySelector = self.attr('data-product-key-selctor'),
-    amountSelector = self.attr('data-amount-selector');
+    amountSelector = self.attr('data-amount-selector'),
+    membershipName = self.attr('data-value');
 
   $('.auto-renew-wrapper-js').addClass('d-none');
   $('.auto-renew-wrapper-js input[type=checkbox]').prop('checked', false);
@@ -326,6 +329,7 @@ $(document).on('change', '.radio-group input[type=radio]', function (){
   $(productKeySelector).val(productKey);
   $(amountSelector).val(amount);
   $('#modal-confirm .amount-to-authorize').html(amount);
+  $('#modal-confirm .membership-name').html(membershipName);
 
   if(self.closest('.form-group').hasClass('required-group')){
     singleValidation(self.closest('.form-group').find('.form-control'), self.closest('.form-group'), 'field-invalid', 'field-validated', 'error-message', errorMessage )
