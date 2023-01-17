@@ -68,6 +68,25 @@ $(document).on('click', '.btn-send-otp-js', function (e) {
     rootParent.find('.form-group .form-control.invalid').first().focus();
     return;
   }
+
+  //=== match email
+  if(self.closest('.field-confirmation-wrapper-js')){
+    if(self.closest('.field-confirmation-wrapper-js').find('.field-final-js').val() !== self.closest('.field-confirmation-wrapper-js').find('.field-initial-js').val()){
+      errorMessage = "Email doesn't match!";
+      let paramObj = {
+        "formControl": self.closest('.field-confirmation-wrapper-js').find('.field-final-js'),
+        "formGroup": self.closest('.field-confirmation-wrapper-js').find('.field-final-js').closest('.form-group'),
+        "invalidClassName": 'field-invalid',
+        "validClassName": 'field-validated',
+        "errorMessageClassName": 'error-message',
+        "errorMessage": errorMessage
+      };
+      validationFailed(paramObj);
+      self.closest('.field-confirmation-wrapper-js').find('.field-final-js').focus();
+      return;
+    }
+  }
+
   $('.loader-div').addClass('active');
   //=== email field validated
 
@@ -76,6 +95,10 @@ $(document).on('click', '.btn-send-otp-js', function (e) {
 
     if (result) {
       $('.loader-div').removeClass('active');
+      $('.alert-otp-js').removeClass('animate__headShake');
+      setTimeout(function (){
+        $('.alert-otp-js').addClass('animate__headShake');
+      },100);
       rootParent.removeClass('active');
       rootParent.closest('.step-box').find('.otp-wrapper').addClass('active');
     } else {
@@ -130,7 +153,6 @@ $(document).on('click', '.btn-verify-otp-js', function (e) {
       $('.loader-div').removeClass('active');
 
     } else {
-
       rootParent.find('.form-group').find('.error-message').remove();
       rootParent.find('.form-group').append('<p class="error-message text-danger">Wrong verification code or expired!</p>');
       $('.loader-div').removeClass('active');
@@ -281,6 +303,23 @@ $(document).on('blur', '.form-group.required-group .form-control', function (e) 
   //=== FIELD VALIDATION
   singleValidation(self, self.closest('.form-group'),'field-invalid', 'field-validated', 'error-message', errorMessage);
 });
+
+//=== match email
+$(document).on('blur', '.field-confirmation-wrapper-js .field-final-js', function (){
+  let self = $(this);
+  if(self.val() !== self.closest('.field-confirmation-wrapper-js').find('.field-initial-js').val()){
+    errorMessage = "Email doesn't match!";
+    let paramObj = {
+      "formControl": self.closest('.field-confirmation-wrapper-js').find('.field-final-js'),
+      "formGroup": self.closest('.field-confirmation-wrapper-js').find('.field-final-js').closest('.form-group'),
+      "invalidClassName": 'field-invalid',
+      "validClassName": 'field-validated',
+      "errorMessageClassName": 'error-message',
+      "errorMessage": errorMessage
+    };
+    validationFailed(paramObj);
+  }
+})
 
 //=== allow only number
 $(document).on('keypress', '.input-phone-number', function (e){

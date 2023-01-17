@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="node_modules/intl-tel-input/build/css/intlTelInput.min.css">
 
   <!-- main style -->
-  <link rel="stylesheet" href="assets/css/style.css?v=1.0.2">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.0.7">
 </head>
 
 <body>
@@ -317,38 +317,78 @@
                     <div class="step-box active" data-step="1">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
-                          <h3 class="font-600 pb-4">Join as a member</h3>
+                          <h3 class="font-600">Join as a member</h3>
+                          <p class="m-0 text-danger">(Fields marked with * are required to fill up)</p>
                         </div>
 
                         <div class="step-box-body">
 
-                          <div class="alert alert-primary">
-                            <h5 class="alert-heading d-flex align-items-center"><img src="assets/images/info.png"
-                                                                                     alt="info"> Note: </h5>
-                            <hr>
-                            <p class="m-0">An OTP will be sent to this email to verify.</p>
-                          </div>
-
                           <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-12">
                               <div class="email-wrapper active" id="email-wrapper">
-                                <div class="form-group required-group">
-                                  <label for="email" class="">Email <span
-                                    class="required-mark text-danger">*</span></label>
-                                  <input type="email" class="form-control validation-email" id="email" name="Email">
+                                <div class="alert alert-primary">
+                                  <h5 class="alert-heading d-flex align-items-center"><img src="assets/images/info.png"
+                                                                                           alt="info"> Note: </h5>
+                                  <hr>
+                                  <p class="m-0">An OTP will be sent to this email to verify.</p>
                                 </div>
 
-                                <button type="button" class="btn btn-success btn-lg btn-long btn-send-otp-js"><span>Send OTP</span>
-                                </button>
+                                <div class="field-confirmation-wrapper-js">
+                                  <div class="row pb-4">
+                                    <div class="col-md-6">
+                                      <div class="form-group required-group">
+                                        <label for="email" class="fs-5 fw-semibold">Email <span
+                                          class="required-mark text-danger">*</span></label>
+                                        <input type="email" class="form-control field-v2 field-initial-js validation-email" id="email" name="Email">
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                      <div class="form-group required-group">
+                                        <label for="email-confirm" class="fs-5 fw-semibold">Confirm Email <span
+                                          class="required-mark text-danger">*</span></label>
+                                        <input type="email" class="form-control field-v2 field-final-js validation-email" id="email-confirm" name="Email">
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <button type="button" class="btn btn-success btn-long btn-send-otp-js"><span>Send</span>
+                                  </button>
+                                </div>
                               </div>
 
                               <div class="otp-wrapper">
-                                <div class="form-group required-group">
-                                  <label for="otp-field" class="">OTP</label>
-                                  <input type="text" id="otp-field" class="form-control otp-field" name="Otp">
+                                <!-- alert -->
+                                <div class="alert alert-success alert-otp-js animate__animated">
+                                  <h5 class="alert-heading d-flex align-items-center">
+                                    <img src="assets/images/info-success.png" alt="info"> Authenticator passcode has been sent
+                                  </h5>
+                                  <hr>
+                                  <p class="m-0">
+                                    Please check your email. Copy the six-digit code and verify to continue.
+                                  </p>
                                 </div>
 
-                                <button type="button" class="btn btn-success btn-verify-otp-js">Verify</button>
+                                <div class="row">
+                                  <div class="col-md-8">
+                                    <div class="form-group required-group pb-4">
+                                      <label for="otp-field" class="fs-5 fw-semibold">Enter verification code here</label>
+                                      <input type="text" id="otp-field" class="form-control field-v2 otp-field" name="Otp">
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="button-group">
+                                  <button type="button" class="btn btn-success btn-long btn-verify-otp-js me-3">Verify</button>
+                                </div>
+
+                                <!-- resend otp alert -->
+                                <div class="mb-3 pt-2">
+                                  <hr />
+                                  <p class="pt-2 fs-5s fw-semibold">
+                                    <span class="me-2">Haven't received the OTP? Re-send it:</span>
+                                    <button type="button" class="btn btn-primary btn-send-otp-js">Resend OTP</button></p>
+                                </div>
 
                               </div>
                             </div>
@@ -716,7 +756,7 @@
                       </div>
                     </div>
 
-                    <div class="step-box-foot active mt-4">
+                    <div class="step-box-foot mt-4">
                       <div class="button-group">
                         <button type="button" class="btn btn-dark btn-lg btn-long btn-prev me-3 btn-navigation-js"
                                 data-step="2" data-action="decrease"><img src="assets/images/back.png" alt="prev"><span>Prev</span>
@@ -782,7 +822,8 @@
 <script src="assets/js/card_validation.js"></script>
 
 <!-- script.js -->
-<script src="assets/js/script.js?v=1.0.2"></script>
+<script src="assets/js/script.js?v=1.0.7"></script>
+<!--<script src="assets/js/live/script.js?v=1.0.7"></script>-->
 
 <script>
   function sendOtp() {
