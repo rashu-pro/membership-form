@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
 
   <!-- main style -->
-  <link rel="stylesheet" href="assets/css/style.css?v=1.0.7">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.0.8">
 </head>
 
 <body>
@@ -340,6 +340,7 @@
 
                           <div class="row">
                             <div class="col-md-12">
+
                               <div class="email-wrapper active" id="email-wrapper">
                                 <div class="alert alert-primary">
                                   <h5 class="alert-heading d-flex align-items-center"><img src="assets/images/info.png"
@@ -651,7 +652,7 @@
 
                         <div class="step-box-body">
                           <div class="form-group required-group">
-                            <div class="radio-group check-group">
+                            <div class="radio-group check-group radio-group-membership">
 
                               <div class="mb-4">
                                 <div class="form-check form-check-lg">
@@ -696,7 +697,7 @@
                                   <input class="form-check-input" type="radio" name="MembershipType" id="student"
                                          data-membership-type-key="kljhsdjf-dsdfdsdfssfojdslksdfsdfjds"
                                          data-product-key="iouyoi3353dueijwrthewrtoihwedsfsdf"
-                                         data-amount=""
+                                         data-amount="0"
                                          data-freequency="0"
                                          data-membership-type-selector=".membership-type-key"
                                          data-product-key-selctor=".membership-product-type-key"
@@ -749,11 +750,11 @@
                               </div>
 
 
-                              <input type="hidden" class="form-control validation-radio" value="">
+                              <input type="hidden" class="form-control validation-radio">
 
-                              <input type="hidden" class="membership-product-type-key" name="MembershipRole1">
-                              <input type="hidden" class="membership-type-key" name="MembershipRole2">
-                              <input type="hidden" class="membership-amount membership-amount-js" name="MembershipRole3">
+                              <input type="hidden" class="membership-product-type-key" name="StripeCharge.SelectedProductCode">
+                              <input type="hidden" class="membership-type-key" name="MembershipTypeKey">
+                              <input type="hidden" class="membership-amount membership-amount-js" name="StripeCharge.Amount" id="txtAmount">
                             </div>
                           </div>
 
@@ -762,7 +763,7 @@
                             <hr>
 
                             <!-- auto renew -->
-                            <div class="auto-renew-wrapper auto-renew-wrapper-js mb-3 d-none">
+                            <div class="auto-renew-wrapper after-hr auto-renew-wrapper-js mb-3 d-none">
                               <div class="form-check check-group">
                                 <input class="form-check-input check-md" type="checkbox"
                                        value=""
@@ -773,6 +774,40 @@
                                 </label>
                                 <input type="hidden" class="form-control validation-radio" name="AutoRenew">
                               </div>
+                            </div>
+
+                            <!-- donation box -->
+                            <div class="donation-wrapper donation-wrapper-js mb-3">
+                              <div class="alert alert-primary">
+                                <h4 class="donation-wrapper-title fw-semibold fs-4">Donation</h4>
+
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label class="form-label fw-semibold text-dark">Donation Amount</label>
+                                      <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">$</span>
+                                        </div>
+                                        <input type="number" name="DonationAmount" class="form-control donation-amount donation-amount-js number-positive-js appearance-none" placeholder="">
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label class="form-label fw-semibold text-dark">Frequency</label>
+                                      <select class="form-select" name="DonationFrequency">
+                                        <option value="onetime">One Time</option>
+                                        <option value="monthly">Monthly</option>
+                                        <option value="yearly">Yearly</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+
                             </div>
 
                             <div class="row">
@@ -1090,8 +1125,8 @@
 <script src="assets/js/phone_validator.js"></script>
 
 <!-- script.js -->
-<!--<script src="assets/js/script.js?v=1.0.7"></script>-->
-<script src="assets/js/live/script.js?v=1.0.7"></script>
+<!--<script src="assets/js/script.js?v=1.0.8"></script>-->
+<script src="assets/js/live/script.js?v=1.0.8"></script>
 
 <script>
   function sendOtp(){

@@ -181,7 +181,7 @@
 }
 html, body {
   font-size: 16px;
-  line-height: 2rem;
+  line-height: 1.7rem;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -306,6 +306,9 @@ html, body {
 .form-check-input {
   margin-top: 0.4em;
 }
+.form-control {
+  border-color: #959799;
+}
 .form-control.field-v2 {
   border: 1px solid #1b1c1d;
   padding: 0.575rem 0.75rem;
@@ -321,6 +324,7 @@ html, body {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
+  border-color: #959799;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -334,8 +338,20 @@ html, body {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
+.form-select {
+  border-color: #959799;
+}
+
+.input-group-text {
+  border-color: #959799;
+}
 
 .appearance-none {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.appearance-none:hover, .appearance-none:focus {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -362,6 +378,10 @@ html, body {
   transform: scale(1.01);
   border-radius: 4px;
   background: #fff4f4;
+}
+
+.radio-group label {
+  line-height: 2;
 }
 
 .header {
@@ -1133,14 +1153,12 @@ html, body {
 
 .icon-list {
   line-height: 1.8;
-  display: flex;
-  align-items: flex-start;
 }
 .icon-list img {
   max-height: 18px;
-  margin-right: 8px;
+  margin-right: 7px;
   position: relative;
-  top: 4px;
+  top: -2px;
 }
 
 .card-accordion {
@@ -1192,11 +1210,28 @@ html, body {
 
 .auto-renew-wrapper {
   padding: 8px 15px;
-  margin-top: -16px;
   background-color: #f2f2f2;
   border-radius: 0 0 4px 4px;
+  border: 1px solid #ddd;
+  border-top: 0;
 }
 
+.after-hr {
+  margin-top: -16px;
+}
+
+.donation-wrapper-title {
+  background: #2196f3;
+  color: #fff;
+  margin: -17px;
+  margin-bottom: 10px;
+  padding: 8px 15px;
+  text-transform: uppercase;
+}
+.donation-wrapper .input-group-text {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
 .footer {
   background-color: #050b0e;
   color: #fff;

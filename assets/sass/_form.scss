@@ -53,6 +53,7 @@
   }
 
   &-control{
+    border-color:#959799;
     &.field-v2{
       border:1px solid #1b1c1d;
       padding:0.575rem 0.75rem;
@@ -69,6 +70,7 @@
       background-clip: padding-box;
       border: 1px solid #ced4da;
       //border:2px solid #888888;
+      border-color:#959799;
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
@@ -85,12 +87,29 @@
     }
 
   }
+
+  &-select{
+    border-color:#959799;
+  }
+}
+
+.input{
+  &-group{
+    &-text{
+      border-color:#959799;
+    }
+  }
 }
 
 .appearance-none{
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  &:hover,&:focus{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
 }
 
 .cc{
@@ -128,6 +147,14 @@
       transform:scale(1.01);
       border-radius: 4px;
       background: #fff4f4;
+    }
+  }
+}
+
+.radio{
+  &-group{
+    label{
+      line-height: 2;
     }
   }
 }

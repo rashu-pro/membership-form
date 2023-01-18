@@ -185,7 +185,27 @@ $(document).on('click', '.btn-navigation-js', function (e){
     stepNext = stepCurrent + 1,
     stepPrev = stepCurrent - 1,
     stepBoxCount = $('.step-details .step-box').length,
-    requiredFieldGroup = rootParent.find('.form-group.required-group');
+    requiredFieldGroup = rootParent.find('.form-group.required-group'),
+    paymentInfoSelector = '.payment-info-js',
+    isPaymentConfirmSelector = '.is-payment-confirm';
+
+  //=== payment form show/hide
+  let amount = parseFloat($('.membership-amount-js').val()).toFixed(2);
+  $(paymentInfoSelector).removeClass('d-none');
+  $(paymentInfoSelector).find('.is-require').addClass('required-group');
+  $(isPaymentConfirmSelector).removeClass('d-none');
+  if(amount==='NaN' || amount<1){
+    $(paymentInfoSelector).addClass('d-none');
+    $(paymentInfoSelector).find('.is-require').removeClass('required-group');
+    $(paymentInfoSelector).find('.is-require').removeClass('field-validated');
+    $(paymentInfoSelector).find('.is-require .error-message').removeClass('required-group');
+    $(paymentInfoSelector).find('.is-require input').removeClass('field-invalid invalid');
+    $(paymentInfoSelector).find('.is-require select').removeClass('field-invalid invalid');
+    $(paymentInfoSelector).find('.is-require input').removeClass('valid');
+    $(paymentInfoSelector).find('.is-require select').removeClass('valid');
+
+    $(isPaymentConfirmSelector).addClass('d-none');
+  }
 
   //=== previous button click action
   if(self.attr('data-action')==='decrease'){
@@ -325,6 +345,12 @@ $(document).on('keypress', '.input-phone-number', function (e){
   if(e.which<48 || e.which>58) e.preventDefault();
 });
 
+//=== allow only positive number
+$(document).on('keyup blur paste change', '.number-positive-js', function (e){
+  let self = $(this);
+  let result = isNumber(self.val())?'':self.val('');
+})
+
 
 /**
  * -------------------------------------
@@ -343,23 +369,52 @@ $(document).on('change', '.select-with-other-wrapper select.form-control', funct
   }
 });
 
+//=== radio field validation
 $(document).on('change', '.radio-group input[type=radio]', function (){
+  let self = $(this);
+  radioInputCustom(self);
+})
+
+if($('.radio-group input[type=radio]').length>0){
+  $('.radio-group input[type=radio]').each(function (i, selector){
+    if(!$(selector).attr('checked') || $(selector).attr('checked') === "undefined") return;
+    radioInputCustom($(selector));
+  })
+}
+
+$(document).on('change', '.radio-group-membership input[type=radio]', function (){
   let self = $(this),
     membershipTypeKey = self.attr('data-membership-type-key'),
     productKey = self.attr('data-product-key'),
     amount = self.attr('data-amount'),
+    dataFrequency = self.attr('data-freequency'),
     membershipTypeSelector = self.attr('data-membership-type-selector'),
     productKeySelector = self.attr('data-product-key-selctor'),
-    amountSelector = self.attr('data-amount-selector');
-  self.closest(radioGroupSelector).find('.form-control').val(self.attr('data-value'));
+    amountSelector = self.attr('data-amount-selector'),
+    membershipName = self.attr('data-value'),
+    autoRenewWrapperSelector = '.auto-renew-wrapper-js',
+    donationWrapperSelector = '.donation-wrapper-js';
+
+  $(autoRenewWrapperSelector).addClass('d-none');
+  $('.auto-renew-wrapper-js input[type=checkbox]').prop('checked', false);
+
+  $(donationWrapperSelector).find('.donation-amount-js').val('');
+  $(donationWrapperSelector).addClass('d-none');
+
+  if(dataFrequency === 'monthly' || dataFrequency === 'yearly'){
+    $('.auto-renew-wrapper-js').removeClass('d-none');
+  }
+
+  if(!parseFloat(amount)>0 || amount === ''){
+    $(donationWrapperSelector).removeClass('d-none');
+    $('.donation-amount-js').focus();
+  }
+
   $(membershipTypeSelector).val(membershipTypeKey);
   $(productKeySelector).val(productKey);
   $(amountSelector).val(amount);
   $('#modal-confirm .amount-to-authorize').html(amount);
-
-  if(self.closest('.form-group').hasClass('required-group')){
-    singleValidation(self.closest('.form-group').find('.form-control'), self.closest('.form-group'), 'field-invalid', 'field-validated', 'error-message', errorMessage )
-  }
+  $('#modal-confirm .membership-name').html(membershipName);
 });
 
 $(document).on('change', '.check-group input[type=checkbox]', function (e){
@@ -374,6 +429,11 @@ $(document).on('change', '.check-group input[type=checkbox]', function (e){
     singleValidation(self.closest('.form-group').find('.form-control'), self.closest('.form-group'), 'field-invalid', 'field-validated', 'error-message', errorMessage )
   }
 });
+
+$(document).on('keyup paste blur', '.donation-amount-js', function (){
+  let self = $(this);
+  self.closest('.step-box').find('.membership-amount-js').val(self.val());
+})
 
 
 
@@ -397,6 +457,18 @@ function fixHeight() {
     heightToMinusReady = headerHeight + footerHeight + mainWrapperMarginTop + mainWrapperMarginBottom,
     heightToMinus = "calc(100vh - " + (headerHeight + footerHeight) + "px)";
   $('.main-wrapper').css('min-height', heightToMinus);
+}
+
+
+/**
+ * inputs value in the hidden field when radio field is checked
+ * @param self
+ */
+function radioInputCustom(self){
+  self.closest(radioGroupSelector).find('.form-control').val(self.attr('data-value'));
+  if(self.closest('.form-group').hasClass('required-group')){
+    singleValidation(self.closest('.form-group').find('.form-control'), self.closest('.form-group'), 'field-invalid', 'field-validated', 'error-message', errorMessage )
+  }
 }
 
 
@@ -482,11 +554,6 @@ function singleValidation(formControl, formGroup, invalidClassName, validClassNa
   if(formControl.hasClass('validation-email')){
     paramObj.errorMessage = "Invalid Email Address!";
     isEmailValid(formControl.val())?validationSuccess(paramObj):validationFailed(paramObj);
-  }
-
-  //=== INPUT FIELD VALIDATION: RADIO BOX
-  if(formControl.hasClass('validation-radio')){
-    formControl.val()!==''?validationSuccess(paramObj):validationFailed(paramObj);
   }
 
   //=== INPUT FIELD VALIDATION: RADIO BOX
