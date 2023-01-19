@@ -29,6 +29,7 @@
     "jquery": "^3.6.1",
     "jquery-ui": "^1.13.2",
     "jquery-ui-datepicker-with-i18n": "^1.10.4",
-    "bootstrap-datepicker": "^1.9.0"
+    "bootstrap-datepicker": "^1.9.0",
+    "select2": "^4.1.0-rc.0"
   }
 }

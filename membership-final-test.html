@@ -24,9 +24,11 @@
   <!--  <link rel="stylesheet" href="node_modules/@chenfengyuan/datepicker/dist/datepicker.min.css">-->
   <!-- bootstrap datepicker -->
   <link rel="stylesheet" href="node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <!-- select2 -->
+  <link rel="stylesheet" href="node_modules/select2/dist/css/select2.min.css">
 
   <!-- main style -->
-  <link rel="stylesheet" href="assets/css/style.css?v=1.0.8">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.0.9">
 </head>
 
 <body>
@@ -600,7 +602,7 @@
                     </div>
 
                     <!-- step 4  -->
-                    <div class="step-box" data-step="4">
+                    <div class="step-box active" data-step="4">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600">Address</h3>
@@ -618,15 +620,37 @@
 
                             <div class="col-md-6">
                               <div class="form-group required-group">
-                                <label for="city">City <span class="required-mark text-danger">*</span></label>
-                                <input type="text" class="form-control" id="city" name="City">
+                                <label for="selector-country">Country <span class="required-mark text-danger">*</span></label>
+                                <div class="select-box">
+                                  <div class="country-selector-holder-js">
+                                    <input type="text" id="selector-country" name="Person.Country" class="form-control field-normal input-country-js">
+                                  </div>
+                                  <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" alt="loading">
+                                </div>
                               </div>
                             </div>
 
                             <div class="col-md-6">
                               <div class="form-group required-group">
-                                <label for="state">State <span class="required-mark text-danger">*</span></label>
-                                <input type="text" class="form-control" id="state" name="State">
+                                <label for="selector-state">State <span class="required-mark text-danger">*</span></label>
+                                <div class="select-box">
+                                  <div class="state-selector-holder-js">
+                                    <input type="text" id="selector-state" name="Person.State" class="form-control field-normal input-state-js">
+                                  </div>
+                                  <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" style="display: none" alt="loading">
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group required-group">
+                                <label for="selector-city">City <span class="required-mark text-danger">*</span></label>
+                                <div class="select-box">
+                                  <div class="city-selector-holder-js">
+                                    <input type="text" id="selector-city" name="Person.City" class="form-control field-normal input-city-js">
+                                  </div>
+                                  <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" style="display: none" alt="loading">
+                                </div>
                               </div>
                             </div>
 
@@ -643,7 +667,7 @@
                     </div>
 
                     <!-- step 5  -->
-                    <div class="step-box active" data-step="5">
+                    <div class="step-box" data-step="5">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600">Membership</h3>
@@ -657,7 +681,7 @@
                               <div class="mb-4">
                                 <div class="form-check form-check-lg">
                                   <input class="form-check-input" type="radio" name="MembershipType" id="free"
-                                         data-membership-type-key="kljhsdjf-dsdfdsdfssfojdslksdfsdfjds"
+                                         data-membership-type-key="membership-type-key-free"
                                          data-product-key="iouyoi3353dueijwrthewrtoihwedsfsdf"
                                          data-amount="0"
                                          data-freequency="0"
@@ -695,7 +719,7 @@
                               <div class="mb-4">
                                 <div class="form-check form-check-lg">
                                   <input class="form-check-input" type="radio" name="MembershipType" id="student"
-                                         data-membership-type-key="kljhsdjf-dsdfdsdfssfojdslksdfsdfjds"
+                                         data-membership-type-key="student-membership-type-key-free"
                                          data-product-key="iouyoi3353dueijwrthewrtoihwedsfsdf"
                                          data-amount="0"
                                          data-freequency="0"
@@ -1119,6 +1143,8 @@
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- intl-tel-phone -->
 <script src="node_modules/intl-tel-input/build/js/intlTelInput.min.js"></script>
+<!-- select2 -->
+<script src="node_modules/select2/dist/js/select2.min.js"></script>
 <!-- card validation -->
 <script src="assets/js/card_validation.js"></script>
 <!-- intl-tel-phone initialization -->
@@ -1126,7 +1152,7 @@
 
 <!-- script.js -->
 <!--<script src="assets/js/script.js?v=1.0.8"></script>-->
-<script src="assets/js/live/script.js?v=1.0.8"></script>
+<script src="assets/js/live/script.js?v=1.0.9"></script>
 
 <script>
   function sendOtp(){

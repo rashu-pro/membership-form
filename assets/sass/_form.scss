@@ -158,3 +158,15 @@
     }
   }
 }
+
+.select-box{
+  position: relative;
+}
+.select-box .ajax-loader{
+  display: inline-block;
+  position: absolute;
+  max-height: 20px;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
