@@ -317,7 +317,7 @@ $(document).on('click', '.card-accordion .card-header', function (e){
  * -------------------------------------
  */
 
-$(document).on('keyup', '.form-group.required-group .form-control', function (e) {
+$(document).on('keyup change', '.form-group.required-group .form-control', function (e) {
   let self = $(this);
 
   if(self.val().length>0){
@@ -455,6 +455,7 @@ $(document).on('change', '.check-group input[type=checkbox]', function (e){
 //  let self = $(this);
 //  self.closest('.step-box').find('.membership-amount-js').val(self.val());
 //})
+
 
 // === on country selection
 $(document).on('change', countrySelector, function (){
@@ -809,17 +810,19 @@ function stepMoveExact(stepNumber){
 function generateSelectDropdown(inputSelector, selectorClass, selectPlaceholder){
   if($(inputSelector).length<1){
     $('.'+selectorClass).empty();
-    $('.'+selectorClass).append('<option>'+selectPlaceholder+'</option>');
+    $('.'+selectorClass).append('<option></option>');
     return;
   }
   let id = $(inputSelector).attr('id');
   let inputName = $(inputSelector).attr('name');
   let selector = `<select id="${id}" class="form-control field-normal selector-country ${selectorClass}" name="${inputName}">
-                                        <option>${selectPlaceholder}</option>
+                                        <option></option>
                                      </select>`;
   $(inputSelector).parent().html(selector);
   $(document).on('DOMNodeInserted', '.'+selectorClass, function () {
-    $(this).select2();
+    $(this).select2({
+      placeholder: selectPlaceholder,
+    });
   });
 }
 
