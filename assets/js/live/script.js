@@ -92,6 +92,7 @@ fetch("https://api.countrystatecity.in/v1/countries", requestOptions)
       });
 
       $(element).closest('.select-box').find('.ajax-loader').hide();
+      loaderDisable(loaderDivClass);
     })
 
   })
@@ -482,9 +483,9 @@ $(document).on('change', countrySelector, function (){
   let self = $(this);
   // let selectedCountry = self.val();
   let selectedCountry = self.children('option:selected').attr('data-shortname');
-  self.closest('.step-box-body').find(stateHolderSelector).closest('.select-box').find('.ajax-loader').show();
-  self.closest('.step-box-body').find(stateSelector).empty();
-  self.closest('.step-box-body').find(citySelector).empty();
+  self.closest('.address-block-js').find(stateHolderSelector).closest('.select-box').find('.ajax-loader').show();
+  self.closest('.address-block-js').find(stateSelector).empty();
+  self.closest('.address-block-js').find(citySelector).empty();
   let url = `https://api.countrystatecity.in/v1/countries/${selectedCountry}/states`;
   //=== fetch states
   fetch(url, requestOptions)
@@ -492,20 +493,20 @@ $(document).on('change', countrySelector, function (){
     .then(result => {
       let objStates = JSON.parse(result);
       if(objStates.length<1){
-        replaceSelectWithInput(self.closest('.step-box-body').find(stateSelector), 'input-state-js');
-        self.closest('.step-box-body').find(stateHolderSelector).closest('.select-box').find('.ajax-loader').hide();
+        replaceSelectWithInput(self.closest('.address-block-js').find(stateSelector), 'input-state-js');
+        self.closest('.address-block-js').find(stateHolderSelector).closest('.select-box').find('.ajax-loader').hide();
         return;
       }
 
       //=== sorting states alphabatically
       objStates.sort(dynamicSort("name"));
-      generateSelectDropdown(self.closest('.step-box-body').find(stateInput), 'selector-state-js', 'Select State')
+      generateSelectDropdown(self.closest('.address-block-js').find(stateInput), 'selector-state-js', 'Select State')
       Object.keys(objStates).forEach(function(key, index) {
         let stateNameShort = objStates[key]['iso2'];
         let stateName = objStates[key]['name'];
-        self.closest('.step-box-body').find(stateSelector).append('<option data-shortname="'+stateNameShort+'" value="'+stateName+'">'+stateName+'</option>');
+        self.closest('.address-block-js').find(stateSelector).append('<option data-shortname="'+stateNameShort+'" value="'+stateName+'">'+stateName+'</option>');
       });
-      self.closest('.step-box-body').find(stateHolderSelector).closest('.select-box').find('.ajax-loader').hide();
+      self.closest('.address-block-js').find(stateHolderSelector).closest('.select-box').find('.ajax-loader').hide();
     })
     .catch(error => {
       console.log('error', error);
@@ -515,10 +516,10 @@ $(document).on('change', countrySelector, function (){
 //=== on state selection
 $(document).on('change', stateSelector, function (){
   let self = $(this);
-  let currentBody = self.closest('.step-box-body');
+  let currentBody = self.closest('.address-block-js');
   // let selectedState = self.val();
   let selectedState = self.children('option:selected').attr('data-shortname');
-  let selectedCountry = self.closest('.step-box-body').find('.selector-country-js').children('option:selected').attr('data-shortname');
+  let selectedCountry = self.closest('.address-block-js').find('.selector-country-js').children('option:selected').attr('data-shortname');
   currentBody.find(citySelector).empty();
   currentBody.find(cityHolderSelector).closest('.select-box').find('.ajax-loader').show();
   let url = `https://api.countrystatecity.in/v1/countries/${selectedCountry}/states/${selectedState}/cities`;
