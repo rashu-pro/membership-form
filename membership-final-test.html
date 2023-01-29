@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="node_modules/select2/dist/css/select2.min.css">
 
   <!-- main style -->
-  <link rel="stylesheet" href="assets/css/style.css?v=2.0.0">
+  <link rel="stylesheet" href="assets/css/style.css?v=2.0.1">
 </head>
 
 <body>
@@ -254,72 +254,57 @@
                   <div class="step-list-sidebar">
 
                     <div class="step-list completed" data-step="1">
-                <span class="step-mark">
-                  <img src="assets/images/tick.png" alt="complete">
-                </span>
-                      <p class="step-title">Your Email</p>
+                      <span class="step-mark"><img src="assets/images/tick.png" alt="complete"></span>
+                      <p class="step-title">Enter Your Email</p>
                     </div>
 
-                    <div class="step-list completed" data-step="2">
-                <span class="step-mark">
-                  <img src="assets/images/tick.png" alt="complete">
-                </span>
-                      <p class="step-title">Contact Information</p>
+                    <div class="step-list active" data-step="2">
+                      <span class="step-mark"><img src="assets/images/tick.png" alt="complete"></span>
+                      <p class="step-title">Member Information</p>
 
                       <div class="edit mt-2">
                         <button type="button" class="btn btn-sm btn-secondary btn-edit-step-js" data-step="2">
                           <img src="assets/images/edit.png"
-                               alt="edit"> <span
-                          class="">Edit</span></button>
+                               alt="edit">
+                          <span class="">Edit</span>
+                        </button>
                       </div>
                     </div>
 
-                    <div class="step-list completed" data-step="3">
+                    <div class="step-list" data-step="3">
                       <span class="step-mark"><img src="assets/images/tick.png" alt="complete"></span>
                       <p class="step-title">Spouse Information</p>
                       <div class="edit mt-2">
                         <button type="button" class="btn btn-secondary btn-sm btn-edit-step-js" data-step="3">
                           <img src="assets/images/edit.png" alt="edit">
-                          Edit
+                          <span>Edit</span>
                         </button>
                       </div>
                     </div>
 
-                    <div class="step-list completed" data-step="4">
-                <span class="step-mark">
-                  <img src="assets/images/tick.png" alt="complete">
-                </span>
-                      <p class="step-title">Address</p>
-
-                      <div class="edit mt-2">
-                        <button type="button" class="btn btn-secondary btn-sm btn-edit-step-js" data-step="4"><img src="assets/images/edit.png"
-                                                                                                                   alt="edit"> Edit
-                        </button>
-                      </div>
-                    </div>
-
-                    <div class="step-list active" data-step="5">
+                    <div class="step-list" data-step="4">
                 <span class="step-mark">
                   <img src="assets/images/tick.png" alt="complete">
                 </span>
                       <p class="step-title">Membership</p>
 
                       <div class="edit mt-2">
-                        <button type="button" class="btn btn-secondary btn-sm btn-edit-step-js" data-step="5"><img src="assets/images/edit.png"
-                                                                                                                   alt="edit"> Edit
+                        <button type="button" class="btn btn-secondary btn-sm btn-edit-step-js" data-step="5"><img
+                          src="assets/images/edit.png"
+                          alt="edit"> Edit
                         </button>
                       </div>
                     </div>
 
-                    <div class="step-list last" data-step="6">
-                <span class="step-mark">
-                  <img src="assets/images/tick.png" alt="complete">
-                </span>
+                    <div class="step-list last" data-step="5">
+                      <span class="step-mark"><img src="assets/images/tick.png" alt="complete"></span>
                       <p class="step-title">Payment Information</p>
 
                       <div class="edit mt-2">
-                        <button type="button" class="btn btn-secondary btn-sm btn-edit-step-js" data-step="6"><img src="assets/images/edit.png"
-                                                                                                                   alt="edit"> Edit
+                        <button type="button" class="btn btn-secondary btn-sm btn-edit-step-js" data-step="6"><img
+                          src="assets/images/edit.png"
+                          alt="edit">
+                          <span>Edit</span>
                         </button>
                       </div>
                     </div>
@@ -357,7 +342,9 @@
                                       <div class="form-group required-group">
                                         <label for="email" class="fs-5 fw-semibold">Email <span
                                           class="required-mark text-danger">*</span></label>
-                                        <input type="email" class="form-control field-v2 field-initial-js validation-email" id="email" name="Email">
+                                        <input type="email"
+                                               class="form-control field-v2 field-initial-js validation-email"
+                                               id="email" name="Email">
                                       </div>
                                     </div>
 
@@ -365,12 +352,15 @@
                                       <div class="form-group required-group">
                                         <label for="email-confirm" class="fs-5 fw-semibold">Confirm Email <span
                                           class="required-mark text-danger">*</span></label>
-                                        <input type="email" class="form-control field-v2 field-final-js validation-email" id="email-confirm" name="Email">
+                                        <input type="email"
+                                               class="form-control field-v2 field-final-js validation-email"
+                                               id="email-confirm" name="Email">
                                       </div>
                                     </div>
                                   </div>
 
-                                  <button type="button" class="btn btn-success btn-long btn-send-otp-js"><span>Send</span>
+                                  <button type="button" class="btn btn-success btn-long btn-send-otp-js">
+                                    <span>Send</span>
                                   </button>
                                 </div>
                               </div>
@@ -379,7 +369,8 @@
                                 <!-- alert -->
                                 <div class="alert alert-success alert-otp-js animate__animated">
                                   <h5 class="alert-heading d-flex align-items-center">
-                                    <img src="assets/images/info-success.png" alt="info"> Authenticator passcode has been sent
+                                    <img src="assets/images/info-success.png" alt="info"> Authenticator passcode has
+                                    been sent
                                   </h5>
                                   <hr>
                                   <p class="m-0">
@@ -390,22 +381,26 @@
                                 <div class="row">
                                   <div class="col-md-8">
                                     <div class="form-group required-group pb-4">
-                                      <label for="otp-field" class="fs-5 fw-semibold">Enter verification code here</label>
-                                      <input type="text" id="otp-field" class="form-control field-v2 otp-field" name="Otp">
+                                      <label for="otp-field" class="fs-5 fw-semibold">Enter verification code
+                                        here</label>
+                                      <input type="text" id="otp-field" class="form-control field-v2 otp-field"
+                                             name="Otp">
                                     </div>
                                   </div>
                                 </div>
 
                                 <div class="button-group">
-                                  <button type="button" class="btn btn-success btn-long btn-verify-otp-js me-3">Verify</button>
+                                  <button type="button" class="btn btn-success btn-long btn-verify-otp-js me-3">Verify
+                                  </button>
                                 </div>
 
                                 <!-- resend otp alert -->
                                 <div class="mb-3 pt-2">
-                                  <hr />
+                                  <hr/>
                                   <p class="pt-2 fs-5s fw-semibold">
                                     <span class="me-2">Haven't received the OTP? Re-send it:</span>
-                                    <button type="button" class="btn btn-primary btn-send-otp-js">Resend OTP</button></p>
+                                    <button type="button" class="btn btn-primary btn-send-otp-js">Resend OTP</button>
+                                  </p>
                                 </div>
 
                               </div>
@@ -431,25 +426,33 @@
                             </div>
                             <div class="col-md-4">
                               <div class="form-group required-group">
-                                <label for="Person_FirstName">First </label> <span class="required-mark text-danger">*</span>
-                                <input class="form-control text-box single-line" id="Person_FirstName" name="Person.FirstName" type="text" value="">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.FirstName" data-valmsg-replace="true"></span>
+                                <label for="Person_FirstName">First </label> <span
+                                class="required-mark text-danger">*</span>
+                                <input class="form-control text-box single-line" id="Person_FirstName"
+                                       name="Person.FirstName" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.FirstName"
+                                      data-valmsg-replace="true"></span>
                               </div>
                             </div>
 
                             <div class="col-md-4">
                               <div class="form-group">
                                 <label for="Person_MiddleName">Middle</label>
-                                <input class="form-control text-box single-line" id="Person_MiddleName" name="Person.MiddleName" type="text" value="">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.MiddleName" data-valmsg-replace="true"></span>
+                                <input class="form-control text-box single-line" id="Person_MiddleName"
+                                       name="Person.MiddleName" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.MiddleName"
+                                      data-valmsg-replace="true"></span>
                               </div>
                             </div>
 
                             <div class="col-md-4">
                               <div class="form-group required-group">
-                                <label for="Person_LastName">Last </label> <span class="required-mark text-danger">*</span>
-                                <input class="form-control text-box single-line" id="Person_LastName" name="Person.LastName" type="text" value="">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.LastName" data-valmsg-replace="true"></span>
+                                <label for="Person_LastName">Last </label> <span
+                                class="required-mark text-danger">*</span>
+                                <input class="form-control text-box single-line" id="Person_LastName"
+                                       name="Person.LastName" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.LastName"
+                                      data-valmsg-replace="true"></span>
                               </div>
                             </div>
 
@@ -477,14 +480,18 @@
 
                             <div class="col-md-6">
                               <div class="form-group required-group">
-                                <label for="Person_MaritalStatus">Marital Status</label> <span class="required-mark text-danger"> &nbsp;*</span>
-                                <select class="form-control form-select" id="Person_MaritalStatus" name="Person.MaritalStatus"><option selected="selected" value="">--SELECT--</option>
+                                <label for="Person_MaritalStatus">Marital Status</label> <span
+                                class="required-mark text-danger"> &nbsp;*</span>
+                                <select class="form-control form-select" id="Person_MaritalStatus"
+                                        name="Person.MaritalStatus">
+                                  <option selected="selected" value="">--SELECT--</option>
                                   <option value="Single">Single</option>
                                   <option value="Married">Married</option>
                                   <option value="Widowed">Widowed</option>
                                 </select>
 
-                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.MaritalStatus" data-valmsg-replace="true"></span>
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.MaritalStatus"
+                                      data-valmsg-replace="true"></span>
                               </div>
 
                             </div>
@@ -492,27 +499,46 @@
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label for="Person_Household">Number of Children</label>
-                                <input class="form-control text-box single-line" data-val="true" data-val-number="The field Household must be a number." data-val-required="The Household field is required." id="Person_Household" name="Person.Household" type="number" value="0">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.Household" data-valmsg-replace="true"></span>
+                                <input class="form-control text-box single-line" data-val="true"
+                                       data-val-number="The field Household must be a number."
+                                       data-val-required="The Household field is required." id="Person_Household"
+                                       name="Person.Household" type="number" value="0">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.Household"
+                                      data-valmsg-replace="true"></span>
                               </div>
                             </div>
 
                             <div class="col-md-6">
                               <div class="select-with-other-wrapper">
                                 <div class="form-group required-group">
-                                  <label for="Person_ResidentialStatus">Residential Status</label><span class="required-mark text-danger">&nbsp;*</span>
-                                  <select class="form-select form-control" id="Person_ResidentialStatus" name="Person.ResidentialStatus"><option selected="selected" value="">--SELECT--</option>
+                                  <label for="Person_ResidentialStatus">Residential Status</label><span
+                                  class="required-mark text-danger">&nbsp;*</span>
+                                  <select class="form-select form-control" id="Person_ResidentialStatus"
+                                          name="Person.ResidentialStatus">
+                                    <option selected="selected" value="">--SELECT--</option>
                                     <option value="US Citizen">US Citizen</option>
                                     <option value="Permanent Resident">Permanent Resident</option>
                                     <option value="other">Other</option>
                                   </select>
 
-                                  <span class="field-validation-valid text-danger" data-valmsg-for="Person.ResidentialStatus" data-valmsg-replace="true"></span>
+                                  <span class="field-validation-valid text-danger"
+                                        data-valmsg-for="Person.ResidentialStatus" data-valmsg-replace="true"></span>
                                 </div>
                                 <div class="form-group other-wrapper d-none pt-1">
                                   <label for="other-res" class="d-none">Other</label>
-                                  <input id="other-res" type="text" class="form-control" name="Person.OtherResidentialStatus">
+                                  <input id="other-res" type="text" class="form-control"
+                                         name="Person.OtherResidentialStatus">
                                 </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="Person_Batch">DCMS Batch</label>
+                                <input class="form-control text-box single-line" id="Person_Batch" name="Person.Batch"
+                                       type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.Batch"
+                                      data-valmsg-replace="true"></span>
                               </div>
                             </div>
                           </div>
@@ -525,32 +551,32 @@
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group required-group">
-                                  <label for="Person_Profession">Profession/Type of Work</label><span class="required-mark text-danger">&nbsp;*</span>
-                                  <input class="form-control text-box single-line" id="Person_Profession" name="Person.Profession" type="text" value="">
-                                  <span class="field-validation-valid text-danger" data-valmsg-for="Person.Profession" data-valmsg-replace="true"></span>
+                                  <label for="Person_Profession">Profession/Type of Work</label><span
+                                  class="required-mark text-danger">&nbsp;*</span>
+                                  <input class="form-control text-box single-line" id="Person_Profession"
+                                         name="Person.Profession" type="text" value="">
+                                  <span class="field-validation-valid text-danger" data-valmsg-for="Person.Profession"
+                                        data-valmsg-replace="true"></span>
                                 </div>
                               </div>
 
                               <div class="col-md-6">
                                 <div class="form-group">
-                                  <label for="Person_Specialty">Specialty of Practice</label><span class="required-mark text-danger">&nbsp;*</span>
-                                  <input class="form-control text-box single-line" id="Person_Specialty" name="Person.Specialty" type="text" value="">
-                                  <span class="field-validation-valid text-danger" data-valmsg-for="Person.Specialty" data-valmsg-replace="true"></span>
-                                </div>
-                              </div>
-
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="Person_Batch">DCMS Batch</label>
-                                  <input class="form-control text-box single-line" id="Person_Batch" name="Person.Batch" type="text" value="">
-                                  <span class="field-validation-valid text-danger" data-valmsg-for="Person.Batch" data-valmsg-replace="true"></span>
+                                  <label for="Person_Specialty">Specialty of Practice</label><span
+                                  class="required-mark text-danger">&nbsp;*</span>
+                                  <input class="form-control text-box single-line" id="Person_Specialty"
+                                         name="Person.Specialty" type="text" value="">
+                                  <span class="field-validation-valid text-danger" data-valmsg-for="Person.Specialty"
+                                        data-valmsg-replace="true"></span>
                                 </div>
                               </div>
 
                               <div class="col-md-12">
                                 <div class="form-group required-group">
-                                  <label for="Person_AddressLine1">Work Address</label><span class="required-mark text-danger">&nbsp;*</span>
-                                  <textarea class="form-control" id="Person_AddressLine1" name="Person.AddressLine1" rows="2">
+                                  <label for="Person_AddressLine1">Work Address</label><span
+                                  class="required-mark text-danger">&nbsp;*</span>
+                                  <textarea class="form-control" id="Person_AddressLine1" name="Person.AddressLine1"
+                                            rows="2">
 
                                   </textarea>
                                 </div>
@@ -566,8 +592,10 @@
                           <div class="row">
                             <div class="col-md-12">
                               <div class="form-group required-group">
-                                <label for="person-home-address">Street Address</label><span class="required-mark text-danger">&nbsp;*</span>
-                                <textarea class="form-control" id="person-home-address" name="Person.HomeAddress" rows="2">
+                                <label for="person-home-address">Street Address</label><span
+                                class="required-mark text-danger">&nbsp;*</span>
+                                <textarea class="form-control" id="person-home-address" name="Person.HomeAddress"
+                                          rows="2">
 
                                 </textarea>
                               </div>
@@ -575,10 +603,12 @@
 
                             <div class="col-md-6">
                               <div class="form-group required-group">
-                                <label for="selector-country-home">Country <span class="required-mark text-danger">*</span></label>
+                                <label for="selector-country-home">Country <span
+                                  class="required-mark text-danger">*</span></label>
                                 <div class="select-box">
                                   <div class="country-selector-holder-js">
-                                    <input type="text" id="selector-country-home" name="Person.Country" class="form-control field-normal input-country-js">
+                                    <input type="text" id="selector-country-home" name="Person.Country"
+                                           class="form-control field-normal input-country-js">
                                   </div>
                                   <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" alt="loading">
                                 </div>
@@ -590,30 +620,38 @@
                                 <label for="selector-state-home">State <span class="required-mark text-danger">*</span></label>
                                 <div class="select-box">
                                   <div class="state-selector-holder-js">
-                                    <input type="text" id="selector-state-home" name="Person.State" class="form-control field-normal input-state-js">
+                                    <input type="text" id="selector-state-home" name="Person.State"
+                                           class="form-control field-normal input-state-js">
                                   </div>
-                                  <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" style="display: none" alt="loading">
+                                  <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader"
+                                       style="display: none" alt="loading">
                                 </div>
                               </div>
                             </div>
 
                             <div class="col-md-6">
                               <div class="form-group required-group">
-                                <label for="selector-city-home">City <span class="required-mark text-danger">*</span></label>
+                                <label for="selector-city-home">City <span
+                                  class="required-mark text-danger">*</span></label>
                                 <div class="select-box">
                                   <div class="city-selector-holder-js">
-                                    <input type="text" id="selector-city-home" name="Person.City" class="form-control field-normal input-city-js">
+                                    <input type="text" id="selector-city-home" name="Person.City"
+                                           class="form-control field-normal input-city-js">
                                   </div>
-                                  <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" style="display: none" alt="loading">
+                                  <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader"
+                                       style="display: none" alt="loading">
                                 </div>
                               </div>
                             </div>
 
                             <div class="col-md-6">
                               <div class="form-group required-group">
-                                <label for="Person_ZipCode_home">ZIP Code</label><span class="required-mark text-danger">&nbsp;*</span>
-                                <input class="form-control text-box single-line" id="Person_ZipCode_home" name="Person.ZipCode" type="text" value="">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.ZipCode" data-valmsg-replace="true"></span>
+                                <label for="Person_ZipCode_home">ZIP Code</label><span
+                                class="required-mark text-danger">&nbsp;*</span>
+                                <input class="form-control text-box single-line" id="Person_ZipCode_home"
+                                       name="Person.ZipCode" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.ZipCode"
+                                      data-valmsg-replace="true"></span>
                               </div>
                             </div>
                           </div>
@@ -627,7 +665,8 @@
                                        id="check-consent"
                                        data-value="1" checked>
                                 <label class="form-check-label" for="check-consent">
-                                  I authorize DAANA to publish my contact information into the DAANA Membership Directory
+                                  I authorize DAANA to publish my contact information into the DAANA Membership
+                                  Directory
                                 </label>
                                 <input type="hidden" class="form-control validation-radio">
                               </div>
@@ -654,24 +693,30 @@
                             <div class="col-md-4">
                               <div class="form-group">
                                 <label for="Spouse_FirstName">First</label>
-                                <input class="form-control text-box single-line" id="Spouse_FirstName" name="Spouse.FirstName" type="text" value="">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="Spouse.FirstName" data-valmsg-replace="true"></span>
+                                <input class="form-control text-box single-line" id="Spouse_FirstName"
+                                       name="Spouse.FirstName" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Spouse.FirstName"
+                                      data-valmsg-replace="true"></span>
                               </div>
                             </div>
 
                             <div class="col-md-4">
                               <div class="form-group">
                                 <label for="Spouse_MiddleName">Middle</label>
-                                <input class="form-control text-box single-line" id="Spouse_MiddleName" name="Spouse.MiddleName" type="text" value="">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="Spouse.MiddleName" data-valmsg-replace="true"></span>
+                                <input class="form-control text-box single-line" id="Spouse_MiddleName"
+                                       name="Spouse.MiddleName" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Spouse.MiddleName"
+                                      data-valmsg-replace="true"></span>
                               </div>
                             </div>
 
                             <div class="col-md-4">
                               <div class="form-group">
                                 <label for="Spouse_LastName">Last</label>
-                                <input class="form-control text-box single-line" id="Spouse_LastName" name="Spouse.LastName" type="text" value="">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="Spouse.LastName" data-valmsg-replace="true"></span>
+                                <input class="form-control text-box single-line" id="Spouse_LastName"
+                                       name="Spouse.LastName" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Spouse.LastName"
+                                      data-valmsg-replace="true"></span>
                               </div>
                             </div>
 
@@ -689,16 +734,22 @@
                                 <label for="phone-number-spouse-home">
                                   Phone Number (Home)
                                 </label>
-                                <input type="text" class="form-control phone-number-validator phone-number-edit input-phone-number"
-                                       id="phone-number-spouse-home" name="SpousePhoneHome" data-number="+8801852404635">
-                                <input type="hidden" class="phone-number-hidden" name="PhoneNumberHome" value="+8801852404635">
+                                <input type="text"
+                                       class="form-control phone-number-validator phone-number-edit input-phone-number"
+                                       id="phone-number-spouse-home" name="SpousePhoneHome"
+                                       data-number="+8801852404635">
+                                <input type="hidden" class="phone-number-hidden" name="PhoneNumberHome"
+                                       value="+8801852404635">
                               </div>
                             </div>
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label for="Spouse_EmailAddress">Email</label>
-                                <input class="form-control text-box single-line" data-val="true" data-val-email="The Email field is not a valid e-mail address." id="Spouse_EmailAddress" name="Spouse.EmailAddress" type="email" value="">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="Spouse.EmailAddress" data-valmsg-replace="true"></span>
+                                <input class="form-control text-box single-line" data-val="true"
+                                       data-val-email="The Email field is not a valid e-mail address."
+                                       id="Spouse_EmailAddress" name="Spouse.EmailAddress" type="email" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Spouse.EmailAddress"
+                                      data-valmsg-replace="true"></span>
                               </div>
                             </div>
                           </div>
@@ -749,7 +800,8 @@
                                          data-product-key-selctor=".membership-product-type-key"
                                          data-amount-selector=".membership-amount"
                                          data-value="physician">
-                                  <label class="form-check-label ps-2 text-medium font-600 text-uppercase" for="physician">
+                                  <label class="form-check-label ps-2 text-medium font-600 text-uppercase"
+                                         for="physician">
                                     Physician Yearly
                                   </label>
                                   <p class="ps-2 lh-1 text-grey mb-2">Full Member (US and Canadian Residents)</p>
@@ -768,7 +820,8 @@
                                          data-product-key-selctor=".membership-product-type-key"
                                          data-amount-selector=".membership-amount"
                                          data-value="student">
-                                  <label class="form-check-label ps-2 text-medium font-600 text-uppercase" for="student">
+                                  <label class="form-check-label ps-2 text-medium font-600 text-uppercase"
+                                         for="student">
                                     Student
                                   </label>
                                   <p class="ps-2 lh-1 text-grey mb-2">Full Member (US and Canadian Residents)</p>
@@ -778,7 +831,8 @@
 
                               <div class="mb-4">
                                 <div class="form-check form-check-lg">
-                                  <input class="form-check-input" type="radio" name="MembershipType" id="physician-monthly"
+                                  <input class="form-check-input" type="radio" name="MembershipType"
+                                         id="physician-monthly"
                                          data-membership-type-key="kljhsdjf-dsdfdsdfssfojdslksdfsdfjds"
                                          data-product-key="iouyoi3353dueijwrthewrtoihwedsfsdf"
                                          data-amount="6"
@@ -787,7 +841,8 @@
                                          data-product-key-selctor=".membership-product-type-key"
                                          data-amount-selector=".membership-amount"
                                          data-value="physician">
-                                  <label class="form-check-label ps-2 text-medium font-600 text-uppercase" for="physician-monthly">
+                                  <label class="form-check-label ps-2 text-medium font-600 text-uppercase"
+                                         for="physician-monthly">
                                     Physician Monthly
                                   </label>
                                   <p class="ps-2 lh-1 text-grey mb-2">Full Member (US and Canadian Residents)</p>
@@ -806,7 +861,8 @@
                                          data-product-key-selctor=".membership-product-type-key"
                                          data-amount-selector=".membership-amount"
                                          data-value="non-practice">
-                                  <label class="form-check-label ps-2 text-medium font-600 text-uppercase" for="non-practice">
+                                  <label class="form-check-label ps-2 text-medium font-600 text-uppercase"
+                                         for="non-practice">
                                     Non Practicing Physician Yearly
                                   </label>
                                   <p class="ps-2 lh-1 text-grey mb-2">Full Member (US and Canadian Residents)</p>
@@ -817,9 +873,11 @@
 
                               <input type="hidden" class="form-control validation-radio">
 
-                              <input type="hidden" class="membership-product-type-key" name="StripeCharge.SelectedProductCode">
+                              <input type="hidden" class="membership-product-type-key"
+                                     name="StripeCharge.SelectedProductCode">
                               <input type="hidden" class="membership-type-key" name="MembershipTypeKey">
-                              <input type="hidden" class="membership-amount membership-amount-js" name="StripeCharge.Amount" id="txtAmount">
+                              <input type="hidden" class="membership-amount membership-amount-js"
+                                     name="StripeCharge.Amount" id="txtAmount">
                             </div>
                           </div>
 
@@ -843,7 +901,8 @@
                             <!-- donation box -->
                             <div class="donation-wrapper donation-wrapper-js mb-3">
                               <div class="alert alert-primary">
-                                <h4 class="donation-wrapper-title fw-semibold fs-4">Donation <span class="fs-6 fw-semibold opacity-75">(Optional)</span></h4>
+                                <h4 class="donation-wrapper-title fw-semibold fs-4">Donation <span
+                                  class="fs-6 fw-semibold opacity-75">(Optional)</span></h4>
 
                                 <div class="row">
                                   <div class="col-md-6">
@@ -853,7 +912,9 @@
                                         <div class="input-group-prepend">
                                           <span class="input-group-text">$</span>
                                         </div>
-                                        <input type="number" name="DonationAmount" class="form-control donation-amount donation-amount-js number-positive-js appearance-none" placeholder="">
+                                        <input type="number" name="DonationAmount"
+                                               class="form-control donation-amount donation-amount-js number-positive-js appearance-none"
+                                               placeholder="">
                                       </div>
                                     </div>
                                   </div>
@@ -871,7 +932,8 @@
                                 </div>
 
                                 <div class="alert-note bg-dark text-white">
-                                  <p class="m-0">DAANA is a not-for-profit organization. Your donation helps DAANA continue supporting humanitarian causes in India and around the world.</p>
+                                  <p class="m-0">DAANA is a not-for-profit organization. Your donation helps DAANA
+                                    continue supporting humanitarian causes in India and around the world.</p>
                                 </div>
 
                               </div>
@@ -883,8 +945,11 @@
                                 <div class="form-group required-group">
                                   <label class="" for="date-picker">Date</label>
                                   <div class="input-group">
-                                    <input type="text" class="form-control form-control-date validation-text date-picker-js" id="date-picker" placeholder="">
-                                    <label for="date-picker" class="input-group-text"><img src="assets/images/date.png" alt="datepicker"></label>
+                                    <input type="text"
+                                           class="form-control form-control-date validation-text date-picker-js"
+                                           id="date-picker" placeholder="">
+                                    <label for="date-picker" class="input-group-text"><img src="assets/images/date.png"
+                                                                                           alt="datepicker"></label>
                                   </div>
                                 </div>
                               </div>
@@ -896,7 +961,8 @@
                               <div class="col-md-6">
                                 <div class="form-group required-group">
                                   <label for="Reference">Name</label>
-                                  <input class="form-control validation-text text-box single-line" id="Reference" name="Reference"
+                                  <input class="form-control validation-text text-box single-line" id="Reference"
+                                         name="Reference"
                                          type="text" value="">
                                 </div>
                               </div>
@@ -933,10 +999,13 @@
                                   <label for="card-number">Card Number <span
                                     class="text-danger required-mark">*</span></label>
                                   <div class="cc-number-holder">
-                                    <input type="text" maxlength="16" class="form-control validation-cc-number cc-number"
+                                    <input type="text" maxlength="16"
+                                           class="form-control validation-cc-number cc-number"
                                            id="card-number" name="CardNumber">
                                     <div class="cc-card-identity">
-                                      <img src="https://secure-api.net/Content/event-management-assets/individual-multiple-assets/images/card_mockup.png" alt="card icon">
+                                      <img
+                                        src="https://secure-api.net/Content/event-management-assets/individual-multiple-assets/images/card_mockup.png"
+                                        alt="card icon">
                                     </div>
                                   </div>
                                 </div>
@@ -972,7 +1041,8 @@
                                 <div class="form-group is-require">
                                   <label for="cvc">CVC <span
                                     class="text-danger required-mark">*</span></label>
-                                  <input type="text" class="form-control validation-number" id="cvc" name="Cvc" data-max-length="3" data-min-length="3">
+                                  <input type="text" class="form-control validation-number" id="cvc" name="Cvc"
+                                         data-max-length="3" data-min-length="3">
                                 </div>
                               </div>
 
@@ -980,7 +1050,8 @@
                                 <div class="form-group is-require">
                                   <label for="cc-zipcode">Zipcode <span
                                     class="text-danger required-mark">*</span></label>
-                                  <input type="text" class="form-control validation-number" id="cc-zipcode" name="CcZipcode" data-min-length="5" data-max-length="5">
+                                  <input type="text" class="form-control validation-number" id="cc-zipcode"
+                                         name="CcZipcode" data-min-length="5" data-max-length="5">
                                 </div>
                               </div>
 
@@ -988,7 +1059,8 @@
                                 <div class="form-group required-group is-require">
                                   <label for="cardholder-name">Cardholder Name <span
                                     class="text-danger required-mark">*</span></label>
-                                  <input type="text" class="form-control validation-text" id="cardholder-name" name="CardholderName" data-min-length="6">
+                                  <input type="text" class="form-control validation-text" id="cardholder-name"
+                                         name="CardholderName" data-min-length="6">
                                 </div>
                               </div>
 
@@ -1049,7 +1121,8 @@
             </div>
 
             <p class="m-0 mt-4 text-end">
-              <a href="https://masjidsolutions.net/submit-an-issue" target="_blank" class="fw-semibold fs-6">Submit an issue</a>
+              <a href="https://masjidsolutions.net/submit-an-issue" target="_blank" class="fw-semibold fs-6">Submit an
+                issue</a>
             </p>
           </div>
         </div>
@@ -1100,16 +1173,22 @@
         <div class="modal-header">
           <h5 class="modal-title font-bold">Code of Conduct</h5>
           <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
-            <svg aria-hidden="true" class="icon-svg-close" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            <svg aria-hidden="true" class="icon-svg-close" fill="currentColor" viewBox="0 0 20 20"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
           </button>
         </div>
         <div class="modal-body">
           <div class="py-2 px-sm-3 px-md-4">
-            <embed src="https://res.cloudinary.com/secure-api/image/upload/v1670245873/sunday-school/al-ilm/misc-documents/st4irj014djieqohupkb.pdf"
-                   width="100%"
-                   height="600"
-                   frameborder="0"
-                   allowfullscreen>
+            <embed
+              src="https://res.cloudinary.com/secure-api/image/upload/v1670245873/sunday-school/al-ilm/misc-documents/st4irj014djieqohupkb.pdf"
+              width="100%"
+              height="600"
+              frameborder="0"
+              allowfullscreen>
 
           </div>
         </div>
@@ -1127,16 +1206,22 @@
         <div class="modal-header">
           <h5 class="modal-title font-bold">Terms & Conditions</h5>
           <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
-            <svg aria-hidden="true" class="icon-svg-close" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            <svg aria-hidden="true" class="icon-svg-close" fill="currentColor" viewBox="0 0 20 20"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
           </button>
         </div>
         <div class="modal-body">
           <div class="py-2 px-sm-3 px-md-4">
-            <embed src="https://res.cloudinary.com/secure-api/image/upload/v1670245873/sunday-school/al-ilm/misc-documents/st4irj014djieqohupkb.pdf"
-                   width="100%"
-                   height="600"
-                   frameborder="0"
-                   allowfullscreen>
+            <embed
+              src="https://res.cloudinary.com/secure-api/image/upload/v1670245873/sunday-school/al-ilm/misc-documents/st4irj014djieqohupkb.pdf"
+              width="100%"
+              height="600"
+              frameborder="0"
+              allowfullscreen>
 
           </div>
         </div>
@@ -1153,19 +1238,27 @@
       <div class="modal-content">
         <div class="d-flex justify-content-end pe-3 pt-3">
           <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
-            <svg aria-hidden="true" class="icon-svg-close" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            <svg aria-hidden="true" class="icon-svg-close" fill="currentColor" viewBox="0 0 20 20"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
           </button>
         </div>
         <div class="modal-body">
           <div class="pt-2 pb-4">
 
             <div class="membership-alert">
-              <p class="text-center text-medium font-600 m-0">Your Membership for <span class="text-uppercase">"<span class="membership-name"></span>"</span> is being completed!</p>
+              <p class="text-center text-medium font-600 m-0">Your Membership for <span class="text-uppercase">"<span
+                class="membership-name"></span>"</span> is being completed!</p>
             </div>
 
             <div class="is-payment-confirm pt-3 d-none">
-              <p class="secure-alert text-medium font-600 m-0 mb-3 text-center text-success"><img src="assets/images/icon_shield.png" alt="secure by sectigo"> Secured by SECTIGO</p>
-              <h4 class="text-center font-600">You are about authorize <span class="font-bold">$<span class="amount-to-authorize">600</span></span> </h4>
+              <p class="secure-alert text-medium font-600 m-0 mb-3 text-center text-success"><img
+                src="assets/images/icon_shield.png" alt="secure by sectigo"> Secured by SECTIGO</p>
+              <h4 class="text-center font-600">You are about authorize <span class="font-bold">$<span
+                class="amount-to-authorize">600</span></span></h4>
             </div>
           </div>
 
@@ -1196,23 +1289,23 @@
 <!-- card validation -->
 <script src="assets/js/card_validation.js"></script>
 <!-- intl-tel-phone initialization -->
-<script src="assets/js/phone_validator.js"></script>
+<script src="assets/js/phone_validator.js?v=1.0.2"></script>
 
 <!-- script.js -->
 <!--<script src="assets/js/script.js?v=1.0.8"></script>-->
-<script src="assets/js/live/script.js?v=2.0.1"></script>
+<script src="assets/js/live/script.js?v=2.0.2"></script>
 
 <script>
-  function sendOtp(){
+  function sendOtp() {
     return true;
   }
 
-  function otpVerification(){
+  function otpVerification() {
     return true;
   }
 
-  function submitTheForm(){
-    window.location.href="success.html";
+  function submitTheForm() {
+    window.location.href = "success.html";
   }
 </script>
 </body>
