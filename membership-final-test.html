@@ -416,8 +416,8 @@
                       </div>
                     </div>
 
-                    <!-- step 2  -->
-                    <div class="step-box" data-step="2">
+                    <!-- step 2 [member information]  -->
+                    <div class="step-box active" data-step="2">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600">Member Information</h3>
@@ -426,108 +426,214 @@
 
                         <div class="step-box-body">
                           <div class="row">
+                            <div class="col-12">
+                              <p class="font-600 text-medium mb-2 mt-2">Full Name</p>
+                            </div>
                             <div class="col-md-4">
                               <div class="form-group required-group">
-                                <label for="first-name">First Name</label>
-                                <input type="text" class="form-control" id="first-name" name="FirstName">
+                                <label for="Person_FirstName">First </label> <span class="required-mark text-danger">*</span>
+                                <input class="form-control text-box single-line" id="Person_FirstName" name="Person.FirstName" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.FirstName" data-valmsg-replace="true"></span>
                               </div>
                             </div>
 
                             <div class="col-md-4">
                               <div class="form-group">
-                                <label for="middle-name">Middle Name</label>
-                                <input type="text" class="form-control" id="middle-name" name="MiddleName">
+                                <label for="Person_MiddleName">Middle</label>
+                                <input class="form-control text-box single-line" id="Person_MiddleName" name="Person.MiddleName" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.MiddleName" data-valmsg-replace="true"></span>
                               </div>
                             </div>
 
                             <div class="col-md-4">
-                              <div class="form-group">
-                                <label for="last-name">Last Name</label>
-                                <input type="text" class="form-control" id="last-name" name="LastName">
-                              </div>
-                            </div>
-
-                            <div class="col-md-6">
-                              <div class="form-group phone-number-validator-wrapper">
-                                <label for="phone-number-personal">Phone Number (Personal) <span
-                                  class="required-mark text-danger">*</span></label>
-                                <input type="text" class="form-control phone-number-validator input-phone-number"
-                                       id="phone-number-personal" name="PhoneNumberPersonal_">
-                                <input type="hidden" class="phone-number-hidden" name="PhoneNumberPersonal">
+                              <div class="form-group required-group">
+                                <label for="Person_LastName">Last </label> <span class="required-mark text-danger">*</span>
+                                <input class="form-control text-box single-line" id="Person_LastName" name="Person.LastName" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.LastName" data-valmsg-replace="true"></span>
                               </div>
                             </div>
 
                             <div class="col-md-6">
                               <div class="form-group required-group phone-number-validator-wrapper">
-                                <label for="phone-number-home">Phone Number (Home) <span
-                                  class="required-mark text-danger">*</span></label>
-                                <input type="text" class="form-control phone-number-validator phone-number-edit input-phone-number" data-number="+8801852404040"
-                                       id="phone-number-home" name="PhoneNumberHome_" data->
-                                <input type="hidden" class="phone-number-hidden" name="PhoneNumberHome" value="+8801852404040">
+                                <label for="phone-number-personal">
+                                  Phone Number (Personal) <span class="required-mark text-danger">*</span>
+                                </label>
+                                <input type="text" class="form-control phone-number-validator input-phone-number"
+                                       id="phone-number-personal" name="PhoneNumberPersonal_" placeholder="">
+                                <input id="Person_CellNumber" name="Person.CellNumber" type="hidden" value="">
                               </div>
                             </div>
 
                             <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="marital-status">Marital Status <span
-                                  class="required-mark text-danger">*</span> </label>
-                                <select class="form-select form-control" id="marital-status" name="MaritalStatus">
-                                  <option value="">Select an Option</option>
-                                  <option value="1">Single</option>
-                                  <option value="2">Married</option>
-                                  <option value="3">Widowed</option>
+                              <div class="form-group phone-number-validator-wrapper">
+                                <label for="phone-number-home">
+                                  Phone Number (Home)
+                                </label>
+                                <input type="text" class="form-control phone-number-validator input-phone-number"
+                                       id="phone-number-home" name="PhoneNumberHome_">
+                                <input id="Person_HomeNumber" name="Person.HomeNumber" type="hidden" value="">
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group required-group">
+                                <label for="Person_MaritalStatus">Marital Status</label> <span class="required-mark text-danger"> &nbsp;*</span>
+                                <select class="form-control form-select" id="Person_MaritalStatus" name="Person.MaritalStatus"><option selected="selected" value="">--SELECT--</option>
+                                  <option value="Single">Single</option>
+                                  <option value="Married">Married</option>
+                                  <option value="Widowed">Widowed</option>
                                 </select>
+
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.MaritalStatus" data-valmsg-replace="true"></span>
                               </div>
+
                             </div>
 
                             <div class="col-md-6">
                               <div class="form-group">
-                                <label for="children-number">Number of Children</label>
-                                <input type="text" class="form-control" id="children-number">
+                                <label for="Person_Household">Number of Children</label>
+                                <input class="form-control text-box single-line" data-val="true" data-val-number="The field Household must be a number." data-val-required="The Household field is required." id="Person_Household" name="Person.Household" type="number" value="0">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.Household" data-valmsg-replace="true"></span>
                               </div>
                             </div>
 
                             <div class="col-md-6">
                               <div class="select-with-other-wrapper">
-
-                                <div class="form-group">
-                                  <label for="Person_ResidentialStatus">Residential Status <span
-                                    class="required-mark text-danger">*</span></label>
-                                  <select class="form-select form-control" id="Person_ResidentialStatus"
-                                          name="Person.ResidentialStatus">
-                                    <option value="">--SELECT--</option>
+                                <div class="form-group required-group">
+                                  <label for="Person_ResidentialStatus">Residential Status</label><span class="required-mark text-danger">&nbsp;*</span>
+                                  <select class="form-select form-control" id="Person_ResidentialStatus" name="Person.ResidentialStatus"><option selected="selected" value="">--SELECT--</option>
                                     <option value="US Citizen">US Citizen</option>
                                     <option value="Permanent Resident">Permanent Resident</option>
-                                    <option data-action="other">Other</option>
+                                    <option value="other">Other</option>
                                   </select>
-                                </div>
 
+                                  <span class="field-validation-valid text-danger" data-valmsg-for="Person.ResidentialStatus" data-valmsg-replace="true"></span>
+                                </div>
                                 <div class="form-group other-wrapper d-none pt-1">
                                   <label for="other-res" class="d-none">Other</label>
-                                  <input id="other-res" type="text" class="form-control" name="OtherResidentailStaus">
+                                  <input id="other-res" type="text" class="form-control" name="Person.OtherResidentialStatus">
                                 </div>
-
-                              </div>
-                            </div>
-
-
-                            <div class="col-12">
-                              <p class="font-600 text-medium mb-2 mt-2">Spouse Name</p>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="spouse-first-name">First Name</label>
-                                <input type="text" class="form-control" id="spouse-first-name" name="FirstName">
-                              </div>
-                            </div>
-
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="spouse-last-name">Last Name</label>
-                                <input type="text" class="form-control" id="spouse-last-name" name="SpouseLastName">
                               </div>
                             </div>
                           </div>
+
+                          <!-- profession details -->
+                          <div class="pt-3">
+                            <h2 class="mb-1 fs-5 fw-semibold">Profession Details</h2>
+                            <hr class="m-0 mb-2">
+
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group required-group">
+                                  <label for="Person_Profession">Profession/Type of Work</label><span class="required-mark text-danger">&nbsp;*</span>
+                                  <input class="form-control text-box single-line" id="Person_Profession" name="Person.Profession" type="text" value="">
+                                  <span class="field-validation-valid text-danger" data-valmsg-for="Person.Profession" data-valmsg-replace="true"></span>
+                                </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="Person_Specialty">Specialty of Practice</label><span class="required-mark text-danger">&nbsp;*</span>
+                                  <input class="form-control text-box single-line" id="Person_Specialty" name="Person.Specialty" type="text" value="">
+                                  <span class="field-validation-valid text-danger" data-valmsg-for="Person.Specialty" data-valmsg-replace="true"></span>
+                                </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="Person_Batch">DCMS Batch</label>
+                                  <input class="form-control text-box single-line" id="Person_Batch" name="Person.Batch" type="text" value="">
+                                  <span class="field-validation-valid text-danger" data-valmsg-for="Person.Batch" data-valmsg-replace="true"></span>
+                                </div>
+                              </div>
+
+                              <div class="col-md-12">
+                                <div class="form-group required-group">
+                                  <label for="Person_AddressLine1">Work Address</label><span class="required-mark text-danger">&nbsp;*</span>
+                                  <textarea class="form-control" id="Person_AddressLine1" name="Person.AddressLine1" rows="2">
+
+                                  </textarea>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- home address -->
+                          <div class="pt-3">
+                            <h2 class="mb-1 fs-5 fw-semibold">Home Address</h2>
+                            <hr class="m-0 mb-2">
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group required-group">
+                                <label for="person-home-address">Street Address</label><span class="required-mark text-danger">&nbsp;*</span>
+                                <textarea class="form-control" id="person-home-address" name="Person.HomeAddress" rows="2">
+
+                                </textarea>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group required-group">
+                                <label for="selector-country-home">Country <span class="required-mark text-danger">*</span></label>
+                                <div class="select-box">
+                                  <div class="country-selector-holder-js">
+                                    <input type="text" id="selector-country-home" name="Person.Country" class="form-control field-normal input-country-js">
+                                  </div>
+                                  <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" alt="loading">
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group required-group">
+                                <label for="selector-state-home">State <span class="required-mark text-danger">*</span></label>
+                                <div class="select-box">
+                                  <div class="state-selector-holder-js">
+                                    <input type="text" id="selector-state-home" name="Person.State" class="form-control field-normal input-state-js">
+                                  </div>
+                                  <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" style="display: none" alt="loading">
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group required-group">
+                                <label for="selector-city-home">City <span class="required-mark text-danger">*</span></label>
+                                <div class="select-box">
+                                  <div class="city-selector-holder-js">
+                                    <input type="text" id="selector-city-home" name="Person.City" class="form-control field-normal input-city-js">
+                                  </div>
+                                  <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" style="display: none" alt="loading">
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-6">
+                              <div class="form-group required-group">
+                                <label for="Person_ZipCode_home">ZIP Code</label><span class="required-mark text-danger">&nbsp;*</span>
+                                <input class="form-control text-box single-line" id="Person_ZipCode_home" name="Person.ZipCode" type="text" value="">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Person.ZipCode" data-valmsg-replace="true"></span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="consent-section">
+                            <div class="form-group">
+                              <div class="form-check check-group">
+                                <input class="form-check-input check-md"
+                                       type="checkbox"
+                                       value=""
+                                       id="check-consent"
+                                       data-value="1" checked>
+                                <label class="form-check-label" for="check-consent">
+                                  I authorize DAANA to publish my contact information into the DAANA Membership Directory
+                                </label>
+                                <input type="hidden" class="form-control validation-radio">
+                              </div>
+                            </div>
+                          </div>
+
                         </div>
                       </div>
                     </div>
@@ -601,73 +707,8 @@
                       </div>
                     </div>
 
-                    <!-- step 4  -->
-                    <div class="step-box active" data-step="4">
-                      <div class="step-box-wrapper">
-                        <div class="step-box-head">
-                          <h3 class="font-600">Address</h3>
-                          <p class="m-0 text-danger">(Fields marked with * are required to fill up)</p>
-                        </div>
-
-                        <div class="step-box-body">
-                          <div class="row">
-                            <div class="col-md-12">
-                              <div class="form-group required-group">
-                                <label for="street-address">Street Address <span class="required-mark text-danger">*</span></label>
-                                <input type="text" class="form-control" id="street-address" name="StreetAddress">
-                              </div>
-                            </div>
-
-                            <div class="col-md-6">
-                              <div class="form-group required-group">
-                                <label for="selector-country">Country <span class="required-mark text-danger">*</span></label>
-                                <div class="select-box">
-                                  <div class="country-selector-holder-js">
-                                    <input type="text" id="selector-country" name="Person.Country" class="form-control field-normal input-country-js">
-                                  </div>
-                                  <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" alt="loading">
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="col-md-6">
-                              <div class="form-group required-group">
-                                <label for="selector-state">State <span class="required-mark text-danger">*</span></label>
-                                <div class="select-box">
-                                  <div class="state-selector-holder-js">
-                                    <input type="text" id="selector-state" name="Person.State" class="form-control field-normal input-state-js">
-                                  </div>
-                                  <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" style="display: none" alt="loading">
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="col-md-6">
-                              <div class="form-group required-group">
-                                <label for="selector-city">City <span class="required-mark text-danger">*</span></label>
-                                <div class="select-box">
-                                  <div class="city-selector-holder-js">
-                                    <input type="text" id="selector-city" name="Person.City" class="form-control field-normal input-city-js">
-                                  </div>
-                                  <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" style="display: none" alt="loading">
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="col-md-6">
-                              <div class="form-group required-group">
-                                <label for="zip-code">ZIP Code <span class="required-mark text-danger">*</span></label>
-                                <input type="text" class="form-control validation-number" id="zip-code" data-max-length="5" data-min-length="5">
-                              </div>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- step 5  -->
-                    <div class="step-box" data-step="5">
+                    <!-- step 4 [choose membership type]  -->
+                    <div class="step-box" data-step="4">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600">Membership</h3>
@@ -782,7 +823,6 @@
                             </div>
                           </div>
 
-
                           <div>
                             <hr>
 
@@ -803,7 +843,7 @@
                             <!-- donation box -->
                             <div class="donation-wrapper donation-wrapper-js mb-3">
                               <div class="alert alert-primary">
-                                <h4 class="donation-wrapper-title fw-semibold fs-4">Donation</h4>
+                                <h4 class="donation-wrapper-title fw-semibold fs-4">Donation <span class="fs-6 fw-semibold opacity-75">(Optional)</span></h4>
 
                                 <div class="row">
                                   <div class="col-md-6">
@@ -828,6 +868,10 @@
                                       </select>
                                     </div>
                                   </div>
+                                </div>
+
+                                <div class="alert-note bg-dark text-white">
+                                  <p class="m-0">DAANA is a not-for-profit organization. Your donation helps DAANA continue supporting humanitarian causes in India and around the world.</p>
                                 </div>
 
                               </div>
@@ -872,8 +916,8 @@
                       </div>
                     </div>
 
-                    <!-- step 6  -->
-                    <div class="step-box" data-step="6">
+                    <!-- step 5  -->
+                    <div class="step-box" data-step="5">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600">Payment Information</h3>
@@ -1003,6 +1047,10 @@
                 </div>
               </div>
             </div>
+
+            <p class="m-0 mt-4 text-end">
+              <a href="https://masjidsolutions.net/submit-an-issue" target="_blank" class="fw-semibold fs-6">Submit an issue</a>
+            </p>
           </div>
         </div>
       </div>
