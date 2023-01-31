@@ -82,25 +82,18 @@ fetch("https://api.countrystatecity.in/v1/countries", requestOptions)
     let objCountries = JSON.parse(result);
     if(objCountries.length<1) return;
 
-    $(countryHolderSelector).each(function (i, element){
-      generateSelectDropdown($(element), $(element).find(countryInput), 'selector-country-js', 'Select country');
+    generateSelectDropdown(countryInput, 'selector-country-js', 'Select country');
 
-      Object.keys(objCountries).forEach(function(key, index) {
-        let countryNameShort = objCountries[key]['iso2'];
-        let countryName = objCountries[key]['name'];
-        $(element).find(countrySelector).append('<option data-shortname="'+countryNameShort+'" value="'+countryName+'">'+countryName+'</option>');
-      });
-
-      $(element).closest('.select-box').find('.ajax-loader').hide();
-      loaderDisable(loaderDivClass);
-    })
-
+    Object.keys(objCountries).forEach(function(key, index) {
+      let countryNameShort = objCountries[key]['iso2'];
+      let countryName = objCountries[key]['name'];
+      $(countrySelector).append('<option data-shortname="'+countryNameShort+'" value="'+countryName+'">'+countryName+'</option>');
+    });
+    $(countryHolderSelector).closest('.select-box').find('.ajax-loader').hide();
   })
   .catch(error => {
     console.log('error', error);
   });
-
-
 
 /**
  * -------------------------------------
@@ -412,6 +405,7 @@ $(document).on('keyup blur paste change', '.number-positive-js', function (e) {
  */
 $(document).on('change', '.select-with-other-wrapper select.form-control', function () {
     let self = $(this);
+
     if (self.val() === 'OTHER') {
         self.closest('.select-with-other-wrapper').find('.other-wrapper').removeClass('d-none')
     } else {
@@ -477,15 +471,14 @@ $(document).on('change', '.check-group input[type=checkbox]', function (e) {
 //  self.closest('.step-box').find('.membership-amount-js').val(self.val());
 //})
 
-
 // === on country selection
 $(document).on('change', countrySelector, function (){
   let self = $(this);
   // let selectedCountry = self.val();
   let selectedCountry = self.children('option:selected').attr('data-shortname');
-  self.closest('.address-block-js').find(stateHolderSelector).closest('.select-box').find('.ajax-loader').show();
-  self.closest('.address-block-js').find(stateSelector).empty();
-  self.closest('.address-block-js').find(citySelector).empty();
+  $(stateHolderSelector).closest('.select-box').find('.ajax-loader').show();
+  $(stateSelector).empty();
+  $(citySelector).empty();
   let url = `https://api.countrystatecity.in/v1/countries/${selectedCountry}/states`;
   //=== fetch states
   fetch(url, requestOptions)
@@ -493,20 +486,20 @@ $(document).on('change', countrySelector, function (){
     .then(result => {
       let objStates = JSON.parse(result);
       if(objStates.length<1){
-        replaceSelectWithInput(self.closest('.address-block-js').find(stateSelector), 'input-state-js');
-        self.closest('.address-block-js').find(stateHolderSelector).closest('.select-box').find('.ajax-loader').hide();
+        replaceSelectWithInput(stateSelector, 'input-state-js');
+        $(stateHolderSelector).closest('.select-box').find('.ajax-loader').hide();
         return;
       }
 
       //=== sorting states alphabatically
       objStates.sort(dynamicSort("name"));
-      generateSelectDropdown(self, self.closest('.address-block-js').find(stateInput), 'selector-state-js', 'Select State')
+      generateSelectDropdown(stateInput, 'selector-state-js', 'Select State')
       Object.keys(objStates).forEach(function(key, index) {
         let stateNameShort = objStates[key]['iso2'];
         let stateName = objStates[key]['name'];
-        self.closest('.address-block-js').find(stateSelector).append('<option data-shortname="'+stateNameShort+'" value="'+stateName+'">'+stateName+'</option>');
+        $(stateSelector).append('<option data-shortname="'+stateNameShort+'" value="'+stateName+'">'+stateName+'</option>');
       });
-      self.closest('.address-block-js').find(stateHolderSelector).closest('.select-box').find('.ajax-loader').hide();
+      $(stateHolderSelector).closest('.select-box').find('.ajax-loader').hide();
     })
     .catch(error => {
       console.log('error', error);
@@ -516,12 +509,11 @@ $(document).on('change', countrySelector, function (){
 //=== on state selection
 $(document).on('change', stateSelector, function (){
   let self = $(this);
-  let currentBody = self.closest('.address-block-js');
   // let selectedState = self.val();
   let selectedState = self.children('option:selected').attr('data-shortname');
-  let selectedCountry = self.closest('.address-block-js').find('.selector-country-js').children('option:selected').attr('data-shortname');
-  currentBody.find(citySelector).empty();
-  currentBody.find(cityHolderSelector).closest('.select-box').find('.ajax-loader').show();
+  let selectedCountry = $('.selector-country-js').children('option:selected').attr('data-shortname');
+  $(citySelector).empty();
+  $(cityHolderSelector).closest('.select-box').find('.ajax-loader').show();
   let url = `https://api.countrystatecity.in/v1/countries/${selectedCountry}/states/${selectedState}/cities`;
   //=== fetch cities
   fetch(url, requestOptions)
@@ -529,17 +521,17 @@ $(document).on('change', stateSelector, function (){
     .then(result => {
       let objCities = JSON.parse(result);
       if(objCities.length<1){
-        replaceSelectWithInput(currentBody.find(citySelector), 'input-city-js');
-        currentBody.find(cityHolderSelector).closest('.select-box').find('.ajax-loader').hide();
+        replaceSelectWithInput(citySelector, 'input-city-js');
+        $(cityHolderSelector).closest('.select-box').find('.ajax-loader').hide();
         return;
       }
 
-      generateSelectDropdown(self, currentBody.find(cityInput), 'selector-city-js', 'Select city');
+      generateSelectDropdown(cityInput, 'selector-city-js', 'Select city');
       Object.keys(objCities).forEach(function(key, index) {
         let cityName = objCities[key]['name'];
-        currentBody.find(citySelector).append('<option value="'+cityName+'">'+cityName+'</option>');
+        $(citySelector).append('<option value="'+cityName+'">'+cityName+'</option>');
       });
-      currentBody.find(cityHolderSelector).closest('.select-box').find('.ajax-loader').hide();
+      $(cityHolderSelector).closest('.select-box').find('.ajax-loader').hide();
     })
     .catch(error => {
       console.log('error', error);
@@ -833,41 +825,27 @@ function stepMoveExact(stepNumber) {
 
 /**
  * Generates select dropdown
- * @param selfSelector
  * @param inputSelector
  * @param selectorClass
  * @param selectPlaceholder
  */
-function generateSelectDropdown(selfSelector, inputSelector, selectorClass, selectPlaceholder){
-  if(inputSelector.length<1){
-    selfSelector.closest('.address-block-js').find(selectorClass).empty();
-    selfSelector.closest('.address-block-js').find(selectorClass).append('<option></option>');
+function generateSelectDropdown(inputSelector, selectorClass, selectPlaceholder){
+  if($(inputSelector).length<1){
+    $('.'+selectorClass).empty();
+    $('.'+selectorClass).append('<option></option>');
     return;
   }
-  let id = inputSelector.attr('id');
-  let inputName = inputSelector.attr('name');
+  let id = $(inputSelector).attr('id');
+  let inputName = $(inputSelector).attr('name');
   let selector = `<select id="${id}" class="form-control field-normal selector-country ${selectorClass}" name="${inputName}">
                                         <option></option>
                                      </select>`;
-  inputSelector.parent().html(selector);
+  $(inputSelector).parent().html(selector);
   $(document).on('DOMNodeInserted', '.'+selectorClass, function () {
     $(this).select2({
       placeholder: selectPlaceholder,
     });
   });
-}
-
-/**
- * replaces select dropdown with input when ther is no item to add in the dropdown
- * @param selectSelector
- * @param inputClass
- */
-function replaceSelectWithInput(selectSelector, inputClass){
-  let id = $(selectSelector).attr('id');
-  let name = $(selectSelector).attr('name');
-  let inputField = `<input type="text" id="${id}" name="${name}" class="form-control field-normal ${inputClass}">`;
-  $(selectSelector).parent().html(inputField);
-
 }
 
 

@@ -359,7 +359,8 @@ $(document).on('keyup blur paste change', '.number-positive-js', function (e){
  */
 $(document).on('change', '.select-with-other-wrapper select.form-control', function (){
   let self = $(this);
-  if(self.find(':selected').attr('data-action')==='other'){
+  console.log(self.val());
+  if(self.val()==='OTHER'){
     self.closest('.select-with-other-wrapper').find('.other-wrapper').removeClass('d-none')
   }else{
     self.closest('.select-with-other-wrapper').find('.other-wrapper .form-control').val('');
