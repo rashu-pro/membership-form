@@ -92,6 +92,13 @@ fetch("https://api.countrystatecity.in/v1/countries", requestOptions)
       });
 
       $(element).closest('.select-box').find('.ajax-loader').hide();
+      //=== updating on 02/02/2023
+      if($(element).attr('data-option') && $(element).attr('data-option')!==''){
+        selectOption($(element).find(countrySelector), $(element).attr('data-option'));
+        $(element).attr('data-option','');
+      }
+      //=== ------------ update end
+
       loaderDisable(loaderDivClass);
     })
 
@@ -344,7 +351,7 @@ $(document).on('click', '.card-accordion .card-header', function (e) {
 
 $(document).on('keyup change', '.form-group.required-group .form-control', function (e) {
     let self = $(this);
-
+    if(!self.val()) return;
     if (self.val().length > 0) {
         self.removeClass('invalid');
         self.removeClass('field-invalid');
@@ -506,6 +513,10 @@ $(document).on('change', countrySelector, function (){
         let stateName = objStates[key]['name'];
         self.closest('.address-block-js').find(stateSelector).append('<option data-shortname="'+stateNameShort+'" value="'+stateName+'">'+stateName+'</option>');
       });
+      if(self.closest('.address-block-js').find(stateHolderSelector).attr('data-option') && self.closest('.address-block-js').find(stateHolderSelector).attr('data-option')!==''){
+        selectOption(self.closest('.address-block-js').find(stateSelector), self.closest('.address-block-js').find(stateHolderSelector).attr('data-option'));
+        self.closest('.address-block-js').find(stateHolderSelector).attr('data-option', false);
+      }
       self.closest('.address-block-js').find(stateHolderSelector).closest('.select-box').find('.ajax-loader').hide();
     })
     .catch(error => {
@@ -520,6 +531,11 @@ $(document).on('change', stateSelector, function (){
   // let selectedState = self.val();
   let selectedState = self.children('option:selected').attr('data-shortname');
   let selectedCountry = self.closest('.address-block-js').find('.selector-country-js').children('option:selected').attr('data-shortname');
+  if(!selectedState){
+    replaceSelectWithInput(currentBody.find(citySelector), 'input-city-js');
+    currentBody.find(cityHolderSelector).closest('.select-box').find('.ajax-loader').hide();
+    return;
+  }
   currentBody.find(citySelector).empty();
   currentBody.find(cityHolderSelector).closest('.select-box').find('.ajax-loader').show();
   let url = `https://api.countrystatecity.in/v1/countries/${selectedCountry}/states/${selectedState}/cities`;
@@ -539,6 +555,10 @@ $(document).on('change', stateSelector, function (){
         let cityName = objCities[key]['name'];
         currentBody.find(citySelector).append('<option value="'+cityName+'">'+cityName+'</option>');
       });
+      if(self.closest('.address-block-js').find(cityHolderSelector).attr('data-option') && self.closest('.address-block-js').find(cityHolderSelector).attr('data-option') !==''){
+        selectOption(self.closest('.address-block-js').find(citySelector), self.closest('.address-block-js').find(cityHolderSelector).attr('data-option'));
+        self.closest('.address-block-js').find(cityHolderSelector).attr('data-option', false);
+      }
       currentBody.find(cityHolderSelector).closest('.select-box').find('.ajax-loader').hide();
     })
     .catch(error => {
@@ -868,6 +888,17 @@ function replaceSelectWithInput(selectSelector, inputClass){
   let inputField = `<input type="text" id="${id}" name="${name}" class="form-control field-normal ${inputClass}">`;
   $(selectSelector).parent().html(inputField);
 
+}
+
+/**
+ * selects an option in the select dropdown
+ * @param selector
+ * @param option
+ */
+function selectOption(selector, option){
+  if(!selector) return;
+  selector.val(option);
+  selector.change();
 }
 
 
