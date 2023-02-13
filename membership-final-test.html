@@ -258,7 +258,7 @@
                       <p class="step-title">Enter Your Email</p>
                     </div>
 
-                    <div class="step-list active" data-step="2">
+                    <div class="step-list completed" data-step="2">
                       <span class="step-mark"><img src="assets/images/tick.png" alt="complete"></span>
                       <p class="step-title">Member Information</p>
 
@@ -271,7 +271,7 @@
                       </div>
                     </div>
 
-                    <div class="step-list" data-step="3">
+                    <div class="step-list completed" data-step="3">
                       <span class="step-mark"><img src="assets/images/tick.png" alt="complete"></span>
                       <p class="step-title">Spouse Information</p>
                       <div class="edit mt-2">
@@ -282,10 +282,10 @@
                       </div>
                     </div>
 
-                    <div class="step-list" data-step="4">
-                <span class="step-mark">
-                  <img src="assets/images/tick.png" alt="complete">
-                </span>
+                    <div class="step-list active" data-step="4">
+                      <span class="step-mark">
+                        <img src="assets/images/tick.png" alt="complete">
+                      </span>
                       <p class="step-title">Membership</p>
 
                       <div class="edit mt-2">
@@ -412,7 +412,7 @@
                     </div>
 
                     <!-- step 2 [member information]  -->
-                    <div class="step-box active" data-step="2">
+                    <div class="step-box" data-step="2">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600">Member Information</h3>
@@ -750,6 +750,7 @@
                             <div class="col-12">
                               <p class="font-600 text-medium mb-2 mt-2">Full Name</p>
                             </div>
+
                             <div class="col-md-4">
                               <div class="form-group">
                                 <label for="Spouse_FirstName">First</label>
@@ -790,18 +791,19 @@
                             </div>
 
                             <div class="col-md-6">
-                              <div class="form-group required-group phone-number-validator-wrapper">
+                              <div class="form-group phone-number-validator-wrapper">
                                 <label for="phone-number-spouse-home">
                                   Phone Number (Home)
                                 </label>
                                 <input type="text"
                                        class="form-control phone-number-validator phone-number-edit input-phone-number"
                                        id="phone-number-spouse-home" name="SpousePhoneHome"
-                                       data-number="+8801852404635">
+                                       data-number="">
                                 <input type="hidden" class="phone-number-hidden" name="PhoneNumberHome"
                                        value="+8801852404635">
                               </div>
                             </div>
+
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label for="Spouse_EmailAddress">Email</label>
@@ -812,7 +814,67 @@
                                       data-valmsg-replace="true"></span>
                               </div>
                             </div>
+
+                            <!-- condition fields -->
+                            <div class="col-md-12">
+
+                              <!-- profession details -->
+                              <div class="pt-3">
+                                <h2 class="mb-1 fs-5 fw-semibold">Profession Details</h2>
+                                <hr class="m-0 mb-2">
+
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label for="Spouse_Profession">Profession/Type of Work</label>
+                                      <input class="form-control text-box single-line" id="Spouse_Profession"
+                                             name="Spouse.Profession" type="text" value="">
+                                    </div>
+                                  </div>
+
+                                  <div class="col-md-6">
+                                    <div class="form-group">
+                                      <label for="Person_Specialty">Specialty of Practice</label>
+                                      <input class="form-control text-box single-line" id="Spouse_Specialty"
+                                             name="Spouse.Specialty" type="text" value="">
+                                    </div>
+                                  </div>
+
+                                  <div class="col-md-12">
+                                    <div class="mb-3">
+                                      <div class="form-check check-group" style="line-height: 1.9">
+                                        <input class="form-check-input check-md check-to-show-div-js"
+                                               type="checkbox"
+                                               value=""
+                                               id="is-alumni"
+                                               data-div="#div-to-show-spouse-batch"
+                                               data-value="is-alumni">
+                                        <label class="form-check-label" for="is-alumni">
+                                          DCMS Alumni
+                                          <span class="badge bg-dark badge-help"
+                                                data-bs-toggle="tooltip"
+                                                title=""
+                                                data-bs-original-title="Check if spouse is also an alumni">?</span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-md-6 hidden-div" id="div-to-show-spouse-batch">
+                                    <div class="form-group">
+                                      <label for="dcms-batch">DCMS Batch</label>
+                                      <input class="form-control text-box single-line" id="dcms-batch"
+                                             name="Batch" type="text" value="">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
                           </div>
+
+
 
                         </div>
                       </div>
@@ -1045,7 +1107,7 @@
                     </div>
 
                     <!-- step 5  -->
-                    <div class="step-box" data-step="5">
+                    <div class="step-box active" data-step="5">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600">Payment Information</h3>
@@ -1343,7 +1405,7 @@
 <!-- bootstrap datepicker -->
 <script src="node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- bootstrap -->
-<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 <!-- intl-tel-phone -->
 <script src="node_modules/intl-tel-input/build/js/intlTelInput.min.js"></script>
 <!-- select2 -->
@@ -1358,6 +1420,7 @@
 <script src="assets/js/live/script.js?v=2.0.4"></script>
 
 <script>
+
   function sendOtp() {
     return true;
   }

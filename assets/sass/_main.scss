@@ -179,3 +179,10 @@
 .iti__selected-flag{
   border-right:1px solid #ddd;
 }
+
+.hidden-div{
+  display:none;
+  &.active{
+    display: block;
+  }
+}

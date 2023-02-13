@@ -19,6 +19,12 @@
         display: inline-block;
       }
     }
+
+    &:not(.required-group){
+      .text-danger.error-message{
+        color:#3f51b5!important;
+      }
+    }
   }
 
   &-check{
@@ -174,3 +180,4 @@
 .select2-container--default .select2-selection--single .select2-selection__placeholder{
   color:#444;
 }
+
