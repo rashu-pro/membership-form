@@ -958,6 +958,16 @@ html, body {
   background: #f8f8f8;
 }
 
+@media (min-width: 1200px) {
+  .modal-lg, .modal-xl {
+    --bs-modal-width: 1140px;
+  }
+}
+@media (min-width: 1600px) {
+  .modal-lg, .modal-xl {
+    --bs-modal-width: 1400px;
+  }
+}
 .datepicker td, .datepicker th {
   width: 35px;
   height: 28px;

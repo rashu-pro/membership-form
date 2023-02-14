@@ -100,7 +100,6 @@ fetch("https://api.countrystatecity.in/v1/countries", requestOptions)
       $(element).closest('.select-box').find('.ajax-loader').hide();
       loaderDisable(loaderDivClass);
     })
-
   })
   .catch(error => {
     console.log('error', error);
@@ -119,7 +118,6 @@ if ($(checkToShowDivSelector).length > 0) {
  * 4. EVENT LISTENER: CLICK
  * -------------------------------------
  */
-
 $(document).on('click', '.btn-send-otp-js', function (e) {
   e.preventDefault();
   let self = $(this),
@@ -359,6 +357,21 @@ $(document).on('click', '.card-accordion .card-header', function (e) {
   let self = $(this);
   self.closest('.card-accordion').toggleClass('active');
 });
+
+//=== expand button click action
+$(document).on('click', '.btn-expand-js', function (e){
+  e.preventDefault();
+  let self = $(this);
+  self.closest('.modal-dialog').toggleClass('modal-fullscreen');
+  self.blur();
+  self.find('.icon-maximize').toggleClass('d-none');
+  self.find('.icon-minimize').toggleClass('d-none');
+  if(self.closest('.modal-dialog').hasClass('modal-fullscreen')){
+    self.attr('data-bs-original-title','Minimize Window');
+  }else{
+    self.attr('data-bs-original-title','Maximize Window');
+  }
+})
 
 
 /**
