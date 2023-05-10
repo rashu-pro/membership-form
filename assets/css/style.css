@@ -341,6 +341,13 @@ html, body {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
+.form-control.street-address-pin {
+  position: relative;
+  background-image: url("https://res.cloudinary.com/secure-api/image/upload/v1683720094/secure-api/Secure-api/images/mjomeg9bme4yuh2tlr5q.png");
+  background-repeat: no-repeat;
+  background-position: 98% 6px;
+  background-size: auto;
+}
 .form-select {
   border-color: #959799;
 }

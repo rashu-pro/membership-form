@@ -258,7 +258,7 @@
                       <p class="step-title">Enter Your Email</p>
                     </div>
 
-                    <div class="step-list completed" data-step="2">
+                    <div class="step-list active" data-step="2">
                       <span class="step-mark"><img src="assets/images/tick.png" alt="complete"></span>
                       <p class="step-title">Member Information</p>
 
@@ -271,7 +271,7 @@
                       </div>
                     </div>
 
-                    <div class="step-list completed" data-step="3">
+                    <div class="step-list" data-step="3">
                       <span class="step-mark"><img src="assets/images/tick.png" alt="complete"></span>
                       <p class="step-title">Spouse Information</p>
                       <div class="edit mt-2">
@@ -282,7 +282,7 @@
                       </div>
                     </div>
 
-                    <div class="step-list active" data-step="4">
+                    <div class="step-list" data-step="4">
                       <span class="step-mark">
                         <img src="assets/images/tick.png" alt="complete">
                       </span>
@@ -328,7 +328,7 @@
                           <div class="row">
                             <div class="col-md-12">
 
-                              <div class="email-wrapper active" id="email-wrapper">
+                              <div class="email-wrapper no-email-verification active" id="email-wrapper">
                                 <div class="alert alert-primary">
                                   <h5 class="alert-heading d-flex align-items-center"><img src="assets/images/info.png"
                                                                                            alt="info"> Note: </h5>
@@ -348,62 +348,54 @@
                                       </div>
                                     </div>
 
-                                    <div class="col-md-6">
-                                      <div class="form-group required-group">
-                                        <label for="email-confirm" class="fs-5 fw-semibold">Confirm Email <span
-                                          class="required-mark text-danger">*</span></label>
-                                        <input type="email"
-                                               class="form-control field-v2 field-final-js validation-email"
-                                               id="email-confirm" name="Email">
-                                      </div>
-                                    </div>
+
                                   </div>
 
-                                  <button type="button" class="btn btn-success btn-long btn-send-otp-js">
-                                    <span>Send</span>
-                                  </button>
+<!--                                  <button type="button" class="btn btn-success btn-long btn-send-otp-js">-->
+<!--                                    <span>Send</span>-->
+<!--                                  </button>-->
                                 </div>
                               </div>
 
-                              <div class="otp-wrapper">
-                                <!-- alert -->
-                                <div class="alert alert-success alert-otp-js animate__animated">
-                                  <h5 class="alert-heading d-flex align-items-center">
-                                    <img src="assets/images/info-success.png" alt="info"> Authenticator passcode has
-                                    been sent
-                                  </h5>
-                                  <hr>
-                                  <p class="m-0">
-                                    Please check your email. Copy the six-digit code and verify to continue.
-                                  </p>
-                                </div>
+<!--                              <div class="otp-wrapper">-->
+<!--                                &lt;!&ndash; alert &ndash;&gt;-->
+<!--                                <div class="alert alert-success alert-otp-js animate__animated">-->
+<!--                                  <h5 class="alert-heading d-flex align-items-center">-->
+<!--                                    <img src="assets/images/info-success.png" alt="info"> Authenticator passcode has-->
+<!--                                    been sent-->
+<!--                                  </h5>-->
+<!--                                  <hr>-->
+<!--                                  <p class="m-0">-->
+<!--                                    Please check your email. Copy the six-digit code and verify to continue.-->
+<!--                                  </p>-->
+<!--                                </div>-->
 
-                                <div class="row">
-                                  <div class="col-md-8">
-                                    <div class="form-group required-group pb-4">
-                                      <label for="otp-field" class="fs-5 fw-semibold">Enter verification code
-                                        here</label>
-                                      <input type="text" id="otp-field" class="form-control field-v2 otp-field"
-                                             name="Otp">
-                                    </div>
-                                  </div>
-                                </div>
+<!--                                <div class="row">-->
+<!--                                  <div class="col-md-8">-->
+<!--                                    <div class="form-group required-group pb-4">-->
+<!--                                      <label for="otp-field" class="fs-5 fw-semibold">Enter verification code-->
+<!--                                        here</label>-->
+<!--                                      <input type="text" id="otp-field" class="form-control field-v2 otp-field"-->
+<!--                                             name="Otp">-->
+<!--                                    </div>-->
+<!--                                  </div>-->
+<!--                                </div>-->
 
-                                <div class="button-group">
-                                  <button type="button" class="btn btn-success btn-long btn-verify-otp-js me-3">Verify
-                                  </button>
-                                </div>
+<!--                                <div class="button-group">-->
+<!--                                  <button type="button" class="btn btn-success btn-long btn-verify-otp-js me-3">Verify-->
+<!--                                  </button>-->
+<!--                                </div>-->
 
-                                <!-- resend otp alert -->
-                                <div class="mb-3 pt-2">
-                                  <hr/>
-                                  <p class="pt-2 fs-5s fw-semibold">
-                                    <span class="me-2">Haven't received the OTP? Re-send it:</span>
-                                    <button type="button" class="btn btn-primary btn-send-otp-js">Resend OTP</button>
-                                  </p>
-                                </div>
+<!--                                &lt;!&ndash; resend otp alert &ndash;&gt;-->
+<!--                                <div class="mb-3 pt-2">-->
+<!--                                  <hr/>-->
+<!--                                  <p class="pt-2 fs-5s fw-semibold">-->
+<!--                                    <span class="me-2">Haven't received the OTP? Re-send it:</span>-->
+<!--                                    <button type="button" class="btn btn-primary btn-send-otp-js">Resend OTP</button>-->
+<!--                                  </p>-->
+<!--                                </div>-->
 
-                              </div>
+<!--                              </div>-->
                             </div>
                           </div>
 
@@ -412,7 +404,7 @@
                     </div>
 
                     <!-- step 2 [member information]  -->
-                    <div class="step-box" data-step="2">
+                    <div class="step-box active" data-step="2">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600">Member Information</h3>
@@ -575,7 +567,7 @@
                           </div>
 
                           <!-- work address -->
-                          <div class="pt-3 address-block-js">
+                          <div class="pt-3 address-block-js address-autocomplete-block-js" id="work-address">
                             <h2 class="mb-1 fs-5 fw-semibold">Work Address</h2>
                             <hr class="m-0 mb-2">
 
@@ -585,8 +577,7 @@
                                 <div class="form-group required-group">
                                   <label for="Person_AddressLine1">Street Address</label><span
                                   class="required-mark text-danger">&nbsp;*</span>
-                                  <textarea class="form-control" id="Person_AddressLine1" name="Person.AddressLine1"
-                                            rows="2"></textarea>
+                                  <input class="form-control street-address-pin street-address-js" id="Person_AddressLine1" name="Person.AddressLine1">
                                 </div>
                               </div>
 
@@ -599,7 +590,7 @@
                                       <input type="text" id="selector-country-work" name="Person.Country"
                                              class="form-control field-normal input-country-js">
                                     </div>
-                                    <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" alt="loading">
+                                    <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" alt="loading" style="display: none">
                                   </div>
                                 </div>
                               </div>
@@ -637,7 +628,7 @@
                                 <div class="form-group required-group">
                                   <label for="Person_ZipCode_work">ZIP Code</label><span
                                   class="required-mark text-danger">&nbsp;*</span>
-                                  <input class="form-control text-box single-line" id="Person_ZipCode_work"
+                                  <input class="form-control text-box single-line input-postal-code-js" id="Person_ZipCode_work"
                                          name="Person.ZipCode" type="text" value="">
                                   <span class="field-validation-valid text-danger" data-valmsg-for="Person.ZipCode"
                                         data-valmsg-replace="true"></span>
@@ -647,7 +638,7 @@
                           </div>
 
                           <!-- home address -->
-                          <div class="pt-3 address-block-js">
+                          <div class="pt-3 address-block-js address-autocomplete-block-js">
                             <h2 class="mb-1 fs-5 fw-semibold">Billing/Residential Address</h2>
                             <hr class="m-0 mb-2">
 
@@ -656,8 +647,7 @@
                                 <div class="form-group required-group">
                                   <label for="person-home-address">Street Address</label><span
                                   class="required-mark text-danger">&nbsp;*</span>
-                                  <textarea class="form-control" id="person-home-address" name="Person.HomeAddress"
-                                            rows="2"></textarea>
+                                  <input class="form-control street-address-pin street-address-js" id="person-home-address" name="Person.HomeAddress">
                                 </div>
                               </div>
 
@@ -670,7 +660,7 @@
                                       <input type="text" id="selector-country-home" name="Person.Country"
                                              class="form-control field-normal input-country-js">
                                     </div>
-                                    <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" alt="loading">
+                                    <img src="assets/images/Iphone-spinner-2.gif" class="ajax-loader" alt="loading" style="display: none">
                                   </div>
                                 </div>
                               </div>
@@ -708,7 +698,7 @@
                                 <div class="form-group required-group">
                                   <label for="Person_ZipCode_home">ZIP Code</label><span
                                   class="required-mark text-danger">&nbsp;*</span>
-                                  <input class="form-control text-box single-line" id="Person_ZipCode_home"
+                                  <input class="form-control text-box single-line input-postal-code-js" id="Person_ZipCode_home"
                                          name="Person.ZipCode" type="text" value="">
                                   <span class="field-validation-valid text-danger" data-valmsg-for="Person.ZipCode"
                                         data-valmsg-replace="true"></span>
@@ -1107,7 +1097,7 @@
                     </div>
 
                     <!-- step 5  -->
-                    <div class="step-box active" data-step="5">
+                    <div class="step-box" data-step="5">
                       <div class="step-box-wrapper">
                         <div class="step-box-head">
                           <h3 class="font-600">Payment Information</h3>
@@ -1228,7 +1218,7 @@
                       </div>
                     </div>
 
-                    <div class="step-box-foot active mt-4">
+                    <div class="step-box-foot mt-4">
                       <div class="button-group">
                         <button type="button" class="btn btn-dark btn-lg btn-long btn-prev me-3 btn-navigation-js"
                                 data-step="2" data-action="decrease"><img src="assets/images/back.png" alt="prev"><span>Prev</span>
@@ -1298,10 +1288,10 @@
           <h5 class="modal-title font-bold">Code of Conduct</h5>
 
           <div>
-            <button type="button" 
-            class="btn btn-close btn-expand-js me-3" 
+            <button type="button"
+            class="btn btn-close btn-expand-js me-3"
             id="btn-expand"
-            title="Maximize Window" 
+            title="Maximize Window"
             data-bs-toggle="tooltip"
             title=""
             data-bs-original-title="Maximize Window">
@@ -1345,10 +1335,10 @@
           <h5 class="modal-title font-bold">Terms & Conditions</h5>
 
           <div>
-            <button type="button" 
-            class="btn btn-close btn-expand-js me-3" 
+            <button type="button"
+            class="btn btn-close btn-expand-js me-3"
             id="btn-expand"
-            title="Maximize Window" 
+            title="Maximize Window"
             data-bs-toggle="tooltip"
             title=""
             data-bs-original-title="Maximize Window">
@@ -1443,10 +1433,12 @@
 <script src="assets/js/card_validation.js"></script>
 <!-- intl-tel-phone initialization -->
 <script src="assets/js/phone_validator.js?v=1.0.2"></script>
+<!-- google map api -->
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRIIew-eQp2QjI5mRLFOE-qoUnl-qKC38&libraries=places&callback=initMap"></script>
 
 <!-- script.js -->
 <!--<script src="assets/js/script.js?v=1.0.8"></script>-->
-<script src="assets/js/live/script.js?v=2.0.5"></script>
+<script src="assets/js/live/script.js?v=2.0.6"></script>
 
 <script>
 
