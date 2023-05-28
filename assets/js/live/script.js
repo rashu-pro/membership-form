@@ -82,39 +82,33 @@ let cityInput = '.input-city-js';
 let checkToShowDivSelector = '.check-to-show-div-js';
 
 //=== fetch countries
-function fetchCountries(){
-  fetch("https://api.countrystatecity.in/v1/countries", requestOptions)
+fetch("https://api.countrystatecity.in/v1/countries", requestOptions)
     .then(response => response.text())
     .then(result => {
-      let objCountries = JSON.parse(result);
-      if (objCountries.length < 1) return;
-      console.log(objCountries);
+        let objCountries = JSON.parse(result);
+        if (objCountries.length < 1) return;
 
-      $(countryHolderSelector).each(function (i, element) {
-        generateSelectDropdown($(element), $(element).find(countryInput), 'selector-country-js', 'Select country');
+        $(countryHolderSelector).each(function (i, element) {
+            generateSelectDropdown($(element), $(element).find(countryInput), 'selector-country-js', 'Select country');
 
-        Object.keys(objCountries).forEach(function (key, index) {
-          let countryNameShort = objCountries[key]['iso2'];
-          let countryName = objCountries[key]['name'];
-          if (countryNameShort === 'CA' || countryNameShort === 'US') {
-            $(element).find(countrySelector).prepend('<option data-shortname="' + countryNameShort + '" value="' + countryName + '">' + countryName + '</option>');
-          } else {
-            $(element).find(countrySelector).append('<option data-shortname="' + countryNameShort + '" value="' + countryName + '">' + countryName + '</option>');
-          }
-        });
+            Object.keys(objCountries).forEach(function (key, index) {
+                let countryNameShort = objCountries[key]['iso2'];
+                let countryName = objCountries[key]['name'];
+                if (countryNameShort === 'CA' || countryNameShort === 'US') {
+                    $(element).find(countrySelector).prepend('<option data-shortname="' + countryNameShort + '" value="' + countryName + '">' + countryName + '</option>');
+                } else {
+                    $(element).find(countrySelector).append('<option data-shortname="' + countryNameShort + '" value="' + countryName + '">' + countryName + '</option>');
+                }
+            });
 
-        $(element).closest('.select-box').find('.ajax-loader').hide();
-        loaderDisable(loaderDivClass);
-      })
+            $(element).closest('.select-box').find('.ajax-loader').hide();
+            loaderDisable(loaderDivClass);
+        })
 
     })
     .catch(error => {
-      console.log('error', error);
+        console.log('error', error);
     });
-}
-
-loaderDisable(loaderDivClass);
-
 
 //=== show div on condition
 if ($(checkToShowDivSelector).length > 0) {
@@ -165,23 +159,39 @@ $(document).on('click', '.btn-send-otp-js', function (e) {
 
     $('.loader-div').addClass('active');
     //=== email field validated
-
-    //== have to uncomment after test
-    sendOtp().done(function (result) {
+  checkMembershipExist().done(function (result) {
+    if(result){
+      $('#modal-ismember').modal('show');
+    }else{
+      //== have to uncomment after test
+      sendOtp().done(function (result) {
 
         if (result) {
-            $('.loader-div').removeClass('active');
-            $('.alert-otp-js').removeClass('animate__headShake');
-            setTimeout(function () {
-                $('.alert-otp-js').addClass('animate__headShake');
-            }, 100);
-            rootParent.removeClass('active');
-            rootParent.closest('.step-box').find('.otp-wrapper').addClass('active');
+          $('.loader-div').removeClass('active');
+          $('.alert-otp-js').removeClass('animate__headShake');
+          setTimeout(function () {
+            $('.alert-otp-js').addClass('animate__headShake');
+          }, 100);
+          rootParent.removeClass('active');
+          rootParent.closest('.step-box').find('.otp-wrapper').addClass('active');
         } else {
-            return;
+          return;
         }
-    });
+      });
+    }
+  })
 
+
+
+});
+
+/**
+ * After member existence close button click
+ */
+$(document).on('hidden.bs.modal', '#modal-ismember', function (event) {
+  $('.step-box[data-step=1] .form-control[type=email]').val('');
+  $('.step-box[data-step=1] .form-control[type=email]').first().focus();
+  $('.loader-div').removeClass('active');
 });
 
 $(document).on('click', '.btn-verify-otp-js', function (e) {
@@ -307,15 +317,26 @@ $(document).on('click', '.btn-navigation-js', function (e) {
     }
 
     loaderEnable(loaderDivClass);
-    $('#modal-ismember').modal('show');
-    return;
+
     if (self.attr('data-action') === 'increase'
         && stepCurrent === 1
         && self.closest('.step-form-wrapper').hasClass('no-email-verification')) {
-        //work here
-        let companyKey = $('#hdn-company-key').val(),
+      checkMembershipExist().done(function (result) {
+        if(result){
+          $('#modal-ismember').modal('show');
+        }else{
+          //work here
+          let companyKey = $('#hdn-company-key').val(),
             email = $('#email').val();
-        isEmailExisting(companyKey, email, self, stepNext, stepCurrent);
+          isEmailExisting(companyKey, email, self, stepNext, stepCurrent);
+
+          setTimeout(() => {
+            stepMoveNext(stepCurrent);
+            if (parseInt($('.step-box.active').attr('data-step')) === stepBoxCount) self.find('span').html(self.attr('data-submit-text'));
+            loaderDisable(loaderDivClass);
+          }, 600);
+        }
+      })
     }
 
     if (self.attr('data-action') === 'increase' && stepCurrent === stepBoxCount) {
@@ -331,11 +352,14 @@ $(document).on('click', '.btn-navigation-js', function (e) {
         return;
     }
 
-    setTimeout(() => {
+    if(stepCurrent>1){
+      setTimeout(() => {
         stepMoveNext(stepCurrent);
         if (parseInt($('.step-box.active').attr('data-step')) === stepBoxCount) self.find('span').html(self.attr('data-submit-text'));
         loaderDisable(loaderDivClass);
-    }, 600);
+      }, 600);
+    }
+
 });
 
 $(document).on('click', '.btn-edit-step-js', function (e) {
@@ -628,72 +652,6 @@ function fixHeight() {
         heightToMinus = "calc(100vh - " + (headerHeight + footerHeight) + "px)";
     $('.main-wrapper').css('min-height', heightToMinus);
 }
-
-
-/**
- * Integrated google map place api to autocomplete address
- */
-function initMap() {
-  let addressFieldsSelector = document.getElementsByClassName('street-address-js');
-  for (let i = 0; i < addressFieldsSelector.length; i++) {
-    let addressField = addressFieldsSelector[i];
-    const addressBlockSelector = addressField.closest('.address-autocomplete-block-js');
-    // Create the autocomplete object
-    const autocomplete = new google.maps.places.Autocomplete(addressField);
-
-    // Set the fields to retrieve from the Places API
-    // autocomplete.setFields(['formatted_address']);
-    autocomplete.setFields(['address_components', 'formatted_address']);
-
-    addressBlockSelector.querySelector('.input-city-js').value = '';
-    addressBlockSelector.querySelector('.input-state-js').value = '';
-    addressBlockSelector.querySelector('.input-country-js').value = '';
-    addressBlockSelector.querySelector('.input-postal-code-js').value = '';
-
-    // When a place is selected, populate the address fields in your form
-    autocomplete.addListener('place_changed', function() {
-      const place = autocomplete.getPlace();
-      if (!place.formatted_address) {
-        console.log('No address available for this place.');
-        loaderEnable(loaderDivClass);
-        fetchCountries();
-        return;
-      }
-
-      // Do something with the selected address
-      // Retrieve the country, state, and city names from the address components
-      let streetNumber, routeName, streetAddress, countryName, stateName, cityName, postalCode;
-      for (const component of place.address_components) {
-        if (component.types.includes('country')) {
-          countryName = component.long_name;
-        } else if (component.types.includes('administrative_area_level_1')) {
-          stateName = component.long_name;
-        } else if (component.types.includes('locality') || component.types.includes('postal_town')) {
-          cityName = component.long_name;
-        }else if (component.types.includes('administrative_area_level_3')){
-          if(!cityName) cityName = component.long_name;
-        }else if(component.types.includes('postal_code')){
-          postalCode = component.long_name;
-        } else if(component.types.includes('street_number')){
-          streetNumber = component.long_name;
-        }else if(component.types.includes('route')){
-          routeName = component.long_name;
-        }
-      }
-
-      // streetAddress = streetNumber && routeName ? streetNumber+" "+routeName : place.formatted_address.split(',')[0];
-      streetAddress = place.formatted_address.split(',')[0];
-
-      if(cityName) addressBlockSelector.querySelector('.input-city-js').value = cityName;
-      if(stateName) addressBlockSelector.querySelector('.input-state-js').value = stateName;
-      if(countryName) addressBlockSelector.querySelector('.input-country-js').value = countryName;
-      if(postalCode) addressBlockSelector.querySelector('.input-postal-code-js').value = postalCode;
-      if(streetAddress) addressBlockSelector.querySelector('.street-address-js').value = streetAddress;
-
-    });
-  }
-}
-
 
 
 /**

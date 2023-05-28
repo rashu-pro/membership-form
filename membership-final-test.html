@@ -328,7 +328,7 @@
                           <div class="row">
                             <div class="col-md-12">
 
-                              <div class="email-wrapper no-email-verification active" id="email-wrapper">
+                              <div class="email-wrapper active" id="email-wrapper">
                                 <div class="alert alert-primary">
                                   <h5 class="alert-heading d-flex align-items-center"><img src="assets/images/info.png"
                                                                                            alt="info"> Note: </h5>
@@ -340,20 +340,26 @@
                                   <div class="row pb-4">
                                     <div class="col-md-6">
                                       <div class="form-group required-group">
-                                        <label for="email" class="fs-5 fw-semibold">Email <span
-                                          class="required-mark text-danger">*</span></label>
-                                        <input type="email"
-                                               class="form-control field-v2 field-initial-js validation-email"
-                                               id="email" name="Email">
+                                        <label for="email" class="fs-5 fw-semibold">
+                                          Email <span class="required-mark text-danger">*</span>
+                                        </label>
+                                        <input class="form-control field-v2 field-initial-js validation-email text-box single-line" data-val="true" data-val-email="The Email field is not a valid e-mail address." id="email" name="Person.EmailAddress" type="email" value="">
                                       </div>
                                     </div>
 
-
+                                    <div class="col-md-6">
+                                      <div class="form-group required-group">
+                                        <label for="email-confirm" class="fs-5 fw-semibold">
+                                          Confirm Email <span class="required-mark text-danger">*</span>
+                                        </label>
+                                        <input type="email" class="form-control field-v2 field-final-js validation-email" id="email-confirm" name="Email">
+                                      </div>
+                                    </div>
                                   </div>
 
-<!--                                  <button type="button" class="btn btn-success btn-long btn-send-otp-js">-->
-<!--                                    <span>Send</span>-->
-<!--                                  </button>-->
+                                  <button type="button" class="btn btn-success btn-long btn-send-otp-js">
+                                    <span>Send</span>
+                                  </button>
                                 </div>
                               </div>
 
@@ -1473,13 +1479,17 @@
 <!-- intl-tel-phone initialization -->
 <script src="assets/js/phone_validator.js?v=2.0.0"></script>
 <!-- google map api -->
-<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRIIew-eQp2QjI5mRLFOE-qoUnl-qKC38&libraries=places&callback=initMap"></script>
+<!--<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRIIew-eQp2QjI5mRLFOE-qoUnl-qKC38&libraries=places&callback=initMap"></script>-->
 
 <!-- script.js -->
 <!--<script src="assets/js/script.js?v=1.0.8"></script>-->
 <script src="assets/js/live/script.js?v=2.0.7"></script>
 
 <script>
+
+  function checkMembershipExist(){
+    return true;
+  }
 
   function sendOtp() {
     return true;
