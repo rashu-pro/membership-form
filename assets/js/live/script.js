@@ -307,6 +307,8 @@ $(document).on('click', '.btn-navigation-js', function (e) {
     }
 
     loaderEnable(loaderDivClass);
+    $('#modal-ismember').modal('show');
+    return;
     if (self.attr('data-action') === 'increase'
         && stepCurrent === 1
         && self.closest('.step-form-wrapper').hasClass('no-email-verification')) {
@@ -657,7 +659,6 @@ function initMap() {
         fetchCountries();
         return;
       }
-      console.log('place object: ', place);
 
       // Do something with the selected address
       // Retrieve the country, state, and city names from the address components
@@ -691,8 +692,8 @@ function initMap() {
 
     });
   }
-
 }
+
 
 
 /**
